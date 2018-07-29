@@ -151,8 +151,8 @@
 
     <div class="post-header index">
         <h1 class="title">
-            <a href="/2018/07/28/我的博客/">
-                我的博客
+            <a href="/2018/07/28/2018看雪论坛第一道题/">
+                2018看雪论坛ctf第一题
             </a>
         </h1>
         <div class="post-info">
@@ -166,7 +166,23 @@
 
     
         <div class="content">
-            
+            <p>  这是long long ago 以前的CTF简单的解题思路，刚开始接触的逆向工程，所以从简单的开始吧！（ps：下一篇应该是iscc逆向Reverse题解，这是我做出来的第一个逆向工程题）</p>
+<p>##2018看雪CTF之XCTF##</p>
+<p>  此处贴上题目：<a href="https://pan.baidu.com/s/15AJ5rXllWDwMhsX2dUKHyQ" target="_blank" rel="noopener">https://pan.baidu.com/s/15AJ5rXllWDwMhsX2dUKHyQ</a></p>
+<p>  首先打开.exe文件可以看到如下：<img src="https://i.imgur.com/7caoScF.png" alt=""></p>
+<p>  要求输入正确的序列号……</p>
+<p>  正常情况下我们拖到OD里面看一下，找到关键句：</p>
+<p>  <img src="https://i.imgur.com/IGY118b.png" alt=""></p>
+<p>   进入之后，随便输入一个值先调试一下：</p>
+<p>  <img src="https://i.imgur.com/p68Vpda.png" alt=""></p>
+<p>   此时我们需要找到关键跳转，在关键跳转处下断点：</p>
+<p>  <img src="https://i.imgur.com/qjdbUyY.png" alt=""></p>
+<p>   下完断点后，直接运行到断点处，发现寄存器这边多了一个ASCII码值，此值就是我们要找到的值：</p>
+<p>  <img src="https://i.imgur.com/FjU4ID0.png" alt=""></p>
+<p>   这个时候我们把这个值输进去，明显不对，想到可能是16进制转字符串，得到答案：</p>
+<p>   <img src="https://i.imgur.com/ZWR8EN5.png" alt=""></p>
+<p>   没错！！！答案就是如此简单，hhhh….</p>
+
         </div>
     
 
@@ -236,7 +252,7 @@
         <ul>
             
             <li>
-                <a class="footer-post" href="/2018/07/28/我的博客/">我的博客</a>
+                <a class="footer-post" href="/2018/07/28/2018看雪论坛第一道题/">2018看雪论坛ctf第一题</a>
             </li>
             
             <li>
