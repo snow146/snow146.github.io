@@ -8,18 +8,24 @@
   
   <title>2018i春秋骇极杯 | Snow&#39;s BLOG</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="关于c++basic_string类的学习：https://blog.csdn.net/hl156/article/details/80610597http://www.cplusplus.com/reference/string/basic_string/c_str/C++中strtok()函数的用法https://blog.csdn.net/luciazzzz/article/details/">
+  <meta name="description" content="逆向呢真的是一边学一边写题过来的，我比较喜欢这样 C plus plus拖到IDA里面看一看，发现main函数里面有两个特别重要的加密函数，点击进去看看因为正在学c++所以呢，就去把basic_ string这个类去看了一下（真的是萌新要学习的东西很多呢） 贴上学习的地址，个人更偏向英文版，英文版：http://www.cplusplus.com/reference/string/basic_st">
 <meta name="keywords" content="CTF">
 <meta property="og:type" content="article">
 <meta property="og:title" content="2018i春秋骇极杯">
 <meta property="og:url" content="http://snow146.github.io/2018/11/04/i春秋骇极杯reverse/index.html">
 <meta property="og:site_name" content="Snow&#39;s BLOG">
-<meta property="og:description" content="关于c++basic_string类的学习：https://blog.csdn.net/hl156/article/details/80610597http://www.cplusplus.com/reference/string/basic_string/c_str/C++中strtok()函数的用法https://blog.csdn.net/luciazzzz/article/details/">
+<meta property="og:description" content="逆向呢真的是一边学一边写题过来的，我比较喜欢这样 C plus plus拖到IDA里面看一看，发现main函数里面有两个特别重要的加密函数，点击进去看看因为正在学c++所以呢，就去把basic_ string这个类去看了一下（真的是萌新要学习的东西很多呢） 贴上学习的地址，个人更偏向英文版，英文版：http://www.cplusplus.com/reference/string/basic_st">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-11-06T09:30:49.263Z">
+<meta property="og:image" content="https://i.imgur.com/xbpOf3D.png">
+<meta property="og:image" content="https://i.imgur.com/Py02Hsg.png">
+<meta property="og:image" content="https://i.imgur.com/NWKv9G1.png">
+<meta property="og:image" content="https://i.imgur.com/vWyHDsM.png">
+<meta property="og:image" content="https://i.imgur.com/kG6im6q.png">
+<meta property="og:updated_time" content="2018-11-06T13:23:10.227Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="2018i春秋骇极杯">
-<meta name="twitter:description" content="关于c++basic_string类的学习：https://blog.csdn.net/hl156/article/details/80610597http://www.cplusplus.com/reference/string/basic_string/c_str/C++中strtok()函数的用法https://blog.csdn.net/luciazzzz/article/details/">
+<meta name="twitter:description" content="逆向呢真的是一边学一边写题过来的，我比较喜欢这样 C plus plus拖到IDA里面看一看，发现main函数里面有两个特别重要的加密函数，点击进去看看因为正在学c++所以呢，就去把basic_ string这个类去看了一下（真的是萌新要学习的东西很多呢） 贴上学习的地址，个人更偏向英文版，英文版：http://www.cplusplus.com/reference/string/basic_st">
+<meta name="twitter:image" content="https://i.imgur.com/xbpOf3D.png">
   
     <link rel="alternate" href="/atom.xml" title="Snow&#39;s BLOG" type="application/atom+xml">
   
@@ -154,7 +160,15 @@
             
         </div>
         <div class="content" style="overflow: auto">
-            <p>关于c++basic_string类的学习：<a href="https://blog.csdn.net/hl156/article/details/80610597" target="_blank" rel="noopener">https://blog.csdn.net/hl156/article/details/80610597</a><br><a href="http://www.cplusplus.com/reference/string/basic_string/c_str/" target="_blank" rel="noopener">http://www.cplusplus.com/reference/string/basic_string/c_str/</a><br>C++中strtok()函数的用法<a href="https://blog.csdn.net/luciazzzz/article/details/38538033" target="_blank" rel="noopener">https://blog.csdn.net/luciazzzz/article/details/38538033</a></p>
+            <p>逆向呢真的是一边学一边写题过来的，我比较喜欢这样</p>
+<h2 id="C-plus-plus"><a href="#C-plus-plus" class="headerlink" title="C plus plus"></a>C plus plus</h2><p>拖到IDA里面看一看，发现main函数里面有两个特别重要的加密函数，点击进去看看<img src="https://i.imgur.com/xbpOf3D.png" alt=""><br>因为正在学c++所以呢，就去把basic_ string这个类去看了一下（真的是萌新要学习的东西很多呢）</p>
+<p>贴上学习的地址，个人更偏向英文版，英文版：<a href="http://www.cplusplus.com/reference/string/basic_string/basic_string/" target="_blank" rel="noopener">http://www.cplusplus.com/reference/string/basic_string/basic_string/</a><br>中文版：<a href="https://blog.csdn.net/hl156/article/details/80610597" target="_blank" rel="noopener">https://blog.csdn.net/hl156/article/details/80610597</a><br><strong>basic_ string(char &amp;s1,char &amp;s2)</strong>是把s2字符串赋值给s2；若是<strong>basic_string(char &amp;s1,int n)</strong>是打印出s1前n个字符，以字符串的形式；<strong>basic _string(char &amp;s1,int n,int m</strong>)若n&lt;m是打印出s[n]到s[m]之间的字符串,若n&gt;m是打印出s[n]后面m个字符（都包括s[n]）；<strong>basic _string(int n,’a’)</strong>是打印n个a出来，等等….</p>
+<p><strong>~basic_string()</strong>则是删除这个字符串<br><strong>operate<a href="a1,i"></a></strong>就是取字符串第i位的字符出来<br><strong>c-str()</strong>返回指向数组的指针，该数组包含表示basic _string对象当前值的以空字符结尾的字符序列（即C字符串）。即此数组包含构成basic _string对象的值的相同字符序列以及末尾的附加终止空字符（charT（））。下面代码助于理解，其中strtok这个函数下面是他的固定格<img src="https://i.imgur.com/Py02Hsg.png" alt=""><br>好了，好了废话太多了</p>
+<p>以下是第一个加密函数<img src="https://i.imgur.com/NWKv9G1.png" alt=""><br>经过调试无论如何都会通过第一加密函数的，第一个是简单的异或与位移所以算法就是先按位异或再左移数组六位|右移数组两位</p>
+<p>第二个加密函数就比较复杂<br>我调试了之后大概意思是跟前面一个异或</p>
+<p>下面是我的脚本，参考了大佬（<a href="https://mmmmmmlei.cn/2018/11/05/上海市大学生网络安全大赛/" title="Mr.Riscker" target="_blank" rel="noopener">Mr.Riscker</a>)的代码的，觉得很简洁<img src="https://i.imgur.com/vWyHDsM.png" alt=""></p>
+<p>当当当，flag如下</p>
+<p><img src="https://i.imgur.com/kG6im6q.png" alt=""></p>
 
         </div>
         <div class="post-reply">
