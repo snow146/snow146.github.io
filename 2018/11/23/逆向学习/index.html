@@ -6,27 +6,20 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
   <script src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
   
-  <title>2018看雪论坛ctf第一题 | Snow&#39;s BLOG</title>
+  <title>关于逆向学习的一些知识 | Snow&#39;s BLOG</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="这是long long ago 以前的CTF简单的解题思路，刚开始接触的逆向工程，所以从简单的开始吧！（ps：下一篇应该是iscc逆向Reverse题解，这是我做出来的第一个逆向工程题） ##2018看雪CTF之XCTF##   此处贴上题目：https://pan.baidu.com/s/15AJ5rXllWDwMhsX2dUKHyQ   首先打开.exe文件可以看到如下：   要求输入正确">
-<meta name="keywords" content="CTF">
+  <meta name="description" content="API：API（Application Programming Interface,应用程序编程接口）是一些预先定义的函数，目的是提供应用程序与开发人员基于某软件或硬件得以访问一组例程的能力，而又无需访问源码，或理解内部工作机制的细节。API函数包含在Windows系统目录下的动态连接库文件中。。API说来说去，就是一种函数，他们包含在一个附加名为DLL的动态连接库文件中。Windows API是">
+<meta name="keywords" content="Reverse">
 <meta property="og:type" content="article">
-<meta property="og:title" content="2018看雪论坛ctf第一题">
-<meta property="og:url" content="http://snow146.github.io/2018/07/29/我的博客/index.html">
+<meta property="og:title" content="关于逆向学习的一些知识">
+<meta property="og:url" content="http://snow146.github.io/2018/11/23/逆向学习/index.html">
 <meta property="og:site_name" content="Snow&#39;s BLOG">
-<meta property="og:description" content="这是long long ago 以前的CTF简单的解题思路，刚开始接触的逆向工程，所以从简单的开始吧！（ps：下一篇应该是iscc逆向Reverse题解，这是我做出来的第一个逆向工程题） ##2018看雪CTF之XCTF##   此处贴上题目：https://pan.baidu.com/s/15AJ5rXllWDwMhsX2dUKHyQ   首先打开.exe文件可以看到如下：   要求输入正确">
+<meta property="og:description" content="API：API（Application Programming Interface,应用程序编程接口）是一些预先定义的函数，目的是提供应用程序与开发人员基于某软件或硬件得以访问一组例程的能力，而又无需访问源码，或理解内部工作机制的细节。API函数包含在Windows系统目录下的动态连接库文件中。。API说来说去，就是一种函数，他们包含在一个附加名为DLL的动态连接库文件中。Windows API是">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://i.imgur.com/7caoScF.png">
-<meta property="og:image" content="https://i.imgur.com/IGY118b.png">
-<meta property="og:image" content="https://i.imgur.com/p68Vpda.png">
-<meta property="og:image" content="https://i.imgur.com/qjdbUyY.png">
-<meta property="og:image" content="https://i.imgur.com/FjU4ID0.png">
-<meta property="og:image" content="https://i.imgur.com/ZWR8EN5.png">
-<meta property="og:updated_time" content="2018-07-29T12:39:35.977Z">
+<meta property="og:updated_time" content="2019-03-07T09:01:55.531Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="2018看雪论坛ctf第一题">
-<meta name="twitter:description" content="这是long long ago 以前的CTF简单的解题思路，刚开始接触的逆向工程，所以从简单的开始吧！（ps：下一篇应该是iscc逆向Reverse题解，这是我做出来的第一个逆向工程题） ##2018看雪CTF之XCTF##   此处贴上题目：https://pan.baidu.com/s/15AJ5rXllWDwMhsX2dUKHyQ   首先打开.exe文件可以看到如下：   要求输入正确">
-<meta name="twitter:image" content="https://i.imgur.com/7caoScF.png">
+<meta name="twitter:title" content="关于逆向学习的一些知识">
+<meta name="twitter:description" content="API：API（Application Programming Interface,应用程序编程接口）是一些预先定义的函数，目的是提供应用程序与开发人员基于某软件或硬件得以访问一组例程的能力，而又无需访问源码，或理解内部工作机制的细节。API函数包含在Windows系统目录下的动态连接库文件中。。API说来说去，就是一种函数，他们包含在一个附加名为DLL的动态连接库文件中。Windows API是">
   
     <link rel="alternate" href="/atom.xml" title="Snow&#39;s BLOG" type="application/atom+xml">
   
@@ -144,39 +137,29 @@
     <div class="container post-box">
         <div class="content post-title is-flex center flex-column" style="margin-bottom: 70px; overflow: auto;">
             <h1 class="has-text-centered" style="padding-bottom: 10px; border-bottom: 3px solid #fff">
-                <strong>2018看雪论坛ctf第一题</strong>
+                <strong>关于逆向学习的一些知识</strong>
             </h1>
             
             <div class="is-flex align-center">
                 <img class="post-avatar" src="https://cdn2.iconfinder.com/data/icons/rcons-user/32/male-shadow-circle-512.png">
                 <span style="padding:0 10px;"> <span class="sub-title">By</span> snow146</span>
-                <span class="post-date sub-title">at: 2018-07-29</span>
+                <span class="post-date sub-title">at: 2018-11-23</span>
             </div>
             
                 <div>
                     
-                         <a class="tag is-post-tag" href="/tags/CTF/">CTF</a>
+                         <a class="tag is-post-tag" href="/tags/Reverse/">Reverse</a>
                     
                 </div>
             
         </div>
         <div class="content" style="overflow: auto">
-            <p>  这是long long ago 以前的CTF简单的解题思路，刚开始接触的逆向工程，所以从简单的开始吧！（ps：下一篇应该是iscc逆向Reverse题解，这是我做出来的第一个逆向工程题）</p>
-<p>##2018看雪CTF之XCTF##</p>
-<p>  此处贴上题目：<a href="https://pan.baidu.com/s/15AJ5rXllWDwMhsX2dUKHyQ" target="_blank" rel="noopener">https://pan.baidu.com/s/15AJ5rXllWDwMhsX2dUKHyQ</a></p>
-<p>  首先打开.exe文件可以看到如下：<img src="https://i.imgur.com/7caoScF.png" alt=""></p>
-<p>  要求输入正确的序列号……</p>
-<p>  正常情况下我们拖到OD里面看一下，找到关键句：</p>
-<p>  <img src="https://i.imgur.com/IGY118b.png" alt=""></p>
-<p>   进入之后，随便输入一个值先调试一下：</p>
-<p>  <img src="https://i.imgur.com/p68Vpda.png" alt=""></p>
-<p>   此时我们需要找到关键跳转，在关键跳转处下断点：</p>
-<p>  <img src="https://i.imgur.com/qjdbUyY.png" alt=""></p>
-<p>   下完断点后，直接运行到断点处，发现寄存器这边多了一个ASCII码值，此值就是我们要找到的值：</p>
-<p>  <img src="https://i.imgur.com/FjU4ID0.png" alt=""></p>
-<p>   这个时候我们把这个值输进去，明显不对，想到可能是16进制转字符串，得到答案：</p>
-<p>   <img src="https://i.imgur.com/ZWR8EN5.png" alt=""></p>
-<p>   没错！！！答案就是如此简单，hhhh….</p>
+            <p>API：API（Application Programming Interface,应用程序编程接口）是一些预先定义的函数，目的是提供应用程序与开发人员基于某软件或硬件得以访问一组例程的能力，而又无需访问源码，或理解内部工作机制的细节。<br>API函数包含在Windows系统目录下的<strong>动态连接库</strong>文件中。。API说来说去，就是一种函数，他们包含在一个附加名为DLL的动态连接库文件中。Windows API是一套用来控制Windows的各个部件的外观和行为的预先定义的Windows函数。用户的每个动作都会引发一个或几个函数的运行以告诉Windows发生了什么。这在某种程度上很像Windows的天然代码。而其他的语言只是提供一种能自动而且更容易的访问API的方法。当你点击窗体上的一个按钮时，Windows会发送一个消息给窗体，VB获取这个调用并经过分析后生成一个特定事件。<br>更易理解来说：Windows系统除了协调应用程序的执行、内存的分配、系统资源的管理外，同时他也是一个很大的服务中心。调用这个服务中心的各种服务(每一种服务就是一个函数)可以帮助应用程序达到开启视窗、描绘图形和使用周边设备等目的，由于这些函数服务的对象是应用程序，所以称之为Application Programming Interface，简称API 函数。WIN32 API也就是MicrosoftWindows 32位平台的应用程序编程接口。<br>凡是在 Windows工作环境底下执行的应用程序，都可以调用Windows API。<br>其实就是用户指令先由编程语言编程成电脑能读懂的语言，这个语言能自动的更快的访问API，这样应用程序通过API与Windows某些部件连接起来，让Windows内部运作起来完成用户指令，并返回给用户界面。API是应用程序接口。你可以在其他的程序中，通过一定的规范通过API发送信息给另一个程序，并接收返回的结果。看了很多，一个很有意思的回答是，双方交流的暗号</p>
+<p>vc6入口代码特征：都是push ebp；mov ebp，esp类似的；入口调用API也是相同的<br>vc6的四个区段：.text代码段.rdata导入表（只读数据段）.data数据段.rsrc资源段<br>vs2008和vs2013相较于vc6：入口代码只有两行，vs2018是一个call后面接一个jmp，第一个call里面进去后也是push ebp啥啥的，调用的API也相同</p>
+<p>易语言（非独立编译）：编译时很明显的运行库文件，入口特征和模块特征都有krnln.fnr，易语言支持库有.fnr格式,.fne格式和.npk格式</p>
+<p>OD被压缩后分析：ctrl+A<br>加aspack壳的特征：入口特征pushad，一个call和jmp，并且会增加两个区段</p>
+<p>加UPX壳后特征：</p>
+<p><a href="https://www.cnblogs.com/Fightingbirds/p/3172907.html" target="_blank" rel="noopener">https://www.cnblogs.com/Fightingbirds/p/3172907.html</a> </p>
 
         </div>
         <div class="post-reply">
@@ -241,7 +224,7 @@
         <!--请您保留作者署名, 主题制作来之不易-->
         Theme by <a href="http://haojen.github.io/">Haojen Ma</a>
         <br>
-        Copyright © Snow146 2018
+        Copyright © Snow146 2019
         <br>
         Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
       </div>

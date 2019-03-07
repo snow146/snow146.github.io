@@ -120,6 +120,86 @@
         <div class="box">
             <article class="media">
                 
+                <a href="/2019/03/05/TAMU CTF Re/">
+                    
+                    <div class="media-left">
+                        <figure class="image is-128x128">
+                            <img src="https://i.imgur.com/lTqDFRF.png" style="height: 100%; width: 100%">
+                        </figure>
+                    </div>
+                    
+                    <div class="media-content">
+                        <div class="content">
+                            <p>
+                                <strong>TAMU CTF Re</strong> <small class="post-date">at: 2019-03-05</small>
+                                <br>
+                                TAMU CTF 逆向有简单也有复杂的，前天刚结束，今天把这个总结一下。附上题目，提取码rb8rhttps://pan.baidu.com/s/1A5G-pRd3oYkzVYVJDVIxvQ
+Cheesy文件放到Ubuntu中运行一遍，发现采用了base64编码，把给出的加密代码解密，并没有发现flag，并且解密之后告诉你你已经错过了flag，所以考虑，..
+                            </p>
+                            <button class="button is-info">Read</button>
+                        </div>
+                    </div>
+                </a>
+            </article>
+        </div>
+    
+        <div class="box">
+            <article class="media">
+                
+                <a href="/2019/03/01/Seasides CTF 2019 re/">
+                    
+                    <div class="media-left">
+                        <figure class="image is-128x128">
+                            <img src="https://i.imgur.com/4hrG4Hj.png" style="height: 100%; width: 100%">
+                        </figure>
+                    </div>
+                    
+                    <div class="media-content">
+                        <div class="content">
+                            <p>
+                                <strong>2019 Seasides CTF breakthis</strong> <small class="post-date">at: 2019-03-01</small>
+                                <br>
+                                这个比赛当时比的时候没找到时间，比的时候只剩最后两个小时，所以只做了两道re，nondbg这题应该比较明显按照代码的顺序把字符串正确输入就会得到flag，breakthis也很简单，验证你输入的flag是否正确，你输入的flag经过base64，rot13，uuencode加密后要跟flag_encode一样，而flag_encode已知，只要将他反过来..
+                            </p>
+                            <button class="button is-info">Read</button>
+                        </div>
+                    </div>
+                </a>
+            </article>
+        </div>
+    
+        <div class="box">
+            <article class="media">
+                
+                <a href="/2018/11/07/2018i春秋骇极杯what/">
+                    
+                    <div class="media-left">
+                        <figure class="image is-128x128">
+                            <img src="https://i.imgur.com/SgicMs0.png" style="height: 100%; width: 100%">
+                        </figure>
+                    </div>
+                    
+                    <div class="media-content">
+                        <div class="content">
+                            <p>
+                                <strong>2018i春秋骇极杯what</strong> <small class="post-date">at: 2018-11-07</small>
+                                <br>
+                                骇极杯第二个逆向，也不难，也是两个函数，首先是爆破MD5，然后进行动态解密check函数
+这是结束几天之后，我再来写的wp，我开始觉得很简单的，后来看了详细的过程之后我觉得我还是有很多却缺陷的，下面开始一步一步分析
+首先拖进ida，主要分两部分来看：
+要先得到luck string才能获得check函数的内容，所以先对MD5进行爆破
+1234567891..
+                            </p>
+                            <button class="button is-info">Read</button>
+                        </div>
+                    </div>
+                </a>
+            </article>
+        </div>
+    
+        <div class="box">
+            <article class="media">
+                
                 <a href="/2018/11/06/2018网鼎杯之beijing/">
                     
                     <div class="media-content">
@@ -151,11 +231,10 @@
                     <div class="media-content">
                         <div class="content">
                             <p>
-                                <strong>2018i春秋骇极杯</strong> <small class="post-date">at: 2018-11-04</small>
+                                <strong>2018i春秋骇极杯cpp</strong> <small class="post-date">at: 2018-11-04</small>
                                 <br>
-                                逆向呢真的是一边学一边写题过来的，我比较喜欢这样
-C plus plus拖到IDA里面看一看，发现main函数里面有两个特别重要的加密函数，点击进去看看因为正在学c++所以呢，就去把basic_ string这个类去看了一下（真的是萌新要学习的东西很多呢）
-贴上学习的地址，个人更偏向英文版，英文版：http://www.cplusplus.com/ref..
+                                逆向呢真的是一边学一边写题过来的，我比较喜欢这样贴上题目https://pan.baidu.com/s/1KDQs81aqUYl7T7E9mZO-SQ
+C plus plus拖到IDA里面看一看，发现main函数里面有两个特别重要的加密函数，点击进去看看因为正在学c++所以呢，就去把basic_ string这个类去看了一下（真的是萌新要学习的东西很多呢..
                             </p>
                             <button class="button is-info">Read</button>
                         </div>
@@ -185,7 +264,7 @@ C plus plus拖到IDA里面看一看，发现main函数里面有两个特别重�
         <!--请您保留作者署名, 主题制作来之不易-->
         Theme by <a href="http://haojen.github.io/">Haojen Ma</a>
         <br>
-        Copyright © Snow146 2018
+        Copyright © Snow146 2019
         <br>
         Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
       </div>

@@ -6,24 +6,28 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
   <script src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
   
-  <title>关于git bash无法上传更新博客 | Snow&#39;s BLOG</title>
+  <title>TAMU CTF Re | Snow&#39;s BLOG</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="之前blog不知道出了什么问题一直显示上传成功，却依旧不能更新，后来才发现问题，如图：   配置缺少GitHub邮箱和用户名…..好的吧，加上加上     上传文件到远程仓库">
-<meta name="keywords" content="problem">
+  <meta name="description" content="TAMU CTF 逆向有简单也有复杂的，前天刚结束，今天把这个总结一下。附上题目，提取码rb8rhttps://pan.baidu.com/s/1A5G-pRd3oYkzVYVJDVIxvQ Cheesy文件放到Ubuntu中运行一遍，发现采用了base64编码，把给出的加密代码解密，并没有发现flag，并且解密之后告诉你你已经错过了flag，所以考虑，是否还有未解密的隐藏代码，放到ida中发现了">
+<meta name="keywords" content="CTF">
 <meta property="og:type" content="article">
-<meta property="og:title" content="关于git bash无法上传更新博客">
-<meta property="og:url" content="http://snow146.github.io/2018/11/06/关于git bash无法上传/index.html">
+<meta property="og:title" content="TAMU CTF Re">
+<meta property="og:url" content="http://snow146.github.io/2019/03/05/TAMU CTF Re/index.html">
 <meta property="og:site_name" content="Snow&#39;s BLOG">
-<meta property="og:description" content="之前blog不知道出了什么问题一直显示上传成功，却依旧不能更新，后来才发现问题，如图：   配置缺少GitHub邮箱和用户名…..好的吧，加上加上     上传文件到远程仓库">
+<meta property="og:description" content="TAMU CTF 逆向有简单也有复杂的，前天刚结束，今天把这个总结一下。附上题目，提取码rb8rhttps://pan.baidu.com/s/1A5G-pRd3oYkzVYVJDVIxvQ Cheesy文件放到Ubuntu中运行一遍，发现采用了base64编码，把给出的加密代码解密，并没有发现flag，并且解密之后告诉你你已经错过了flag，所以考虑，是否还有未解密的隐藏代码，放到ida中发现了">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://i.imgur.com/g7kV8OY.png">
-<meta property="og:image" content="https://i.imgur.com/fw81xiO.png">
-<meta property="og:image" content="https://i.imgur.com/L7v7FHm.png">
-<meta property="og:updated_time" content="2018-11-27T14:17:50.827Z">
+<meta property="og:image" content="https://i.imgur.com/lTqDFRF.png">
+<meta property="og:image" content="https://i.imgur.com/VYM1dQk.png">
+<meta property="og:image" content="https://i.imgur.com/jvvwX2N.png">
+<meta property="og:image" content="https://i.imgur.com/ffqFf4X.png">
+<meta property="og:image" content="https://i.imgur.com/ckwb2Z8.png">
+<meta property="og:image" content="https://i.imgur.com/Al0tO39.png">
+<meta property="og:image" content="https://i.imgur.com/XWUxGlE.png">
+<meta property="og:updated_time" content="2019-03-06T13:03:28.228Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="关于git bash无法上传更新博客">
-<meta name="twitter:description" content="之前blog不知道出了什么问题一直显示上传成功，却依旧不能更新，后来才发现问题，如图：   配置缺少GitHub邮箱和用户名…..好的吧，加上加上     上传文件到远程仓库">
-<meta name="twitter:image" content="https://i.imgur.com/g7kV8OY.png">
+<meta name="twitter:title" content="TAMU CTF Re">
+<meta name="twitter:description" content="TAMU CTF 逆向有简单也有复杂的，前天刚结束，今天把这个总结一下。附上题目，提取码rb8rhttps://pan.baidu.com/s/1A5G-pRd3oYkzVYVJDVIxvQ Cheesy文件放到Ubuntu中运行一遍，发现采用了base64编码，把给出的加密代码解密，并没有发现flag，并且解密之后告诉你你已经错过了flag，所以考虑，是否还有未解密的隐藏代码，放到ida中发现了">
+<meta name="twitter:image" content="https://i.imgur.com/lTqDFRF.png">
   
     <link rel="alternate" href="/atom.xml" title="Snow&#39;s BLOG" type="application/atom+xml">
   
@@ -141,26 +145,32 @@
     <div class="container post-box">
         <div class="content post-title is-flex center flex-column" style="margin-bottom: 70px; overflow: auto;">
             <h1 class="has-text-centered" style="padding-bottom: 10px; border-bottom: 3px solid #fff">
-                <strong>关于git bash无法上传更新博客</strong>
+                <strong>TAMU CTF Re</strong>
             </h1>
             
             <div class="is-flex align-center">
                 <img class="post-avatar" src="https://cdn2.iconfinder.com/data/icons/rcons-user/32/male-shadow-circle-512.png">
                 <span style="padding:0 10px;"> <span class="sub-title">By</span> snow146</span>
-                <span class="post-date sub-title">at: 2018-11-06</span>
+                <span class="post-date sub-title">at: 2019-03-05</span>
             </div>
             
                 <div>
                     
-                         <a class="tag is-post-tag" href="/tags/problem/">problem</a>
+                         <a class="tag is-post-tag" href="/tags/CTF/">CTF</a>
                     
                 </div>
             
         </div>
         <div class="content" style="overflow: auto">
-            <p>  之前blog不知道出了什么问题一直显示上传成功，却依旧不能更新，后来才发现问题，如图：<img src="https://i.imgur.com/g7kV8OY.png" alt=""></p>
-<p>  <strong>配置缺少GitHub邮箱和用户名</strong>…..好的吧，加上加上<br>  <img src="https://i.imgur.com/fw81xiO.png" alt=""></p>
-<p>  上传文件到远程仓库<br><img src="https://i.imgur.com/L7v7FHm.png" alt=""></p>
+            <p>TAMU CTF 逆向有简单也有复杂的，前天刚结束，今天把这个总结一下。<br>附上题目，提取码rb8r<a href="https://pan.baidu.com/s/1A5G-pRd3oYkzVYVJDVIxvQ" target="_blank" rel="noopener">https://pan.baidu.com/s/1A5G-pRd3oYkzVYVJDVIxvQ</a></p>
+<h1 id="Cheesy"><a href="#Cheesy" class="headerlink" title="Cheesy"></a>Cheesy</h1><p>文件放到Ubuntu中运行一遍，发现采用了base64编码，把给出的加密代码解密，并没有发现flag，并且解密之后告诉你你已经错过了flag，所以考虑，是否还有未解密的隐藏代码，放到ida中发现了<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Z2lnZW17M2E1eV9SM3YzcjUxTjYhfQ==</span><br></pre></td></tr></table></figure></p>
+<p>这一串密码未输出，经过解密就是flag<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gigem&#123;3a5y_R3v3r51N6!&#125;</span><br></pre></td></tr></table></figure></p>
+<h1 id="Snakes-over-cheese"><a href="#Snakes-over-cheese" class="headerlink" title="Snakes over cheese"></a>Snakes over cheese</h1><p>给的是一个.pyc文件，用uncompyle反编译一下得到.py文件，使用命令<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">uncompyle6 reversing2.pyc &gt; reversing2.py</span><br></pre></td></tr></table></figure></p>
+<p>的得到如下的py文件，运行一下发现需要输入正确的密码才能给你flag<br>不用那么麻烦的把密码给逆向出来，直接修改一下py文件直接得出flag<img src="https://i.imgur.com/lTqDFRF.png" alt=""><br>运行结果如下：</p>
+<p><img src="https://i.imgur.com/VYM1dQk.png" alt=""></p>
+<h1 id="042"><a href="#042" class="headerlink" title="042"></a>042</h1><p>这是一道真正的反汇编，给的文件不能编译所以要纯看汇编代码，但是这个汇编代码还是很简单的，前面第一个function是一个迷惑代码，实质上没用，主要看main函数，关键代码在如下地方<img src="https://i.imgur.com/jvvwX2N.png" alt=""><br>在第二printf函数后面放入的是栈中[rbp-16]的地址，即从[rbp-16]向下取值回到上面就能看到存入栈中的值，即可获得flag<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gigem&#123;A553Mb1Y&#125;</span><br></pre></td></tr></table></figure></p>
+<h1 id="keygenme"><a href="#keygenme" class="headerlink" title="keygenme"></a>keygenme</h1><p>把enc()这个函数逆向就完了，但是有一个需要注意的地方，这里输入的a1在运行过程中strlen()函数包含了输入时的回车符’\n’所以根据得到v5知道a1的长度应该是17，但是包含了最后的回车符，所以a1只有16个，脚本如下<img src="https://i.imgur.com/ffqFf4X.png" alt=""><br>提交就能得到flag，比赛的时候一直没有想到这个问题，知道是多了个’Enter’但是实在没想到是这样，比赛结束后用C语言正着证明了一遍<br><img src="https://i.imgur.com/ckwb2Z8.png" alt=""><br><img src="https://i.imgur.com/Al0tO39.png" alt=""></p>
+<p>#NoCCBytes#<br>放到ida里面re了一下发现答案在globPass中，显然DATA中的字符串肯定不是，但是我们可以动态调试啊，但是文件开了保护机制，所以下断点的时候要绕开这些保护机制，所以直接一点直接把断点下在字符串比较的地方。然后就看到内存中的golbpass<br><img src="https://i.imgur.com/XWUxGlE.png" alt=""><br>满眼答案…提交就能得到flag</p>
 
         </div>
         <div class="post-reply">
