@@ -18,7 +18,7 @@
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://i.imgur.com/XpwZDIh.jpg">
 <meta property="og:image" content="https://i.imgur.com/CX9A2Qe.png">
-<meta property="og:updated_time" content="2019-03-12T11:06:25.238Z">
+<meta property="og:updated_time" content="2019-03-12T11:13:23.758Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="2019看雪论坛ctf">
 <meta name="twitter:description" content="流浪者首先题目入口函数是sub_401890，我是通过在OD里面查找字符串，找到“请输入pass”的地址，然后在IDA中找到该函数并反汇编得到了整个函数 进入sub_4017F0函数通过条件得到pass 脚本如下：12345678910111213141516key = &apos;KanXueCTF2019JustForhappy&apos;str1 = &apos;abcdefghiABCDEFGHIJKLMNjklmn0">
@@ -158,7 +158,7 @@
         </div>
         <div class="content" style="overflow: auto">
             <h2 id="流浪者"><a href="#流浪者" class="headerlink" title="流浪者"></a>流浪者</h2><p>首先题目入口函数是sub_401890，我是通过在OD里面查找字符串，找到“请输入pass”的地址，然后在IDA中找到该函数并反汇编得到了整个函数<img src="https://i.imgur.com/XpwZDIh.jpg" alt=""></p>
-<p>进入sub_4017F0函数通过条件得到pass<img src="https://i.imgur.com/CX9A2Qe.png" alt=""></p>
+<p>进入sub_4017F0函数通过条件得到pass<br><img src="https://i.imgur.com/CX9A2Qe.png" alt=""></p>
 <p>脚本如下：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">key = <span class="string">'KanXueCTF2019JustForhappy'</span></span><br><span class="line">str1 = <span class="string">'abcdefghiABCDEFGHIJKLMNjklmn0123456789opqrstuvwxyzOPQRSTUVWXYZ'</span></span><br><span class="line">a1 = <span class="string">''</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">0</span>,len(key)):</span><br><span class="line">	<span class="keyword">for</span> j <span class="keyword">in</span> range(<span class="number">0</span>,<span class="number">62</span>):</span><br><span class="line">		<span class="keyword">if</span>(str1[j] == key[i]):</span><br><span class="line">			<span class="keyword">if</span>(j &gt;= <span class="number">0</span>):</span><br><span class="line">				<span class="keyword">if</span>(j &lt;= <span class="number">9</span>):</span><br><span class="line">					a1 += chr(j + <span class="number">48</span>)</span><br><span class="line">			<span class="keyword">if</span>(j &gt;= <span class="number">10</span>):</span><br><span class="line">				<span class="keyword">if</span>(j &lt;= <span class="number">35</span>):</span><br><span class="line">					a1 += chr(j + <span class="number">87</span>)</span><br><span class="line">			<span class="keyword">if</span>(j &gt;= <span class="number">36</span>):</span><br><span class="line">				<span class="keyword">if</span>(j &lt;= <span class="number">61</span>):</span><br><span class="line">					a1 += chr(j + <span class="number">29</span>)		</span><br><span class="line">print(a1)</span><br></pre></td></tr></table></figure></p>
 <p>flag是<code>j0rXI4bTeustBiIGHeCF70DDM</code></p>
 
