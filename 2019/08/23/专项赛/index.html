@@ -6,20 +6,20 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
   <script src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
   
-  <title>2018网鼎杯之beijing | Snow&#39;s BLOG</title>
+  <title>中关村第三届新兴领域专题赛网络与信息安全专项赛线上赛re | Snow&#39;s BLOG</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="题目不难，但是我不会写脚本，学习的大佬的先贴上地址，稍后来写https://blog.csdn.net/re_psyche/article/details/81947537">
+  <meta name="description" content="flat程序逻辑  check1():判断输入字符串长度是否在50以内  check2():判断输入字符串前几位是否为“flag{”  check3():最后一位是否为“}”  check4():14,19,23,28 是否为“-”  check5():字符串进行字符替换比较   这里是llvm，https://security.tencent.com/index.php/blog/msg/112">
 <meta name="keywords" content="CTF">
 <meta property="og:type" content="article">
-<meta property="og:title" content="2018网鼎杯之beijing">
-<meta property="og:url" content="http://snow146.github.io/2018/11/06/2018网鼎杯之beijing/index.html">
+<meta property="og:title" content="中关村第三届新兴领域专题赛网络与信息安全专项赛线上赛re">
+<meta property="og:url" content="http://snow146.github.io/2019/08/23/专项赛/index.html">
 <meta property="og:site_name" content="Snow&#39;s BLOG">
-<meta property="og:description" content="题目不难，但是我不会写脚本，学习的大佬的先贴上地址，稍后来写https://blog.csdn.net/re_psyche/article/details/81947537">
+<meta property="og:description" content="flat程序逻辑  check1():判断输入字符串长度是否在50以内  check2():判断输入字符串前几位是否为“flag{”  check3():最后一位是否为“}”  check4():14,19,23,28 是否为“-”  check5():字符串进行字符替换比较   这里是llvm，https://security.tencent.com/index.php/blog/msg/112">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-11-06T09:56:25.733Z">
+<meta property="og:updated_time" content="2019-08-23T09:21:51.533Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="2018网鼎杯之beijing">
-<meta name="twitter:description" content="题目不难，但是我不会写脚本，学习的大佬的先贴上地址，稍后来写https://blog.csdn.net/re_psyche/article/details/81947537">
+<meta name="twitter:title" content="中关村第三届新兴领域专题赛网络与信息安全专项赛线上赛re">
+<meta name="twitter:description" content="flat程序逻辑  check1():判断输入字符串长度是否在50以内  check2():判断输入字符串前几位是否为“flag{”  check3():最后一位是否为“}”  check4():14,19,23,28 是否为“-”  check5():字符串进行字符替换比较   这里是llvm，https://security.tencent.com/index.php/blog/msg/112">
   
     <link rel="alternate" href="/atom.xml" title="Snow&#39;s BLOG" type="application/atom+xml">
   
@@ -145,13 +145,13 @@
     <div class="container post-box">
         <div class="content post-title is-flex center flex-column" style="margin-bottom: 70px; overflow: auto;">
             <h1 class="has-text-centered" style="padding-bottom: 10px; border-bottom: 3px solid #fff">
-                <strong>2018网鼎杯之beijing</strong>
+                <strong>中关村第三届新兴领域专题赛网络与信息安全专项赛线上赛re</strong>
             </h1>
             
             <div class="is-flex align-center">
                 <img class="post-avatar" src="https://cdn2.iconfinder.com/data/icons/rcons-user/32/male-shadow-circle-512.png">
                 <span style="padding:0 10px;"> <span class="sub-title">By</span> snow146</span>
-                <span class="post-date sub-title">at: 2018-11-06</span>
+                <span class="post-date sub-title">at: 2019-08-23</span>
             </div>
             
                 <div>
@@ -162,7 +162,24 @@
             
         </div>
         <div class="content" style="overflow: auto">
-            <p>题目不难，但是我不会写脚本，学习的大佬的先贴上地址，稍后来写<a href="https://blog.csdn.net/re_psyche/article/details/81947537" target="_blank" rel="noopener">https://blog.csdn.net/re_psyche/article/details/81947537</a></p>
+            <h2 id="flat"><a href="#flat" class="headerlink" title="flat"></a>flat</h2><p>程序逻辑</p>
+<ol>
+<li><p>check1():判断输入字符串长度是否在50以内</p>
+</li>
+<li><p>check2():判断输入字符串前几位是否为“flag{”</p>
+</li>
+<li><p>check3():最后一位是否为“}”</p>
+</li>
+<li><p>check4():14,19,23,28 是否为“-”</p>
+</li>
+<li><p>check5():字符串进行字符替换比较</p>
+</li>
+</ol>
+<p>这里是llvm，<a href="https://security.tencent.com/index.php/blog/msg/112" title="学习链接" target="_blank" rel="noopener">https://security.tencent.com/index.php/blog/msg/112</a></p>
+<p>脚本：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">a = <span class="string">'J2261C63-3I2I-EGE4-IBCC-IE41A5I5F4HB'</span></span><br><span class="line">ans = <span class="string">''</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">0</span>,len(a)):</span><br><span class="line">        <span class="keyword">if</span>(ord(a[i])&gt;=<span class="number">65</span>):</span><br><span class="line">                ans+=chr(ord(a[i])<span class="number">-17</span>)</span><br><span class="line">        <span class="keyword">if</span>(a[i]==<span class="string">'-'</span>):</span><br><span class="line">                ans+=a[i]</span><br><span class="line">        <span class="keyword">if</span>(ord(a[i])&gt;=<span class="number">48</span>):</span><br><span class="line">                <span class="keyword">if</span>(ord(a[i])&lt;=<span class="number">57</span>):</span><br><span class="line">                        ans+=chr(ord(a[i])+<span class="number">48</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">print</span> ans</span><br></pre></td></tr></table></figure></p>
+<h2 id="src-leak"><a href="#src-leak" class="headerlink" title="src_leak"></a>src_leak</h2><p>func3&lt;func2<x>&gt;这个函数的意思是测试x变为2进制中x含有多少个1，且含1的个数是奇数个</x></p>
+<p>_fun1<x>的意思是开根号，可以根据func1&lt;&gt;处函数可以看出得到result的条件是L=R，而在ifelse&lt;&gt;函数里面当n&lt;mid<em>mid时L不变，R减小；当n&gt;=mid</em>mid时R不变，L变大。并且保证这几个数和是可能中的最小值，所以反推output平方即是。</x></p>
+<p>最后x6是1到10000有多少素数<br>flag{927369-19324816-44435556-3996001-9865881-1229}</p>
 
         </div>
         <div class="post-reply">

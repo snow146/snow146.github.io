@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="Snow&#39;s BLOG">
 <meta property="og:description" content="API：API（Application Programming Interface,应用程序编程接口）是一些预先定义的函数，目的是提供应用程序与开发人员基于某软件或硬件得以访问一组例程的能力，而又无需访问源码，或理解内部工作机制的细节。API函数包含在Windows系统目录下的动态连接库文件中。。API说来说去，就是一种函数，他们包含在一个附加名为DLL的动态连接库文件中。Windows API是">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-03-07T09:01:55.531Z">
+<meta property="og:updated_time" content="2019-03-14T14:11:17.576Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="关于逆向学习的一些知识">
 <meta name="twitter:description" content="API：API（Application Programming Interface,应用程序编程接口）是一些预先定义的函数，目的是提供应用程序与开发人员基于某软件或硬件得以访问一组例程的能力，而又无需访问源码，或理解内部工作机制的细节。API函数包含在Windows系统目录下的动态连接库文件中。。API说来说去，就是一种函数，他们包含在一个附加名为DLL的动态连接库文件中。Windows API是">
@@ -70,6 +70,10 @@
                 About
             </a>
             
+            <a class="nav-item" href="/tags">
+                Tags
+            </a>
+            
         </div>
         <span class="nav-toggle" id="navMenuDropdown">
             <span></span>
@@ -88,6 +92,10 @@
             
             <a class="nav-item flex-1" href="/about">
                 About
+            </a>
+            
+            <a class="nav-item flex-1" href="/tags">
+                Tags
             </a>
             
         </div>
@@ -155,7 +163,7 @@
         </div>
         <div class="content" style="overflow: auto">
             <p>API：API（Application Programming Interface,应用程序编程接口）是一些预先定义的函数，目的是提供应用程序与开发人员基于某软件或硬件得以访问一组例程的能力，而又无需访问源码，或理解内部工作机制的细节。<br>API函数包含在Windows系统目录下的<strong>动态连接库</strong>文件中。。API说来说去，就是一种函数，他们包含在一个附加名为DLL的动态连接库文件中。Windows API是一套用来控制Windows的各个部件的外观和行为的预先定义的Windows函数。用户的每个动作都会引发一个或几个函数的运行以告诉Windows发生了什么。这在某种程度上很像Windows的天然代码。而其他的语言只是提供一种能自动而且更容易的访问API的方法。当你点击窗体上的一个按钮时，Windows会发送一个消息给窗体，VB获取这个调用并经过分析后生成一个特定事件。<br>更易理解来说：Windows系统除了协调应用程序的执行、内存的分配、系统资源的管理外，同时他也是一个很大的服务中心。调用这个服务中心的各种服务(每一种服务就是一个函数)可以帮助应用程序达到开启视窗、描绘图形和使用周边设备等目的，由于这些函数服务的对象是应用程序，所以称之为Application Programming Interface，简称API 函数。WIN32 API也就是MicrosoftWindows 32位平台的应用程序编程接口。<br>凡是在 Windows工作环境底下执行的应用程序，都可以调用Windows API。<br>其实就是用户指令先由编程语言编程成电脑能读懂的语言，这个语言能自动的更快的访问API，这样应用程序通过API与Windows某些部件连接起来，让Windows内部运作起来完成用户指令，并返回给用户界面。API是应用程序接口。你可以在其他的程序中，通过一定的规范通过API发送信息给另一个程序，并接收返回的结果。看了很多，一个很有意思的回答是，双方交流的暗号</p>
-<p>vc6入口代码特征：都是push ebp；mov ebp，esp类似的；入口调用API也是相同的<br>vc6的四个区段：.text代码段.rdata导入表（只读数据段）.data数据段.rsrc资源段<br>vs2008和vs2013相较于vc6：入口代码只有两行，vs2018是一个call后面接一个jmp，第一个call里面进去后也是push ebp啥啥的，调用的API也相同</p>
+<p>vc6入口代码特征：都是push ebp；mov ebp，esp类似的；入口调用API也是相同的<br>vc6的四个区段：.text代码段.rdata导入表（只读数据段）.data数据段.rsrc资源段<br>vs2008和vs2013相较于vc6：入口代码只有两行，vs2018是一个call后面接一个jmp，第一个call里面进去后也是push ebp啥啥的，调用的API也相同<br>VB启动代码：jmp ThunRTMain();push RT_MainStruct结构体函数地址；call (jum ThunRTMain()地址);前面压入栈的的值作为ThunRTMain()函数参数</p>
 <p>易语言（非独立编译）：编译时很明显的运行库文件，入口特征和模块特征都有krnln.fnr，易语言支持库有.fnr格式,.fne格式和.npk格式</p>
 <p>OD被压缩后分析：ctrl+A<br>加aspack壳的特征：入口特征pushad，一个call和jmp，并且会增加两个区段</p>
 <p>加UPX壳后特征：</p>

@@ -19,7 +19,7 @@
 <meta property="og:image" content="https://i.imgur.com/4hrG4Hj.png">
 <meta property="og:image" content="https://i.imgur.com/osrLI6O.png">
 <meta property="og:image" content="https://i.imgur.com/b6Zumt6.png">
-<meta property="og:updated_time" content="2019-03-05T07:42:33.707Z">
+<meta property="og:updated_time" content="2019-04-01T12:55:45.868Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="2019 Seasides CTF breakthis">
 <meta name="twitter:description" content="这个比赛当时比的时候没找到时间，比的时候只剩最后两个小时，所以只做了两道re，nondbg这题应该比较明显按照代码的顺序把字符串正确输入就会得到flag，breakthis也很简单，验证你输入的flag是否正确，你输入的flag经过base64，rot13，uuencode加密后要跟flag_encode一样，而flag_encode已知，只要将他反过来解密就行，写这篇的意义主要是学习使用pyth">
@@ -74,6 +74,10 @@
                 About
             </a>
             
+            <a class="nav-item" href="/tags">
+                Tags
+            </a>
+            
         </div>
         <span class="nav-toggle" id="navMenuDropdown">
             <span></span>
@@ -92,6 +96,10 @@
             
             <a class="nav-item flex-1" href="/about">
                 About
+            </a>
+            
+            <a class="nav-item flex-1" href="/tags">
+                Tags
             </a>
             
         </div>
@@ -164,10 +172,11 @@
 <p>如果一个字符串已经是unicode了，再进行解码则将出错,因此通常要对其编码方式是否为unicode进行判断isinstance(s, unicode) #用来判断是否为unicode </p>
 <p>uuencode是将二进制文件编码成为ascii，uudecode是用于uuencode编码的文件还原为原来的二进制文件。关于uuencode输出数据，都是以begin开头，以end结尾。begin后面644是unix档案调用的权限代码</p>
 <p>关于codecs的使用手册介绍<a href="https://docs.python.org/3/library/codecs.html" target="_blank" rel="noopener">https://docs.python.org/3/library/codecs.html</a></p>
-<p>下面是解密代码，需要注意uuencode的格式<img src="https://i.imgur.com/4hrG4Hj.png" alt=""></p>
+<p>下面是解密代码，需要注意uuencode的格式</p>
+<p><img src="https://i.imgur.com/4hrG4Hj.png" alt=""></p>
 <p>取得flag</p>
 <p><img src="https://i.imgur.com/osrLI6O.png" alt=""></p>
-<p>附上一些可以直接用python编码和解码的一些密码，这样能大大的节约时间，但是注意python2.7和python3的区别，byte string和Unicode string编码要求在python3中的要求就更严格，在python3中区分了二进制和字符串<img src="https://i.imgur.com/b6Zumt6.png" alt=""></p>
+<p>附上一些可以直接用python编码和解码的一些密码，这样能大大的节约时间，但是注意python2.7和python3的区别，byte string和Unicode string编码要求在python3中的要求就更严格，在python3中区分了二进制和字符串，所以这个脚本在python3中会出现问题<img src="https://i.imgur.com/b6Zumt6.png" alt=""></p>
 
         </div>
         <div class="post-reply">
