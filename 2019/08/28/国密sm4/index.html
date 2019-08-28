@@ -26,7 +26,7 @@
 <meta property="og:image" content="https://i.imgur.com/dwpNmtI.png">
 <meta property="og:image" content="https://i.imgur.com/V855HA8.png">
 <meta property="og:image" content="https://i.imgur.com/oGtEKvt.png">
-<meta property="og:updated_time" content="2019-08-28T08:50:25.978Z">
+<meta property="og:updated_time" content="2019-08-28T08:57:47.299Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="国密sm4">
 <meta name="twitter:description" content="最近国密SM4加密挺火的，毕竟是中国国家密码局认定的国产密码算法，在逆向加密中出现的比较多。 SM4原理国密SM4官方文档,个人认为官方文档挺好理解的。还有就是一个人截图的浙大diffie教授的课件图片个人觉得里面的图片也很好理解，毕竟国内的资料里面基本没有很好理解的图（悄咪咪搜了一下diffie教授瞬间羡慕好学校的学生们） 加密SM4加密分为三个过程：轮密钥的准备，32次迭代运算，后四位反序得结">
@@ -176,8 +176,7 @@
             <p>最近国密SM4加密挺火的，毕竟是中国国家密码局认定的国产密码算法，在逆向加密中出现的比较多。</p>
 <h2 id="SM4原理"><a href="#SM4原理" class="headerlink" title="SM4原理"></a>SM4原理</h2><p>国密SM4<a href="http://dacas.cn/sharedimages/ARTICLES/SMAlgorithms/SM4.pdf" target="_blank" rel="noopener">官方文档</a>,个人认为官方文档挺好理解的。还有就是一个人截图的浙大diffie教授的<a href="https://blog.csdn.net/zhangpeterx/article/details/83654504" target="_blank" rel="noopener">课件图片</a>个人觉得里面的图片也很好理解，毕竟国内的资料里面基本没有很好理解的图（悄咪咪搜了一下diffie教授瞬间羡慕好学校的学生们）</p>
 <h2 id="加密"><a href="#加密" class="headerlink" title="加密"></a>加密</h2><p><strong>SM4加密分为三个过程：轮密钥的准备，32次迭代运算，后四位反序得结果</strong></p>
-<p>###32次迭代运算###</p>
-<p><img src="https://i.imgur.com/FPx1NtS.png" alt=""></p>
+<h3 id="32次迭代运算"><a href="#32次迭代运算" class="headerlink" title="32次迭代运算"></a>32次迭代运算</h3><p><img src="https://i.imgur.com/FPx1NtS.png" alt=""></p>
 <p>图上是32次迭代运算的公式，其中x为输入的值(32bit)，F()是轮函数，rk[i]是轮密钥(32bit)。<strong>轮函数</strong>的表达式是：</p>
 <p><img src="https://i.imgur.com/plsjIQr.png" alt=""></p>
 <p>即X1与x2与x3与轮密钥rk[i]异或后的值经过<strong>合成置换T函数</strong>再与x0异或。<br>合成置换T，由<strong>非线性变换τ</strong>和<strong>先行变换L</strong>复合而成：<br><img src="https://i.imgur.com/9cssMkC.png" alt=""></p>
@@ -186,19 +185,17 @@
 <p><img src="https://i.imgur.com/sX7qAge.png" alt=""></p>
 <p>2.线性变换L</p>
 <p>非线性变换的输出即为线性变换的输入，过程为：<br><img src="https://i.imgur.com/mKuplwC.png" alt=""></p>
-<p>###反序变换##</p>
-<p>看到这里是不是已经忘记32次迭代运算是什么了…..我们来回顾一下32次迭代运算，以上经过合成置换得到的值要与输入的第一个值x0异或得到的值即为x4的值，经过上面32次轮函数的循环，就能得到新的x0(32bit)到x32的值，最后将最后四个值经过<strong>反序变换</strong>：</p>
+<h3 id="反序变换"><a href="#反序变换" class="headerlink" title="反序变换"></a>反序变换</h3><p>看到这里是不是已经忘记32次迭代运算是什么了…..我们来回顾一下32次迭代运算，以上经过合成置换得到的值要与输入的第一个值x0异或得到的值即为x4的值，经过上面32次轮函数的循环，就能得到新的x0(32bit)到x32的值，最后将最后四个值经过<strong>反序变换</strong>：</p>
 <p><img src="https://i.imgur.com/1drebMg.png" alt=""></p>
 <p>输出即为加密过后的值</p>
-<p>###轮密钥的准备###</p>
-<p>轮密钥的准备放在后面讲是因为轮密钥也使用了合成置换，但是这个合成置换与前面的轮函数中的合成置换有一点区别。<br>轮密钥生成方法：</p>
+<h3 id="轮密钥的准备"><a href="#轮密钥的准备" class="headerlink" title="轮密钥的准备"></a>轮密钥的准备</h3><p>轮密钥的准备放在后面讲是因为轮密钥也使用了合成置换，但是这个合成置换与前面的轮函数中的合成置换有一点区别。<br>轮密钥生成方法：</p>
 <p><img src="https://i.imgur.com/mCSY2SF.png" alt=""></p>
 <p>输入加密密钥MK(128bit)分成四份MK0(32bit),MK1,MK2.MK3分别与系统参数(已知)FK0,FK1,FK2,FK3异或，下面一个公式我们可以得到两个重要步骤。其中CK[i]为固定参数。</p>
 <p>第一步：是类似于32迭代运算的公式得到k<a href="(32bit">i+4</a></p>
 <p>第二步：是我们得到的这个k[i+4]赋值给了rk<a href="(32bit">i</a></p>
 <p> T′ 是将32次迭代运算中合成置换T的线性变换L替换为L′：<br><img src="https://i.imgur.com/dwpNmtI.png" alt=""><br>系统参数FK的取值：<br><img src="https://i.imgur.com/V855HA8.png" alt=""><br>固定参数CK具体值为：<img src="https://i.imgur.com/oGtEKvt.png" alt=""></p>
-<p>##解密##<br>本算法的解密变换与加密变换结构相同，不同的仅是轮密钥的使用顺序。解密时，使用轮密钥顺序为（rk31,rk30,…,rk0）.</p>
-<p>##实现脚本##<br>正在修缮中…</p>
+<h2 id="解密"><a href="#解密" class="headerlink" title="解密"></a>解密</h2><p>本算法的解密变换与加密变换结构相同，不同的仅是轮密钥的使用顺序。解密时，使用轮密钥顺序为（rk31,rk30,…,rk0）.</p>
+<h2 id="实现脚本"><a href="#实现脚本" class="headerlink" title="实现脚本"></a>实现脚本</h2><p>正在修缮中…</p>
 
         </div>
         <div class="post-reply">
