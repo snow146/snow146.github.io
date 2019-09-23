@@ -11,7 +11,7 @@
 
     <title>
         
-        Android 逆向学习中遇到的问题 - undefined
+        我的二进制学习道路 - undefined
         
     </title>
 
@@ -89,7 +89,7 @@
     </div>
     
         <div id="toc" class="toc-article">
-    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Android-studio安装过程中的问题"><span class="toc-text">Android studio安装过程中的问题</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#关于万能布局"><span class="toc-text">关于万能布局</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#smali文件动态调试出现的问题"><span class="toc-text">smali文件动态调试出现的问题</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#关于使用Android-studio出现的一些问题"><span class="toc-text">关于使用Android studio出现的一些问题</span></a></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Bin"><span class="toc-text">Bin</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Pwn"><span class="toc-text">Pwn</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Reverse"><span class="toc-text">Reverse</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#参考资料"><span class="toc-text">参考资料</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Reference"><span class="toc-text">Reference</span></a>
 </div>
     
 </div>
@@ -120,15 +120,15 @@
 
 <div class="post-container">
     <div class="post-title">
-        Android 逆向学习中遇到的问题
+        我的二进制学习道路
     </div>
 
     <div class="post-meta">
-        <span class="attr">Post：<span>2019-09-06 18:14:46</span></span>
+        <span class="attr">Post：<span>2018-11-27 21:51:23</span></span>
         
         <span class="attr">Tags：/
         
-        <a class="tag" href="/tags/#Android Reverse" title="Android Reverse">Android Reverse</a>
+        <a class="tag" href="/tags/#Reverse" title="Reverse">Reverse</a>
         <span>/</span>
         
         
@@ -138,16 +138,44 @@
 </span>
     </div>
     <div class="post-content ">
-        <h1 id="Android-studio安装过程中的问题"><a href="#Android-studio安装过程中的问题" class="headerlink" title="Android studio安装过程中的问题"></a>Android studio安装过程中的问题</h1><p>首先是安装中遇到的问题，参考超详细博客<a href="https://blog.csdn.net/hebbely/article/details/78970918" target="_blank" rel="noopener">https://blog.csdn.net/hebbely/article/details/78970918</a></p>
-<h1 id="关于万能布局"><a href="#关于万能布局" class="headerlink" title="关于万能布局"></a>关于万能布局</h1><p>关于万能布局ConstraintLayout在3.0以上的版本处理办法，参考博客：<a href="https://blog.csdn.net/BSSYNHDJZMH/article/details/79728625" target="_blank" rel="noopener">https://blog.csdn.net/BSSYNHDJZMH/article/details/79728625</a><br>显然Android studio自带的约束控件并不能满足ui各种各样的保真所以上述大佬写了详细ConstraintLayout完全解析</p>
-<h1 id="smali文件动态调试出现的问题"><a href="#smali文件动态调试出现的问题" class="headerlink" title="smali文件动态调试出现的问题"></a>smali文件动态调试出现的问题</h1><p>关于动态调试smali文件出现的一些问题</p>
-<p>首先把smali文件夹导出后一定要放在一个文件夹里面并且将smali文件改名为src</p>
-<p>关于android device monitor在Android SDK安装文件夹tools文件夹下monitor.bat双击即可打开</p>
-<p>输入命令adb shell -D -n hfdcxy.com.myapplication/hfdcxy.com.myapplication.MainActivity只能使用这个命令，其他命令搜索不到</p>
-<p>android device monitor 查看online端口，查看完就关闭，否则后面会转发端口失败</p>
-<p>打开命令行窗口 输入命令 adb forward tcp:8700 jdwp:19509    转发8700 端口 (这里 jdwp是自己Android Device Monitor中要调试app的Online值 )</p>
-<p>后面重新打开Android studio调试文件不能下断点，后来发现重新调试文件的时候没有安装ideasmali，要重新在安装上才能下断点</p>
-<h1 id="关于使用Android-studio出现的一些问题"><a href="#关于使用Android-studio出现的一些问题" class="headerlink" title="关于使用Android studio出现的一些问题"></a>关于使用Android studio出现的一些问题</h1><p>在某一天我打开Android studio我发现他坏了。。。<br>1.AndroidStudio中Could not find any version that matches com.android.support:appcompat-v7:29.+.<br>解决方案：改为 –&gt; implementation ‘com.android.support:appcompat-v7:+’ 即可<br>参考<a href="https://blog.csdn.net/hai1124948893/article/details/85247737" target="_blank" rel="noopener">https://blog.csdn.net/hai1124948893/article/details/85247737</a><br>2.修改gradle路径，参考网上教程</p>
+        <h2 id="Bin"><a href="#Bin" class="headerlink" title="Bin"></a>Bin</h2><p><strong>前置技能</strong>：</p>
+<ul>
+<li>掌握汇编基础：Python、王爽《汇编语言》、虚拟机安装Ubuntu（建议版本16.4）、Linux基本操作、GDB调试、IDA调试（静态调试）（前期懂简单操作就行，后面根据视频以及使用手册再增加）</li>
+<li>工具说明书：<a href="https://blog.csdn.net/weiyuefei/article/details/72522973" target="_blank" rel="noopener">GDB使用手册</a>,<a href="https://xz.aliyun.com/t/4205" target="_blank" rel="noopener">IDA PRO使用技巧</a> ，找到比较好的可以交流一波</li>
+</ul>
+<h3 id="Pwn"><a href="#Pwn" class="headerlink" title="Pwn"></a>Pwn</h3><ul>
+<li>基础的调试、入门首选 <a href="http://liveoverflow.com/binary_hacking/" target="_blank" rel="noopener">LiveOverFlow</a> （翻墙官网能自动翻译）</li>
+<li>学习 stack overflow：明白原理，完成例题 <a href="https://ctf-wiki.github.io/ctf-wiki/pwn/stackoverflow/basic_rop/" target="_blank" rel="noopener">基本ROP</a></li>
+<li><p>继续完成 ctf-wiki 栈溢出部分</p>
+<p>前面都完成的开始进阶</p>
+</li>
+<li><a href="https://github.com/shellphish/how2heap" target="_blank" rel="noopener">how2heap</a></li>
+<li><a href="https://pwnable.tw/" target="_blank" rel="noopener">pwnable.tw</a>、<a href="http://pwnable.kr/play.php" target="_blank" rel="noopener">pwnable.kr</a></li>
+<li>CTFTime …</li>
+</ul>
+<h3 id="Reverse"><a href="#Reverse" class="headerlink" title="Reverse"></a>Reverse</h3><ul>
+<li>在前置技能完成后推荐找一个讲解ctf逆向题目的入门视频，一是了解ida基本的静态调试，二是增加兴趣</li>
+<li>增加工具：虚拟机安装win7、吾爱破解Ollydug（动态调试）</li>
+<li>推荐入门视频：<a href="https://www.52pojie.cn/thread-582852-1-1.html" target="_blank" rel="noopener">吾爱破解逆向入门套餐</a>(适量使用)</li>
+<li>学习程序调试技能：逆向工程核心原理、加密解密、0day安全</li>
+<li><p>可选学习教程 <a href="https://tuts4you.com/e107_plugins/download/download.php?action=view&amp;id=2876" target="_blank" rel="noopener">reversingwithlena-tutroial</a> 一篇 简单的 crackme <a href="https://leotindall.com/tutorial/an-intro-to-x86_64-reverse-engineering/" target="_blank" rel="noopener">An Intro to x86_64 Reverse Engineering</a></p>
+<p>之后就是不停的练习 <a href="https://github.com/crackmes/crackmes" target="_blank" rel="noopener">crackmes</a> 以及内功修炼：程序开发、操作系统、编译原理 …</p>
+</li>
+</ul>
+<h3 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h3><ul>
+<li><a href="https://sploitfun.wordpress.com/2015/06/26/linux-x86-exploit-development-tutorial-series/" target="_blank" rel="noopener">Linux (x86) Exploit Development Series</a></li>
+<li><a href="https://bbs.pediy.com/thread-217390.htm" target="_blank" rel="noopener">Linux (x86) Exploit 开发系列教程</a></li>
+<li>windows平台： <a href="https://www.corelan.be/index.php/2009/07/19/exploit-writing-tutorial-part-1-stack-based-overflows/" target="_blank" rel="noopener">Exploit writing tutorial part 1 : Stack Based Overflows</a>、<a href="https://www.fuzzysecurity.com/tutorials/expDev/1.html" target="_blank" rel="noopener">Part 1: Introduction to Exploit Development</a></li>
+<li><a href="http://martin.uy/blog/projects/reverse-engineering/" target="_blank" rel="noopener">exploit入门级</a></li>
+<li><a href="http://www.vuln.cn/6645" target="_blank" rel="noopener">一步一步学ROP x86</a></li>
+<li>论坛：看雪、吾爱、tuts4you<strong>（逛论坛很重要，大佬，学习资料，工具，题解，不懂的问题都能找到）</strong><h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h1><ul>
+<li><a href="https://github.com/CHYbeta/Web-Security-Learning" target="_blank" rel="noopener">Web-Security-Learning</a> （较好的web安全相关学习资源）</li>
+<li><a href="https://github.com/firmianay/CTF-All-In-One" target="_blank" rel="noopener">CTF-All-In-One</a> （一本 CTF 领域的大杂烩指南）</li>
+<li><a href="https://github.com/Hack-with-Github/Awesome-Hacking" target="_blank" rel="noopener">Awesome-Hacking</a> （非常全面的黑客技术清单）</li>
+<li><a href="https://ctf-wiki.github.io/ctf-wiki/" target="_blank" rel="noopener">CTF-Wiki</a> （CTF的入门简介）</li>
+</ul>
+</li>
+</ul>
 
         
         <br />

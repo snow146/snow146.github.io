@@ -1,14 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title></title>
+    <title><![CDATA[Android 逆向学习中遇到的问题]]></title>
     <url>%2F2019%2F09%2F06%2FAndroid%E5%BC%80%E5%8F%91%E4%B8%AD%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98%2F</url>
-    <content type="text"><![CDATA[首先是安装中遇到的问题，参考超详细博客https://blog.csdn.net/hebbely/article/details/78970918关于万能布局ConstraintLayout在3.0以上的版本处理办法，参考博客：https://blog.csdn.net/BSSYNHDJZMH/article/details/79728625显然Android studio自带的约束控件并不能满足ui各种各样的保真所以上述大佬奖励详细ConstraintLayout完全解析]]></content>
+    <content type="text"><![CDATA[Android studio安装过程中的问题首先是安装中遇到的问题，参考超详细博客https://blog.csdn.net/hebbely/article/details/78970918 关于万能布局关于万能布局ConstraintLayout在3.0以上的版本处理办法，参考博客：https://blog.csdn.net/BSSYNHDJZMH/article/details/79728625显然Android studio自带的约束控件并不能满足ui各种各样的保真所以上述大佬写了详细ConstraintLayout完全解析 smali文件动态调试出现的问题关于动态调试smali文件出现的一些问题 首先把smali文件夹导出后一定要放在一个文件夹里面并且将smali文件改名为src 关于android device monitor在Android SDK安装文件夹tools文件夹下monitor.bat双击即可打开 输入命令adb shell -D -n hfdcxy.com.myapplication/hfdcxy.com.myapplication.MainActivity只能使用这个命令，其他命令搜索不到 android device monitor 查看online端口，查看完就关闭，否则后面会转发端口失败 打开命令行窗口 输入命令 adb forward tcp:8700 jdwp:19509 转发8700 端口 (这里 jdwp是自己Android Device Monitor中要调试app的Online值 ) 后面重新打开Android studio调试文件不能下断点，后来发现重新调试文件的时候没有安装ideasmali，要重新在安装上才能下断点 关于使用Android studio出现的一些问题在某一天我打开Android studio我发现他坏了。。。1.AndroidStudio中Could not find any version that matches com.android.support:appcompat-v7:29.+.解决方案：改为 –&gt; implementation ‘com.android.support:appcompat-v7:+’ 即可参考https://blog.csdn.net/hai1124948893/article/details/852477372.修改gradle路径，参考网上教程]]></content>
+      <categories>
+        <category>study</category>
+      </categories>
+      <tags>
+        <tag>Android Reverse</tag>
+      </tags>
   </entry>
   <entry>
-    <title></title>
+    <title><![CDATA[Android 逆向学习中遇到的问题]]></title>
     <url>%2F2019%2F09%2F04%2FAndroid%E9%80%86%E5%90%91%2F</url>
     <content type="text"><![CDATA[smali语法学习，参考吾爱破解安卓逆向入门学习https://www.52pojie.cn/thread-408645-1-1.html 在非static方法中，p0代指this，p1为方法的第一个参数。在static方法中，p0为方法的第一个参数。 smali的函数调用smali中的函数和成员变量分为direct和virtual，direct method就是private函数，其余的public和protect函数是virtual method。 invoke-XXX指令： invok-static：调用static函数 invoke-super：调用父类方法指令，一般用于调用onCreate，onDestroy等方法。 invoke-direct：调用privat函数 invoke-virtual：调用public和protect函数 安装adb过程参考博客https://www.cnblogs.com/nebie/p/9145627.html]]></content>
+      <categories>
+        <category>study</category>
+      </categories>
+      <tags>
+        <tag>Android Reverse</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[国密sm4]]></title>
@@ -33,9 +45,15 @@
       </tags>
   </entry>
   <entry>
-    <title></title>
+    <title><![CDATA[base64一些特征]]></title>
     <url>%2F2019%2F05%2F13%2F%E5%85%B3%E4%BA%8Ebase64%E5%9C%A8%E9%80%86%E5%90%91%E9%87%8C%E9%9D%A2%E7%9A%84%E4%B8%80%E4%BA%9B%E7%89%B9%E5%BE%81%2F</url>
     <content type="text"><![CDATA[base64加密是逆向中常见的加密手段，但是如何发现是base64加密呢？ 编码原理 base64加密之后所有的字符都应该在这个表中base64编码是将x个8位字节变成y个6位字节然后再以00填充变成n个新的八位字节，再将二进制转换成十进制，一一替换字符。举个栗子：假设待转化的字符是 “example” 转化成二进制之后得到 01100101 01111000 01100001 01101101 01110000 01101100 01100101 example的长度是7因此为了使得最后得到的字符是4的倍数我们要再添上两个字符 01100101 01111000 01100001 01101101 01110000 01101100 01100101 00000000 00000000 然后我们将其按照6位1字符排好 011001 010111 100001 100001 011011 010111 000001 101100 011001 010000 000000 000000 填充00之后得到 00011001 00010111 00100001 00100001 00011011 00010111 00000001 00101100 00011001 00010000 00000000 00000000 再将这些二进制转换成十进制 25 23 33 33 27 23 1 44 25 16 0 0 对照表用字符替换之后得到 ZXhhbXBsZQAA 再将最后的AA换成==即可 ZXhhbXBsZQ==]]></content>
+      <categories>
+        <category>study</category>
+      </categories>
+      <tags>
+        <tag>Reverse</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[锁定文件失败 打不开磁盘“D:\ubuntu\Ubuntu 64 位.vmdk”或它所依赖的某个快照磁盘。 模块“Disk”启动失败。]]></title>
@@ -95,6 +113,17 @@
       </categories>
       <tags>
         <tag>CTF</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[我的二进制学习道路]]></title>
+    <url>%2F2018%2F11%2F27%2F%E6%88%91%E7%9A%84%E4%BA%8C%E8%BF%9B%E5%88%B6%E5%AD%A6%E4%B9%A0%E9%81%93%E8%B7%AF%2F</url>
+    <content type="text"><![CDATA[Bin前置技能： 掌握汇编基础：Python、王爽《汇编语言》、虚拟机安装Ubuntu（建议版本16.4）、Linux基本操作、GDB调试、IDA调试（静态调试）（前期懂简单操作就行，后面根据视频以及使用手册再增加） 工具说明书：GDB使用手册,IDA PRO使用技巧 ，找到比较好的可以交流一波 Pwn 基础的调试、入门首选 LiveOverFlow （翻墙官网能自动翻译） 学习 stack overflow：明白原理，完成例题 基本ROP 继续完成 ctf-wiki 栈溢出部分 前面都完成的开始进阶 how2heap pwnable.tw、pwnable.kr CTFTime … Reverse 在前置技能完成后推荐找一个讲解ctf逆向题目的入门视频，一是了解ida基本的静态调试，二是增加兴趣 增加工具：虚拟机安装win7、吾爱破解Ollydug（动态调试） 推荐入门视频：吾爱破解逆向入门套餐(适量使用) 学习程序调试技能：逆向工程核心原理、加密解密、0day安全 可选学习教程 reversingwithlena-tutroial 一篇 简单的 crackme An Intro to x86_64 Reverse Engineering 之后就是不停的练习 crackmes 以及内功修炼：程序开发、操作系统、编译原理 … 参考资料 Linux (x86) Exploit Development Series Linux (x86) Exploit 开发系列教程 windows平台： Exploit writing tutorial part 1 : Stack Based Overflows、Part 1: Introduction to Exploit Development exploit入门级 一步一步学ROP x86 论坛：看雪、吾爱、tuts4you（逛论坛很重要，大佬，学习资料，工具，题解，不懂的问题都能找到）Reference Web-Security-Learning （较好的web安全相关学习资源） CTF-All-In-One （一本 CTF 领域的大杂烩指南） Awesome-Hacking （非常全面的黑客技术清单） CTF-Wiki （CTF的入门简介）]]></content>
+      <categories>
+        <category>study</category>
+      </categories>
+      <tags>
+        <tag>Reverse</tag>
       </tags>
   </entry>
   <entry>
