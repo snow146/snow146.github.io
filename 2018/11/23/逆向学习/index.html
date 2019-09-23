@@ -1,247 +1,239 @@
 <!DOCTYPE html>
-<html class="full-height">
+<html lang="en">
 <head>
-  <meta charset="utf-8">
-  <link rel="stylesheet" href="//cdn.bootcss.com/bulma/0.4.1/css/bulma.min.css">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-  <script src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
-  
-  <title>关于逆向学习的一些知识 | Snow&#39;s BLOG</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="API：API（Application Programming Interface,应用程序编程接口）是一些预先定义的函数，目的是提供应用程序与开发人员基于某软件或硬件得以访问一组例程的能力，而又无需访问源码，或理解内部工作机制的细节。API函数包含在Windows系统目录下的动态连接库文件中。。API说来说去，就是一种函数，他们包含在一个附加名为DLL的动态连接库文件中。Windows API是">
-<meta name="keywords" content="Reverse">
-<meta property="og:type" content="article">
-<meta property="og:title" content="关于逆向学习的一些知识">
-<meta property="og:url" content="http://snow146.github.io/2018/11/23/逆向学习/index.html">
-<meta property="og:site_name" content="Snow&#39;s BLOG">
-<meta property="og:description" content="API：API（Application Programming Interface,应用程序编程接口）是一些预先定义的函数，目的是提供应用程序与开发人员基于某软件或硬件得以访问一组例程的能力，而又无需访问源码，或理解内部工作机制的细节。API函数包含在Windows系统目录下的动态连接库文件中。。API说来说去，就是一种函数，他们包含在一个附加名为DLL的动态连接库文件中。Windows API是">
-<meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-03-14T14:11:17.576Z">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="关于逆向学习的一些知识">
-<meta name="twitter:description" content="API：API（Application Programming Interface,应用程序编程接口）是一些预先定义的函数，目的是提供应用程序与开发人员基于某软件或硬件得以访问一组例程的能力，而又无需访问源码，或理解内部工作机制的细节。API函数包含在Windows系统目录下的动态连接库文件中。。API说来说去，就是一种函数，他们包含在一个附加名为DLL的动态连接库文件中。Windows API是">
-  
-    <link rel="alternate" href="/atom.xml" title="Snow&#39;s BLOG" type="application/atom+xml">
-  
-  
-    <link rel="icon" href="/favicon.png">
-  
-  
-    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
-  
-  <link rel="stylesheet" href="/css/common.css">
-<link rel="stylesheet" href="/css/nav.css">
-<link rel="stylesheet" href="/css/layout.css">
-  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="程序媛">
+    <meta name="keyword"  content="">
+    <link rel="shortcut icon" href="/img/favicon.ico">
 
+    <title>
+        
+        关于逆向学习的一些知识 - undefined
+        
+    </title>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/aircloud.css">
+    <link rel="stylesheet" href="/css/gitment.css">
+    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
+    <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
+    <!-- ga & ba script hoook -->
+    <script></script>
 </head>
 
 <body>
-  <header id="navbar" class="overflow-hidden">
-  <div class="container">
-    <nav class="nav">
-         <div class="nav-left">
-            <a href="/" class="nav-item" style="font-size: 20px;">
-              <span class="logo">snow146</span>'s Blog
-            </a>
-         </div>
-        <div class="nav-center is-hidden position-relative" id="search_container">
-            <div class="nav-item full-width full-height">
-                <i class="fa fa-search has-padding" aria-hidden="true"></i>
-                <input type="text" id="search_input" class="search-input full-height full-width" placeholder="Search post" autofocus>
-                <i id="close_search" class="fa fa-times" aria-hidden="true"></i>
-            </div>
-            <div id="search_result"></div>
+
+<div class="site-nav-toggle" id="site-nav-toggle">
+    <button>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+    </button>
+</div>
+
+<div class="index-about">
+    <i> 一天一点进步 </i>
+</div>
+
+<div class="index-container">
+    
+    <div class="index-left">
+        
+<div class="nav" id="nav">
+    <div class="avatar-name">
+        <div class="avatar ">
+            <img src="/" />
         </div>
-        <div class="nav-right nav-menu">
-            <a class="nav-item" id="search">
-                <i class="fa fa-search" aria-hidden="true"></i>
-            </a>
-            
-            <a class="nav-item" href="/">
-                Home
-            </a>
-            
-            <a class="nav-item" href="/works">
-                My Works
-            </a>
-            
-            <a class="nav-item" href="/about">
-                About
-            </a>
-            
-            <a class="nav-item" href="/tags">
-                Tags
-            </a>
-            
+        <div class="name">
+            <i>Snow146</i>
         </div>
-        <span class="nav-toggle" id="navMenuDropdown">
-            <span></span>
-            <span></span>
-            <span></span>
+    </div>
+    <div class="contents" id="nav-content">
+        <ul>
+            <li >
+                <a href="/">
+                    <i class="iconfont icon-shouye1"></i>
+                    <span>HOME</span>
+                </a>
+            </li>
+            <li >
+                <a href="/tags">
+                    <i class="iconfont icon-biaoqian1"></i>
+                    <span>TAGS</span>
+                </a>
+            </li>
+            <li >
+                <a href="/archives">
+                    <i class="iconfont icon-guidang2"></i>
+                    <span>ARCHIVES</span>
+                </a>
+            </li>
+            <li >
+                <a href="/about/">
+                    <i class="iconfont icon-guanyu2"></i>
+                    <span>ABOUT</span>
+                </a>
+            </li>
+            
+            <li>
+                <a id="search">
+                    <i class="iconfont icon-sousuo1"></i>
+                    <span>SEARCH</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    
+        <div id="toc" class="toc-article">
+    
+</div>
+    
+</div>
+
+
+<div class="search-field" id="search-field">
+    <div class="search-container">
+        <div class="search-input">
+            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
+            <input id="search-input"/>
+            <span id="begin-search">search</span>
+        </div>
+        <div class="search-result-container" id="search-result-container">
+
+        </div>
+    </div>
+</div>
+
+        <div class="index-about-mobile">
+            <i> 一天一点进步 </i>
+        </div>
+    </div>
+    
+    <div class="index-middle">
+        <!-- Main Content -->
+        
+
+
+<div class="post-container">
+    <div class="post-title">
+        关于逆向学习的一些知识
+    </div>
+
+    <div class="post-meta">
+        <span class="attr">Post：<span>2018-11-23 21:44:23</span></span>
+        
+        <span class="attr">Tags：/
+        
+        <a class="tag" href="/tags/#Reverse" title="Reverse">Reverse</a>
+        <span>/</span>
+        
+        
         </span>
-        <div class="navbar-menu position-absolute full-width content-box is-hidden-desktop is-flex flex-column center" style="top: 100%;">
-            
-            <a class="nav-item flex-1" href="/">
-                Home
-            </a>
-            
-            <a class="nav-item flex-1" href="/works">
-                My Works
-            </a>
-            
-            <a class="nav-item flex-1" href="/about">
-                About
-            </a>
-            
-            <a class="nav-item flex-1" href="/tags">
-                Tags
-            </a>
-            
-        </div>
-    </nav>
-  </div>
-</header>
-
-  <div id="main-wrap" class="position-relative" style="margin-top: 55px;">
-      <div class="main-inner-content">
-          <!--博文页面-->
-
-<style>
-    .header-box {
-        height: 370px;
-        filter: blur(10px);
-        background-size: cover;
-        background-color: lightsteelblue;
-    }
-
-    .post-box {
-        padding: 15px;
-        padding-top: 60px;
-        min-height: 80vh;
-        margin-top: -200px;
-        border-radius: 4px;
-        background-color: rgba(255,255,255,.8);
-    }
-
-    .post-avatar {
-        height: 30px;
-        width: 30px;
-        border-radius: 50%;
-    }
-
-    .flow-chart {
-        text-align: center;
-    }
-
-    img[alt="post-cover"] {
-        display: none;
-    }
-</style>
-<header>
-    <div id="header_box" class="header-box"></div>
-</header>
-<section>
-    <div class="container post-box">
-        <div class="content post-title is-flex center flex-column" style="margin-bottom: 70px; overflow: auto;">
-            <h1 class="has-text-centered" style="padding-bottom: 10px; border-bottom: 3px solid #fff">
-                <strong>关于逆向学习的一些知识</strong>
-            </h1>
-            
-            <div class="is-flex align-center">
-                <img class="post-avatar" src="https://cdn2.iconfinder.com/data/icons/rcons-user/32/male-shadow-circle-512.png">
-                <span style="padding:0 10px;"> <span class="sub-title">By</span> snow146</span>
-                <span class="post-date sub-title">at: 2018-11-23</span>
-            </div>
-            
-                <div>
-                    
-                         <a class="tag is-post-tag" href="/tags/Reverse/">Reverse</a>
-                    
-                </div>
-            
-        </div>
-        <div class="content" style="overflow: auto">
-            <p>API：API（Application Programming Interface,应用程序编程接口）是一些预先定义的函数，目的是提供应用程序与开发人员基于某软件或硬件得以访问一组例程的能力，而又无需访问源码，或理解内部工作机制的细节。<br>API函数包含在Windows系统目录下的<strong>动态连接库</strong>文件中。。API说来说去，就是一种函数，他们包含在一个附加名为DLL的动态连接库文件中。Windows API是一套用来控制Windows的各个部件的外观和行为的预先定义的Windows函数。用户的每个动作都会引发一个或几个函数的运行以告诉Windows发生了什么。这在某种程度上很像Windows的天然代码。而其他的语言只是提供一种能自动而且更容易的访问API的方法。当你点击窗体上的一个按钮时，Windows会发送一个消息给窗体，VB获取这个调用并经过分析后生成一个特定事件。<br>更易理解来说：Windows系统除了协调应用程序的执行、内存的分配、系统资源的管理外，同时他也是一个很大的服务中心。调用这个服务中心的各种服务(每一种服务就是一个函数)可以帮助应用程序达到开启视窗、描绘图形和使用周边设备等目的，由于这些函数服务的对象是应用程序，所以称之为Application Programming Interface，简称API 函数。WIN32 API也就是MicrosoftWindows 32位平台的应用程序编程接口。<br>凡是在 Windows工作环境底下执行的应用程序，都可以调用Windows API。<br>其实就是用户指令先由编程语言编程成电脑能读懂的语言，这个语言能自动的更快的访问API，这样应用程序通过API与Windows某些部件连接起来，让Windows内部运作起来完成用户指令，并返回给用户界面。API是应用程序接口。你可以在其他的程序中，通过一定的规范通过API发送信息给另一个程序，并接收返回的结果。看了很多，一个很有意思的回答是，双方交流的暗号</p>
+        <span class="attr">Visit：<span id="busuanzi_value_page_pv"></span>
+</span>
+</span>
+    </div>
+    <div class="post-content ">
+        <p>API：API（Application Programming Interface,应用程序编程接口）是一些预先定义的函数，目的是提供应用程序与开发人员基于某软件或硬件得以访问一组例程的能力，而又无需访问源码，或理解内部工作机制的细节。<br>API函数包含在Windows系统目录下的<strong>动态连接库</strong>文件中。。API说来说去，就是一种函数，他们包含在一个附加名为DLL的动态连接库文件中。Windows API是一套用来控制Windows的各个部件的外观和行为的预先定义的Windows函数。用户的每个动作都会引发一个或几个函数的运行以告诉Windows发生了什么。这在某种程度上很像Windows的天然代码。而其他的语言只是提供一种能自动而且更容易的访问API的方法。当你点击窗体上的一个按钮时，Windows会发送一个消息给窗体，VB获取这个调用并经过分析后生成一个特定事件。<br>更易理解来说：Windows系统除了协调应用程序的执行、内存的分配、系统资源的管理外，同时他也是一个很大的服务中心。调用这个服务中心的各种服务(每一种服务就是一个函数)可以帮助应用程序达到开启视窗、描绘图形和使用周边设备等目的，由于这些函数服务的对象是应用程序，所以称之为Application Programming Interface，简称API 函数。WIN32 API也就是MicrosoftWindows 32位平台的应用程序编程接口。<br>凡是在 Windows工作环境底下执行的应用程序，都可以调用Windows API。<br>其实就是用户指令先由编程语言编程成电脑能读懂的语言，这个语言能自动的更快的访问API，这样应用程序通过API与Windows某些部件连接起来，让Windows内部运作起来完成用户指令，并返回给用户界面。API是应用程序接口。你可以在其他的程序中，通过一定的规范通过API发送信息给另一个程序，并接收返回的结果。看了很多，一个很有意思的回答是，双方交流的暗号</p>
 <p>vc6入口代码特征：都是push ebp；mov ebp，esp类似的；入口调用API也是相同的<br>vc6的四个区段：.text代码段.rdata导入表（只读数据段）.data数据段.rsrc资源段<br>vs2008和vs2013相较于vc6：入口代码只有两行，vs2018是一个call后面接一个jmp，第一个call里面进去后也是push ebp啥啥的，调用的API也相同<br>VB启动代码：jmp ThunRTMain();push RT_MainStruct结构体函数地址；call (jum ThunRTMain()地址);前面压入栈的的值作为ThunRTMain()函数参数</p>
 <p>易语言（非独立编译）：编译时很明显的运行库文件，入口特征和模块特征都有krnln.fnr，易语言支持库有.fnr格式,.fne格式和.npk格式</p>
 <p>OD被压缩后分析：ctrl+A<br>加aspack壳的特征：入口特征pushad，一个call和jmp，并且会增加两个区段</p>
 <p>加UPX壳后特征：</p>
 <p><a href="https://www.cnblogs.com/Fightingbirds/p/3172907.html" target="_blank" rel="noopener">https://www.cnblogs.com/Fightingbirds/p/3172907.html</a> </p>
 
+        
+        <br />
+        <div id="comment-container">
         </div>
-        <div class="post-reply">
-            
-                <!-- 来必力City版安装代码 -->
-                <div id="lv-container" data-id="city" data-uid="MTAyMC8yOTE4Ni81NzUz">
-                    <script type="text/javascript">
-                        (function(d, s) {
-                            var j, e = d.getElementsByTagName(s)[0];
+        <div id="disqus_thread"></div>
 
-                            if (typeof LivereTower === 'function') { return; }
-
-                            j = d.createElement(s);
-                            j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
-                            j.async = true;
-
-                            e.parentNode.insertBefore(j, e);
-                        })(document, 'script');
-                    </script>
-                    <noscript> 为正常使用来必力评论功能请激活JavaScript</noscript>
-                </div>
-                <!-- City版安装代码已完成 -->
-            
-            
+        <div id="lv-container">
         </div>
+
     </div>
-</section>
-<script>
-    // 获取第一张图, 用以当封面背景图
-    var img = document.querySelectorAll('img')[1]
+</div>
 
-    if (img) {
-        var header_box = document.querySelector('#header_box')
-        header_box.style.backgroundImage = 'url('+ img.src +')'
-    }
-</script>
-
-<!-- for code block highlight --> 
-<!-- theme.block_highlight -->
-<!-- we do not guarantee the char sequences spell right, usr himself do it -->
-<link rel="stylesheet" href="/css/highlight_rainbow.css">
-<script src="/js/highlight.min.js"></script>
-<script type="text/javascript"> hljs.initHighlightingOnLoad();</script>
-
-      </div>
-  </div>
-  <style>
-  #footer {
-    min-height: 10vh;
-    background: black;
-    color: #fff;
-  }
-
-  #footer a {
-    color: #e1e1e1;
-  }
-</style>
-<footer id="footer" class="has-text-centered is-flex center">
-  <div class="container has-padding">
-    <div>
-      <div>
-        <!--请您保留作者署名, 主题制作来之不易-->
-        Theme by <a href="http://haojen.github.io/">Haojen Ma</a>
-        <br>
-        Copyright © Snow146 2019
-        <br>
-        Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
-      </div>
     </div>
-  </div>
+</div>
+
+
+<footer class="footer">
+    <ul class="list-inline text-center">
+        
+        <li>
+            <a target="_blank" href="https://twitter.com/SnowYa5">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-twitter"></i>
+                            </span>
+            </a>
+        </li>
+        
+        
+
+        
+        <li>
+            <a target="_blank" href="http://weibo.com/2880425030">
+                            <span class="fa-stack fa-lg">
+                                  <i class="iconfont icon-weibo"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+        <li>
+            <a target="_blank" href="https://www.facebook.com/layla.young.5454">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-facebook"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+        <li>
+            <a target="_blank"  href="https://github.com/snow146">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-github"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+
+    </ul>
+    
+    <p>
+        <span id="busuanzi_container_site_pv">
+            <span id="busuanzi_value_site_pv"></span>PV
+        </span>
+        <span id="busuanzi_container_site_uv">
+            <span id="busuanzi_value_site_uv"></span>UV
+        </span>
+        Created By <a href="https://hexo.io/">Hexo</a>  Theme <a href="https://github.com/aircloud/hexo-theme-aircloud">AirCloud</a></p>
 </footer>
 
-<script src="/js/search_core.js"></script>
-<script src="/js/script.js"></script>
+
+
 
 </body>
+
+<script>
+    // We expose some of the variables needed by the front end
+    window.hexo_search_path = "search.xml"
+    window.hexo_root = "/"
+    window.isPost = true
+</script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+<script src="/js/index.js"></script>
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
 </html>
