@@ -89,7 +89,7 @@
     </div>
     
         <div id="toc" class="toc-article">
-    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#smali的函数调用"><span class="toc-text">smali的函数调用</span></a></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#smali基础"><span class="toc-text">smali基础</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#记录一些易混淆的点"><span class="toc-text">记录一些易混淆的点</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#寄存器p0"><span class="toc-text">寄存器p0</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#local与-locals"><span class="toc-text">.local与.locals</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#smali的函数调用"><span class="toc-text">smali的函数调用</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#破解的程序和游戏"><span class="toc-text">破解的程序和游戏</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#动态调试"><span class="toc-text">动态调试</span></a></li></ol>
 </div>
     
 </div>
@@ -138,17 +138,19 @@
 </span>
     </div>
     <div class="post-content ">
-        <p>smali语法学习，参考吾爱破解安卓逆向入门学习<a href="https://www.52pojie.cn/thread-408645-1-1.html" target="_blank" rel="noopener">https://www.52pojie.cn/thread-408645-1-1.html</a><br><img src="https://i.imgur.com/vSN2ZAy.jpg" alt=""><br><img src="https://i.imgur.com/6I1GHER.jpg" alt=""><br><img src="https://i.imgur.com/tBwzBWO.jpg" alt=""><br><img src="https://i.imgur.com/eDRiUON.jpg" alt=""><br><img src="https://i.imgur.com/oEOhZDa.jpg" alt=""></p>
-<p>在非static方法中，p0代指this，p1为方法的第一个参数。<br>在static方法中，p0为方法的第一个参数。</p>
-<h2 id="smali的函数调用"><a href="#smali的函数调用" class="headerlink" title="smali的函数调用"></a>smali的函数调用</h2><p>smali中的函数和成员变量分为direct和virtual，direct method就是private函数，其余的public和protect函数是virtual method。</p>
+        <h1 id="smali基础"><a href="#smali基础" class="headerlink" title="smali基础"></a>smali基础</h1><p>smali语法学习，参考吾爱破解安卓逆向入门学习<a href="https://www.52pojie.cn/thread-408645-1-1.html" target="_blank" rel="noopener">https://www.52pojie.cn/thread-408645-1-1.html</a><br><img src="https://i.imgur.com/vSN2ZAy.jpg" alt=""><br><img src="https://i.imgur.com/6I1GHER.jpg" alt=""><br><img src="https://i.imgur.com/tBwzBWO.jpg" alt=""><br><img src="https://i.imgur.com/eDRiUON.jpg" alt=""><br><img src="https://i.imgur.com/oEOhZDa.jpg" alt=""></p>
+<h2 id="记录一些易混淆的点"><a href="#记录一些易混淆的点" class="headerlink" title="记录一些易混淆的点"></a>记录一些易混淆的点</h2><h3 id="寄存器p0"><a href="#寄存器p0" class="headerlink" title="寄存器p0"></a>寄存器p0</h3><p>在<strong>非</strong>static方法中，<strong>p0</strong>代指<strong>this</strong>，<strong>p1</strong>为方法的第一个<strong>参数</strong>。<br>在static方法中，<strong>p0</strong>为方法的第一个<strong>参数</strong>。</p>
+<h3 id="local与-locals"><a href="#local与-locals" class="headerlink" title=".local与.locals"></a>.local与.locals</h3><figure class="highlight smali"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">.local</span> v1, <span class="string">"future"</span>:<span class="class">Lcom/android/volley/toolbox/RequestFuture;</span>, <span class="string">"Lcom/android/volley/toolbox/RequestFuture&lt;Ljava/lang/Void;&gt;;"</span></span><br></pre></td></tr></table></figure>
+<p>这里的.local表示的是<br><figure class="highlight makefile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">RequestFuture&lt;Void&gt; future； </span><br><span class="line">future = v1；</span><br></pre></td></tr></table></figure></p>
+<p>.locals 数字 定义所学内部变量数，即v寄存器的数</p>
+<h1 id="smali的函数调用"><a href="#smali的函数调用" class="headerlink" title="smali的函数调用"></a>smali的函数调用</h1><p>smali中的函数和成员变量分为direct和virtual，direct method就是private函数，其余的public和protect函数是virtual method。</p>
 <p>invoke-XXX指令：</p>
 <ol>
 <li>invok-static：调用static函数</li>
 <li>invoke-super：调用父类方法指令，一般用于调用onCreate，onDestroy等方法。</li>
 <li>invoke-direct：调用privat函数</li>
-<li>invoke-virtual：调用public和protect函数</li>
+<li>invoke-virtual：调用public和protect函数<h1 id="破解的程序和游戏"><a href="#破解的程序和游戏" class="headerlink" title="破解的程序和游戏"></a>破解的程序和游戏</h1>安装adb过程参考博客<a href="https://www.cnblogs.com/nebie/p/9145627.html" target="_blank" rel="noopener">https://www.cnblogs.com/nebie/p/9145627.html</a><br>破解过的游戏：<h1 id="动态调试"><a href="#动态调试" class="headerlink" title="动态调试"></a>动态调试</h1>具体会在另一个博客详细讲解，详细学习Java层和so层动态调试后写的博客</li>
 </ol>
-<p>安装adb过程参考博客<a href="https://www.cnblogs.com/nebie/p/9145627.html" target="_blank" rel="noopener">https://www.cnblogs.com/nebie/p/9145627.html</a></p>
 
         
         <br />
