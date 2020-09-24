@@ -11,7 +11,7 @@
 
     <title>
         
-        
+        android studio 3.5编译一个.so - undefined
         
     </title>
 
@@ -56,32 +56,32 @@
             <li >
                 <a href="/">
                     <i class="iconfont icon-shouye1"></i>
-                    <span>HOME</span>
+                    <span>主页</span>
                 </a>
             </li>
             <li >
                 <a href="/tags">
                     <i class="iconfont icon-biaoqian1"></i>
-                    <span>TAGS</span>
+                    <span>标签</span>
                 </a>
             </li>
             <li >
                 <a href="/archives">
                     <i class="iconfont icon-guidang2"></i>
-                    <span>ARCHIVES</span>
+                    <span>存档</span>
                 </a>
             </li>
             <li >
                 <a href="/about/">
                     <i class="iconfont icon-guanyu2"></i>
-                    <span>ABOUT</span>
+                    <span>关于</span>
                 </a>
             </li>
             
             <li>
                 <a id="search">
                     <i class="iconfont icon-sousuo1"></i>
-                    <span>SEARCH</span>
+                    <span>搜索</span>
                 </a>
             </li>
             
@@ -100,7 +100,7 @@
         <div class="search-input">
             <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
             <input id="search-input"/>
-            <span id="begin-search">search</span>
+            <span id="begin-search">搜索</span>
         </div>
         <div class="search-result-container" id="search-result-container">
 
@@ -120,14 +120,20 @@
 
 <div class="post-container">
     <div class="post-title">
-        
+        android studio 3.5编译一个.so
     </div>
 
     <div class="post-meta">
-        <span class="attr">Post：<span>2019-10-18 21:56:19</span></span>
+        <span class="attr">发布于：<span>2020-04-06 00:00:00</span></span>
+        
+        <span class="attr">标签：/
+        
+        <a class="tag" href="/tags/#Android Reverse" title="Android Reverse">Android Reverse</a>
+        <span>/</span>
+        
         
         </span>
-        <span class="attr">Visit：<span id="busuanzi_value_page_pv"></span>
+        <span class="attr">访问：<span id="busuanzi_value_page_pv"></span>
 </span>
 </span>
     </div>
@@ -141,6 +147,15 @@
 <p>使用此种方法.so文件声明调用都在MainActivity中，而且对外接口只有一个native-lib.cpp,不能使用多个.cpp文件实现功能。<br>解决办法：第一种：参考完整版写一个Java文件用javah生成.h文件，完成c代码复制到之前的native-lib.cpp中，然后rebuild；第二种将得到的接口文件（.h文件）在cpp文件夹下新建一个.cpp文件将接口文件的代码复制进去，并在CMakeLists.txt中添加新.cpp文件的源文件地址，rebuild即可。</p>
 <h1 id="完整版"><a href="#完整版" class="headerlink" title="完整版"></a>完整版</h1><p>个人觉得这个版本复杂很多但是我们可以更完整的了解建立so库的全部过程，对于后面逆向的学习有更好的理解</p>
 <p>新建一个空项目，在Project Structure里面配置好NDK，不知道为什么在gradle3.5不能下载应用ndk之后自动配置，每一次要手动配置。<br><img src="https://i.imgur.com/NvsVJfd.png" alt=""><br><img src="https://i.imgur.com/woB6DhH.png" alt=""><br>检查是否配置好在gradle这个文件夹下查看local.properties文件里面是否函数有ndk的地址。<img src="https://i.imgur.com/6Uuqts2.png" alt=""></p>
+<p>新建一个Testjni.java<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyJni</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">static</span> &#123;</span><br><span class="line">        System.loadLibrary(<span class="string">"testjni"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">native</span> <span class="keyword">static</span> String <span class="title">getString</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>点击build–&gt;make project,生成.class文件</p>
+<p>找到classes文件夹，一般在E:\Android\TestJNI\app\build\intermediates\javac\debug下，使用javah来生成.h文件，命令为<figure class="highlight plain"><figcaption><span>-jni com_example_testjni_testjni ```,生成com_example_testjni_testjni.h</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">在src/main/下创建jni目录将上述.h文件复制进去，并创建.c文件，并把下面代码复制进去</span><br><span class="line">```JAVA</span><br><span class="line">#include &lt;jni.h&gt;</span><br><span class="line">#include &quot;com_example_testjni_testjni.h&quot;</span><br><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line"></span><br><span class="line">#ifdef __cplusplus</span><br><span class="line">extern &quot;C&quot; &#123;</span><br><span class="line">#endif</span><br><span class="line"></span><br><span class="line">JNIEXPORT jstring JNICALL com_example_testjni_testjni_getString</span><br><span class="line">  (JNIEnv *env, jclass jz)&#123;</span><br><span class="line"></span><br><span class="line">  return (*env)-&gt;NewStringUTF(env,&quot;this is the first time for me to use jni&quot;);</span><br><span class="line"></span><br><span class="line">  &#125;</span><br><span class="line">#ifdef __cplusplus</span><br><span class="line">&#125;</span><br><span class="line">#endif</span><br></pre></td></tr></table></figure></p>
+<p>再创建Android.mk和Application.mk文件（个人觉得这种太麻烦了，Cmake简单明了）<br>Android.mk是一个向Android NDK构建系统描述NDK项目的GNU makefile片段。我的理解是链接文件，告诉ndk操作的一些信息<br><strong>Android.mk</strong><br><figure class="highlight makefile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#定义模块当前路径(必须定义在文件开头，只需定义一次)</span></span><br><span class="line">LOCAL_ PATH := <span class="variable">$(<span class="built_in">call</span> my-<span class="built_in">dir</span>)</span></span><br><span class="line"><span class="comment">#清空当前环境变量 (LOCAL_PATH除外)</span></span><br><span class="line"><span class="keyword">include</span> <span class="variable">$(CLEAR_VARS )</span></span><br><span class="line"><span class="comment">#当前模块名(这里会生成libhello-jni.so),模块名唯一,且不能包含空格</span></span><br><span class="line">LOCAL_MODULE := testjni</span><br><span class="line"><span class="comment">#当前模块包含的源代码文件</span></span><br><span class="line">LOCAL_ SRC_ FILES := test.c</span><br><span class="line"><span class="comment">#表示当前模块将被编译成一个共享库</span></span><br><span class="line"><span class="keyword">include</span> <span class="variable">$(BUILD_ SHARED_LIBRARY)</span></span><br></pre></td></tr></table></figure></p>
+<p><strong>Application.mk</strong><br><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">APP_ABI := armeabi armeabi-v7a x86 <span class="comment">// 生成so文件的平台 ，设置为all, 代表所有平台</span></span><br></pre></td></tr></table></figure></p>
+<p>切换到main目录下 执行ndk-build 生成so文件</p>
+<p>将我们生成的so文件复制到 app下的libs文件夹下，并配置build.gradle 文件</p>
+<p>在MainActivity中调用</p>
+<p>别问我图在哪儿，上传不了。</p>
 
         
         <br />

@@ -11,7 +11,7 @@
 
     <title>
         
-        about - undefined
+        AUCTF一道逆向题 - undefined
         
     </title>
 
@@ -71,7 +71,7 @@
                     <span>存档</span>
                 </a>
             </li>
-            <li  class=active >
+            <li >
                 <a href="/about/">
                     <i class="iconfont icon-guanyu2"></i>
                     <span>关于</span>
@@ -87,6 +87,10 @@
             
         </ul>
     </div>
+    
+        <div id="toc" class="toc-article">
+    
+</div>
     
 </div>
 
@@ -112,12 +116,41 @@
     <div class="index-middle">
         <!-- Main Content -->
         
-<div class="post-content ">
-    
-    
-    <div id="comment-container">
+
+
+<div class="post-container">
+    <div class="post-title">
+        AUCTF一道逆向题
     </div>
-    <div id="lv-container">
+
+    <div class="post-meta">
+        <span class="attr">发布于：<span>2020-04-06 00:00:00</span></span>
+        
+        <span class="attr">标签：/
+        
+        <a class="tag" href="/tags/#Android Reverse" title="Android Reverse">Android Reverse</a>
+        <span>/</span>
+        
+        
+        </span>
+        <span class="attr">访问：<span id="busuanzi_value_page_pv"></span>
+</span>
+</span>
+    </div>
+    <div class="post-content ">
+        <p>跟学弟一起做的一道逆向题，先给出了一个32位PE，破解之后发现flag不在那儿，至于破解过程我就不赘述了，感觉应该是个位移解密。<br><img src="https://i.imgur.com/fZUiBPu.png" alt=""><br>这个时候我们发现他给出了一个新的IP，我们在网页上查看这个地址，发现网站里面有一个php文件，这就说明我们需要跟他的服务器进行交互。我尝试了一下发现怎么都不能交互成功，靠我仅有的web知识挣扎了一下，就放弃了。</p>
+<p>看完wp之后发现，给的PE文件里面竟然还有一个PE文件，用binwalk查看了一下发现0x24B0这里往后是一个新的PE，用winhex把它分离出来，得到新的PE文件，运行之后发现需要输入IP:PORT，正好之前给了新的地址和端口号，成功进入。<br><img src="https://i.imgur.com/KpOJo0u.png" alt=""><br>当然这肯定没解决完，他肯定不会连上了就告诉你flag，所以后面我们分析这个PE文件，很显然都是GO语言，这里就要去学习GO语言了，第二种方法运行exe的时候用Wireshark抓包，web方向的知识我也不赘述了。<br>贴上question.php代码<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">$my_headers = apache_request_headers();</span><br><span class="line">$hello = $_SERVER[<span class="string">'HTTP_HELLO'</span>];</span><br><span class="line">$hand = $_SERVER[<span class="string">'HTTP_COOKIE'</span>];</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> ($hello ==  <span class="string">"hello can you hear me?"</span>)&#123;</span><br><span class="line">	header(<span class="string">"COOKIE:you_found_me"</span>);</span><br><span class="line">	<span class="keyword">echo</span> <span class="string">"Ahh. I see you've found me... here comes the flag :)\n"</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">if</span> ($hand == <span class="string">"you_found_me"</span>)&#123;</span><br><span class="line">		<span class="keyword">echo</span> <span class="string">"auctf&#123;r3s0urc3_h4cK1Ng_1S_n3at0_1021&#125;\n"</span>;</span><br><span class="line">	&#125;</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>之所以写这个是因为最近看了嘶吼公众号推的一篇文章，APT组织利用IE和Firefox漏洞攻击，感觉在这个攻击手段跟这题解决方法在某些方面有点类似，只不过这个要简单很多。</p>
+
+        
+        <br />
+        <div id="comment-container">
+        </div>
+        <div id="disqus_thread"></div>
+
+        <div id="lv-container">
+        </div>
+
     </div>
 </div>
 
@@ -191,7 +224,7 @@
     // We expose some of the variables needed by the front end
     window.hexo_search_path = "search.json"
     window.hexo_root = "/"
-    window.isPost = false
+    window.isPost = true
 </script>
 <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
 <script src="/js/index.js"></script>
