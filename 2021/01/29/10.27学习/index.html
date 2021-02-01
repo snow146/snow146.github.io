@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="程序媛">
+    <meta name="keyword"  content="">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>
+        
+        
+        
+    </title>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/aircloud.css">
+    <link rel="stylesheet" href="/css/gitment.css">
+    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
+    <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
+    <!-- ga & ba script hoook -->
+    <script></script>
+</head>
+
+<body>
+
+<div class="site-nav-toggle" id="site-nav-toggle">
+    <button>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+    </button>
+</div>
+
+<div class="index-about">
+    <i> 一天一点进步 </i>
+</div>
+
+<div class="index-container">
+    
+    <div class="index-left">
+        
+<div class="nav" id="nav">
+    <div class="avatar-name">
+        <div class="avatar ">
+            <img src="/img/avatar.jpg" />
+        </div>
+        <div class="name">
+            <i>Snow146</i>
+        </div>
+    </div>
+    <div class="contents" id="nav-content">
+        <ul>
+            <li >
+                <a href="/">
+                    <i class="iconfont icon-shouye1"></i>
+                    <span>HOME</span>
+                </a>
+            </li>
+            <li >
+                <a href="/tags">
+                    <i class="iconfont icon-biaoqian1"></i>
+                    <span>TAGS</span>
+                </a>
+            </li>
+            <li >
+                <a href="/archives">
+                    <i class="iconfont icon-guidang2"></i>
+                    <span>ARCHIVES</span>
+                </a>
+            </li>
+            <li >
+                <a href="/about/">
+                    <i class="iconfont icon-guanyu2"></i>
+                    <span>ABOUT</span>
+                </a>
+            </li>
+            
+            <li>
+                <a id="search">
+                    <i class="iconfont icon-sousuo1"></i>
+                    <span>SEARCH</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    
+        <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#10-27学习"><span class="toc-text">10.27学习</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#apk结构"><span class="toc-text">apk结构</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Android四大组件"><span class="toc-text">Android四大组件</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#一-Activity"><span class="toc-text">一.Activity</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-1生命周期"><span class="toc-text">1.1生命周期</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-2Activity的创建流程"><span class="toc-text">1.2Activity的创建流程</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ContentProvider"><span class="toc-text">ContentProvider</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#利用contentprovider读取短信联系人"><span class="toc-text">利用contentprovider读取短信联系人</span></a></li></ol></li></ol>
+</div>
+    
+</div>
+
+
+<div class="search-field" id="search-field">
+    <div class="search-container">
+        <div class="search-input">
+            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
+            <input id="search-input"/>
+            <span id="begin-search">search</span>
+        </div>
+        <div class="search-result-container" id="search-result-container">
+
+        </div>
+    </div>
+</div>
+
+        <div class="index-about-mobile">
+            <i> 一天一点进步 </i>
+        </div>
+    </div>
+    
+    <div class="index-middle">
+        <!-- Main Content -->
+        
+
+
+<div class="post-container">
+    <div class="post-title">
+        
+    </div>
+
+    <div class="post-meta">
+        <span class="attr">Post：<span>2021-01-29 17:25:00</span></span>
+        
+        </span>
+        <span class="attr">Visit：<span id="busuanzi_value_page_pv"></span>
+</span>
+</span>
+    </div>
+    <div class="post-content ">
+        <h1 id="10-27学习"><a href="#10-27学习" class="headerlink" title="10.27学习"></a>10.27学习</h1><h2 id="apk结构"><a href="#apk结构" class="headerlink" title="apk结构"></a>apk结构</h2><p>META-INF目录：存放签名，用来保证apk包的完整性和系统安全</p>
+<p>assets目录：用于存放需要打包到APK中的静态文件。res目录下的文件会在.R文件中生成对应的资源ID，assets不会自动生成对应的ID，访问的时候需要AssetManager类。</p>
+<p>lib目录：这里存放应用程序依赖的native库文件，一般是用C/C++编写，这里的lib库可能包含4中不同类型，根据CPU型号的不同，大体可以分为ARM架构，ARM-V7a架构，MIPS架构和X86架构。</p>
+<p>res目录：存放资源文件，存在这个文件夹下的所有文件都会映射到Android工程的.R文件中，生成对应的ID，访问的时候直接使用资源ID即R.id.filename，res文件夹下可以包含多个文件夹。</p>
+<p>AndroidMainfes.xml：是Android应用程序的配置文件，开发Android应用程序的时候，一般都把代码中的每一个Activity，Service，Provider和Receiver在AndroidManifest.xml中注册，只有这样系统才能启动对应的组件，另外这个文件还包含一些权限声明以及使用的SDK版本信息等等。程序打包时，会把AndroidManifest.xml进行简单的编译，便于Android系统识别，编译之后的格式是AXML格式。</p>
+<p>classes.dex ：.class文件：Java文件编译生成的的字节码都保存在其中，一个类生成一个class文件</p>
+<p>​                         .dex文件：先生成class文件，Android应用在打包时通过AndroidSDK中dx工具将java字节码转换成Dalvik字节码，dx工具可以对多个class文件进行合并，重组，优化。</p>
+<p>resources.arsc：用来记录资源文件和资源id之间的映射关系，用来根据资源id寻找资源。Android的开发是分模块的，res目录专门用来存放资源文件，当在代码中需要调用资源文件时，只需要调用findviewbyId()就可以得到资源文件，每当在res文件夹下放一个文件，aapt就会自动生成对应的ID保存在.R文件，我们调用这个ID就可以，但是只有这个ID还不够，.R文件只是保证编译程序不报错，实际上在程序运行时，系统要根据ID去寻找对应的资源路径，而resources.arsc文件就是用来记录这些ID和资源文件位置对应关系的文件。</p>
+<p>—&gt;resouces.arsc映射逻辑<a href="https://juejin.im/post/6844903911602683918" target="_blank" rel="noopener">https://juejin.im/post/6844903911602683918</a></p>
+<p>索引是指在R.java文件中生的资源ID：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">final</span> <span class="class"><span class="keyword">class</span> <span class="title">R</span></span>&#123;</span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="class"><span class="keyword">class</span> <span class="title">drawable</span> </span>&#123; </span><br><span class="line">    	<span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> icon=<span class="number">0x7f020000</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>格式为：0xPPTTEEEE。</p>
+<p>esouces.arsc文件结构分为几大类:</p>
+<ul>
+<li><p>RES_TABLE_TYPE(描述的是整个resources.arsc的属性)</p>
+</li>
+<li><p>RES_STRING_POOL_TYPE（字符串资源池，主要存储<strong>字符串</strong>，注意这里的字符串资源池不包括资源类型和资源名）</p>
+</li>
+<li><p>RES_TABLE_PACKAGE_TYPE（是一个包的概念，主要记录<strong>资源类型</strong>偏移和<strong>包名</strong>偏移，<strong>索引串0xPPTTEEEE中的PP的值</strong>一般为7f）</p>
+</li>
+<li><p>RES_TABLE_TYPE_SPEC_TYPE（代表资源类型，Android中资源有attr,drawable,layout等，每一个类型都有这样的一个结构，所以在块中有多个，每个资源类型结构后面会跟着包名的数组，如drawable类型有多个尺寸的，所以有多少种尺寸后面就会跟着多少个RES_TABLE_TYPE_TYPE块，<strong>索引串0xPPTTEEEE中的TT的值</strong>）</p>
+</li>
+<li><p>RES_TABLE_TYPE_TYPE （每一个RES_TABLE_TYPE_TYPE里面包含一个ResTable_entry的数组，每一个资源的具体内容；注意上图中有一个ResTable_entry的偏移数组，这个<strong>数组就是0xPPTTEEEE中的EEEE</strong>；资源分bag和非bag类型，bag类型是值是确定的，非bag类型的值是有多个的）</p>
+</li>
+</ul>
+<h2 id="Android四大组件"><a href="#Android四大组件" class="headerlink" title="Android四大组件"></a>Android四大组件</h2><h3 id="一-Activity"><a href="#一-Activity" class="headerlink" title="一.Activity"></a>一.Activity</h3><p><img src="E:\blog图片\Activity.jpg" alt="Activity"></p>
+<h4 id="1-1生命周期"><a href="#1-1生命周期" class="headerlink" title="1.1生命周期"></a>1.1生命周期</h4><p><img src="E:\blog图片\生命周期.jpg" alt="生命周期"></p>
+<h4 id="1-2Activity的创建流程"><a href="#1-2Activity的创建流程" class="headerlink" title="1.2Activity的创建流程"></a>1.2Activity的创建流程</h4><ol>
+<li>自定义Activity类名，继承Activity类或者它的子类</li>
+<li>重写onCreate（）方法，在该方法中调用setContentView（）设置要显示的视图</li>
+<li>再AndroidManifest.xml对Activity进行配置</li>
+<li>启动Activity</li>
+<li>关闭activity</li>
+</ol>
+<p>1.3activity数据状态保存onSaveInstanceState</p>
+<p>一个参数：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@override</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onCreate</span> <span class="params">(Bundle savedInstantanceState)</span></span>&#123;</span><br><span class="line">	<span class="keyword">super</span>.onCreate(saveInstanceState);</span><br><span class="line">	setContentView(R.layout.activity_main);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>一般情况下，只有一个参数，页面数据短暂保存，返回或暂时离开或者横竖屏切换时调用onSaveInstanceState(Bundle outState)，再返回调用onRestoreInstanceState(Bundle saveInstanceState)</p>
+<p>两个参数</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">@override</span><br><span class="line">public void onCreate (Bundle saveInstanceState,PersistableBundle persistentState)&#123;</span><br><span class="line">	super.onCreate(saveInstanceState,persistentState);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>PersistableBundle参数来自配置文件中我们设置的Activity设置的一个属性：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">android:persistableMode=“persistAcrossReboots（重启设备，会持久化页面的数据或者状态）|persistRootOnly|persistNever&quot;</span><br></pre></td></tr></table></figure>
+<p>这样Activity拥有了持久化的能力，系统关机后重启的数据恢复能力。</p>
+<h3 id="ContentProvider"><a href="#ContentProvider" class="headerlink" title="ContentProvider"></a>ContentProvider</h3><p>一个应用的数据允许被另一个应用读取操作，可以通过ContentProvider类来实现，同时注册一个uri，使用ContentProvide根据uri就可以操作app中的数据</p>
+<h2 id="利用contentprovider读取短信联系人"><a href="#利用contentprovider读取短信联系人" class="headerlink" title="利用contentprovider读取短信联系人"></a>利用contentprovider读取短信联系人</h2><p>MainActivity.java</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line">package com.example.sms;</span><br><span class="line"></span><br><span class="line">import androidx.appcompat.app.AppCompatActivity;</span><br><span class="line"></span><br><span class="line">import android.content.ContentResolver;</span><br><span class="line">import android.database.Cursor;</span><br><span class="line">import android.net.Uri;</span><br><span class="line">import android.os.Bundle;</span><br><span class="line">import android.widget.ListView;</span><br><span class="line"></span><br><span class="line">public class MainActivity extends AppCompatActivity &#123;</span><br><span class="line"></span><br><span class="line">    private ListView listView;</span><br><span class="line">    private ContentResolver cr;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    protected void onCreate(Bundle savedInstanceState) &#123;</span><br><span class="line">        super.onCreate(savedInstanceState);</span><br><span class="line">        setContentView(R.layout.activity_main);</span><br><span class="line">        getMsgs();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    private void getMsgs() &#123;</span><br><span class="line">        Uri uri = Uri.parse(&quot;content://sms/&quot;);</span><br><span class="line">        ContentResolver resolver = getContentResolver();</span><br><span class="line">        //获取的是哪些列的信息</span><br><span class="line">        Cursor cursor = resolver.query(uri, new String[]&#123;&quot;address&quot;,&quot;date&quot;,&quot;type&quot;,&quot;body&quot;&#125;, null, null, null);</span><br><span class="line">        while(cursor.moveToNext())</span><br><span class="line">        &#123;</span><br><span class="line">            String address = cursor.getString(0);</span><br><span class="line">            String date = cursor.getString(1);</span><br><span class="line">            String type = cursor.getString(2);</span><br><span class="line">            String body = cursor.getString(3);</span><br><span class="line">            System.out.println(&quot;地址:&quot; + address);</span><br><span class="line">            System.out.println(&quot;时间:&quot; + date);</span><br><span class="line">            System.out.println(&quot;类型:&quot; + type);</span><br><span class="line">            System.out.println(&quot;内容:&quot; + body);</span><br><span class="line">            System.out.println(&quot;======================&quot;);</span><br><span class="line">        &#125;</span><br><span class="line">        cursor.close();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>AndroidMainfest.xml</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;</span><br><span class="line">&lt;manifest xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;</span><br><span class="line">    package=&quot;com.example.sms&quot;&gt;</span><br><span class="line">    &lt;uses-permission android:name=&quot;android.permission.READ_SMS&quot;/&gt;</span><br><span class="line">    //获取权限</span><br><span class="line">    &lt;application</span><br><span class="line">        android:allowBackup=&quot;true&quot;</span><br><span class="line">        android:icon=&quot;@mipmap/ic_launcher&quot;</span><br><span class="line">        android:label=&quot;@string/app_name&quot;</span><br><span class="line">        android:roundIcon=&quot;@mipmap/ic_launcher_round&quot;</span><br><span class="line">        android:supportsRtl=&quot;true&quot;</span><br><span class="line">        android:theme=&quot;@style/Theme.Sms&quot;&gt;</span><br><span class="line">        &lt;activity android:name=&quot;.MainActivity&quot;&gt;</span><br><span class="line">            &lt;intent-filter&gt;</span><br><span class="line">                &lt;action android:name=&quot;android.intent.action.MAIN&quot; /&gt;</span><br><span class="line"></span><br><span class="line">                &lt;category android:name=&quot;android.intent.category.LAUNCHER&quot; /&gt;</span><br><span class="line">            &lt;/intent-filter&gt;</span><br><span class="line">        &lt;/activity&gt;</span><br><span class="line">    &lt;/application&gt;</span><br><span class="line"></span><br><span class="line">&lt;/manifest&gt;</span><br></pre></td></tr></table></figure>
+<p>问题：运行时，发现不能获取权限。</p>
+
+        
+        <br />
+        <div id="comment-container">
+        </div>
+        <div id="disqus_thread"></div>
+
+        <div id="lv-container">
+        </div>
+
+    </div>
+</div>
+
+    </div>
+</div>
+
+
+<footer class="footer">
+    <ul class="list-inline text-center">
+        
+        <li>
+            <a target="_blank" href="https://twitter.com/SnowYa5">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-twitter"></i>
+                            </span>
+            </a>
+        </li>
+        
+        
+
+        
+        <li>
+            <a target="_blank" href="http://weibo.com/2880425030">
+                            <span class="fa-stack fa-lg">
+                                  <i class="iconfont icon-weibo"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+        <li>
+            <a target="_blank" href="https://www.facebook.com/layla.young.5454">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-facebook"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+        <li>
+            <a target="_blank"  href="https://github.com/snow146">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-github"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+
+    </ul>
+    
+    <p>
+        <span id="busuanzi_container_site_pv">
+            <span id="busuanzi_value_site_pv"></span>PV
+        </span>
+        <span id="busuanzi_container_site_uv">
+            <span id="busuanzi_value_site_uv"></span>UV
+        </span>
+        Created By <a href="https://hexo.io/">Hexo</a>  Theme <a href="https://github.com/aircloud/hexo-theme-aircloud">AirCloud</a></p>
+</footer>
+
+
+
+
+</body>
+
+<script>
+    // We expose some of the variables needed by the front end
+    window.hexo_search_path = "search.json"
+    window.hexo_root = "/"
+    window.isPost = true
+</script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+<script src="/js/index.js"></script>
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+</html>

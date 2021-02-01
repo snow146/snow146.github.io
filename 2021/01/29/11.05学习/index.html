@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="程序媛">
+    <meta name="keyword"  content="">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>
+        
+        
+        
+    </title>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/aircloud.css">
+    <link rel="stylesheet" href="/css/gitment.css">
+    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
+    <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
+    <!-- ga & ba script hoook -->
+    <script></script>
+</head>
+
+<body>
+
+<div class="site-nav-toggle" id="site-nav-toggle">
+    <button>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+    </button>
+</div>
+
+<div class="index-about">
+    <i> 一天一点进步 </i>
+</div>
+
+<div class="index-container">
+    
+    <div class="index-left">
+        
+<div class="nav" id="nav">
+    <div class="avatar-name">
+        <div class="avatar ">
+            <img src="/img/avatar.jpg" />
+        </div>
+        <div class="name">
+            <i>Snow146</i>
+        </div>
+    </div>
+    <div class="contents" id="nav-content">
+        <ul>
+            <li >
+                <a href="/">
+                    <i class="iconfont icon-shouye1"></i>
+                    <span>HOME</span>
+                </a>
+            </li>
+            <li >
+                <a href="/tags">
+                    <i class="iconfont icon-biaoqian1"></i>
+                    <span>TAGS</span>
+                </a>
+            </li>
+            <li >
+                <a href="/archives">
+                    <i class="iconfont icon-guidang2"></i>
+                    <span>ARCHIVES</span>
+                </a>
+            </li>
+            <li >
+                <a href="/about/">
+                    <i class="iconfont icon-guanyu2"></i>
+                    <span>ABOUT</span>
+                </a>
+            </li>
+            
+            <li>
+                <a id="search">
+                    <i class="iconfont icon-sousuo1"></i>
+                    <span>SEARCH</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    
+        <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#11-05学习"><span class="toc-text">11.05学习</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#定位信息获取"><span class="toc-text">定位信息获取</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#成果展示"><span class="toc-text">成果展示:</span></a></li></ol></li></ol>
+</div>
+    
+</div>
+
+
+<div class="search-field" id="search-field">
+    <div class="search-container">
+        <div class="search-input">
+            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
+            <input id="search-input"/>
+            <span id="begin-search">search</span>
+        </div>
+        <div class="search-result-container" id="search-result-container">
+
+        </div>
+    </div>
+</div>
+
+        <div class="index-about-mobile">
+            <i> 一天一点进步 </i>
+        </div>
+    </div>
+    
+    <div class="index-middle">
+        <!-- Main Content -->
+        
+
+
+<div class="post-container">
+    <div class="post-title">
+        
+    </div>
+
+    <div class="post-meta">
+        <span class="attr">Post：<span>2021-01-29 17:25:00</span></span>
+        
+        </span>
+        <span class="attr">Visit：<span id="busuanzi_value_page_pv"></span>
+</span>
+</span>
+    </div>
+    <div class="post-content ">
+        <h1 id="11-05学习"><a href="#11-05学习" class="headerlink" title="11.05学习"></a>11.05学习</h1><h2 id="定位信息获取"><a href="#定位信息获取" class="headerlink" title="定位信息获取"></a>定位信息获取</h2><p>写了一个定位获取的功能应用，模拟一下app获取定位时具体代码实现</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br></pre></td><td class="code"><pre><span class="line">package cn.twle.android.GPSUpdate;</span><br><span class="line"></span><br><span class="line">import androidx.annotation.NonNull;</span><br><span class="line">import androidx.appcompat.app.AppCompatActivity;</span><br><span class="line"></span><br><span class="line">import android.content.Context;</span><br><span class="line">import android.content.Intent;</span><br><span class="line">import android.content.pm.PackageManager;</span><br><span class="line">import android.location.Location;</span><br><span class="line">import android.location.LocationListener;</span><br><span class="line">import android.location.LocationManager;</span><br><span class="line">import android.os.Bundle;</span><br><span class="line">import android.os.Handler;</span><br><span class="line">import android.os.Message;</span><br><span class="line">import android.provider.Settings;</span><br><span class="line">import android.widget.TextView;</span><br><span class="line">import android.widget.Toast;</span><br><span class="line"></span><br><span class="line">import static android.Manifest.permission.ACCESS_FINE_LOCATION;</span><br><span class="line"></span><br><span class="line">public class MainActivity extends AppCompatActivity &#123;</span><br><span class="line"></span><br><span class="line">    private LocationManager lm;</span><br><span class="line">    private TextView ms_msg;</span><br><span class="line">    private String loc_msg;</span><br><span class="line"></span><br><span class="line">    private Handler handler = new Handler(new Handler.Callback() &#123;</span><br><span class="line">        @Override</span><br><span class="line">        public boolean handleMessage(@NonNull Message msg) &#123;</span><br><span class="line">            if(msg.what == 0x001)&#123;</span><br><span class="line">                ms_msg.setText(loc_msg);</span><br><span class="line">            &#125;</span><br><span class="line">            return false;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;);</span><br><span class="line"></span><br><span class="line">    private LocationListener mLocationListener = new LocationListener() &#123;</span><br><span class="line">        @Override</span><br><span class="line">        public void onLocationChanged(@NonNull Location location) &#123;</span><br><span class="line">            updataShow(location);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;;</span><br><span class="line">    @Override</span><br><span class="line">    protected void onCreate(Bundle savedInstanceState) &#123;</span><br><span class="line">        super.onCreate(savedInstanceState);</span><br><span class="line">        setContentView(R.layout.activity_main);</span><br><span class="line">        ms_msg = (TextView)findViewById(R.id.ms_msg);</span><br><span class="line"></span><br><span class="line">        lm = (LocationManager)getSystemService(Context.LOCATION_SERVICE);</span><br><span class="line"></span><br><span class="line">        locationUpdata();</span><br><span class="line">    &#125;</span><br><span class="line">    public void onResume()&#123;</span><br><span class="line">        super.onResume();</span><br><span class="line">        locationUpdata();</span><br><span class="line">    &#125;</span><br><span class="line">    public void onPause()</span><br><span class="line">    &#123;</span><br><span class="line">        super.onPause();</span><br><span class="line">        lm.removeUpdates(mLocationListener);</span><br><span class="line">    &#125;</span><br><span class="line">    public void locationUpdata()&#123;</span><br><span class="line">        if(checkCallingOrSelfPermission(ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED)&#123;</span><br><span class="line">            Toast.makeText(MainActivity.this,&quot;请打开GPS&quot;,Toast.LENGTH_SHORT).show();</span><br><span class="line"></span><br><span class="line">            Intent intent = new Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS);</span><br><span class="line">            startActivityForResult(intent,0);</span><br><span class="line">            return;</span><br><span class="line">        &#125;</span><br><span class="line">        Location location = lm.getLastKnownLocation(LocationManager.NETWORK_PROVIDER);</span><br><span class="line">        updataShow(location);</span><br><span class="line">        lm.requestLocationUpdates(LocationManager.GPS_PROVIDER,2000,8,mLocationListener);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    private void updataShow(Location location) &#123;</span><br><span class="line">        if(location != null)&#123;</span><br><span class="line">            StringBuilder sb = new StringBuilder();</span><br><span class="line">            sb.append(&quot;当前位置信息:\n&quot;);</span><br><span class="line">            sb.append(&quot;精度：&quot;+location.getLongitude()+&quot;\n&quot;);</span><br><span class="line">            sb.append(&quot;纬度&quot;+location.getLatitude()+&quot;\n&quot;);</span><br><span class="line">            sb.append(&quot;高度&quot;+location.getAltitude()+&quot;\n&quot;);</span><br><span class="line">            sb.append(&quot;定位精度：&quot;+location.getAccuracy()+&quot;\n&quot;);</span><br><span class="line"></span><br><span class="line">            loc_msg = sb.toString();</span><br><span class="line">        &#125;</span><br><span class="line">        else</span><br><span class="line">            loc_msg = &quot;&quot;;</span><br><span class="line">        handler.sendEmptyMessage(0x001);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="成果展示"><a href="#成果展示" class="headerlink" title="成果展示:"></a>成果展示:</h2><p><img src="E:\blog图片\image-20201204183508543.png" alt="image-20201204183508543"></p>
+
+        
+        <br />
+        <div id="comment-container">
+        </div>
+        <div id="disqus_thread"></div>
+
+        <div id="lv-container">
+        </div>
+
+    </div>
+</div>
+
+    </div>
+</div>
+
+
+<footer class="footer">
+    <ul class="list-inline text-center">
+        
+        <li>
+            <a target="_blank" href="https://twitter.com/SnowYa5">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-twitter"></i>
+                            </span>
+            </a>
+        </li>
+        
+        
+
+        
+        <li>
+            <a target="_blank" href="http://weibo.com/2880425030">
+                            <span class="fa-stack fa-lg">
+                                  <i class="iconfont icon-weibo"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+        <li>
+            <a target="_blank" href="https://www.facebook.com/layla.young.5454">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-facebook"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+        <li>
+            <a target="_blank"  href="https://github.com/snow146">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-github"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+
+    </ul>
+    
+    <p>
+        <span id="busuanzi_container_site_pv">
+            <span id="busuanzi_value_site_pv"></span>PV
+        </span>
+        <span id="busuanzi_container_site_uv">
+            <span id="busuanzi_value_site_uv"></span>UV
+        </span>
+        Created By <a href="https://hexo.io/">Hexo</a>  Theme <a href="https://github.com/aircloud/hexo-theme-aircloud">AirCloud</a></p>
+</footer>
+
+
+
+
+</body>
+
+<script>
+    // We expose some of the variables needed by the front end
+    window.hexo_search_path = "search.json"
+    window.hexo_root = "/"
+    window.isPost = true
+</script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+<script src="/js/index.js"></script>
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+</html>

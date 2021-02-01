@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="程序媛">
+    <meta name="keyword"  content="">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>
+        
+        
+        
+    </title>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/aircloud.css">
+    <link rel="stylesheet" href="/css/gitment.css">
+    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
+    <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
+    <!-- ga & ba script hoook -->
+    <script></script>
+</head>
+
+<body>
+
+<div class="site-nav-toggle" id="site-nav-toggle">
+    <button>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+    </button>
+</div>
+
+<div class="index-about">
+    <i> 一天一点进步 </i>
+</div>
+
+<div class="index-container">
+    
+    <div class="index-left">
+        
+<div class="nav" id="nav">
+    <div class="avatar-name">
+        <div class="avatar ">
+            <img src="/img/avatar.jpg" />
+        </div>
+        <div class="name">
+            <i>Snow146</i>
+        </div>
+    </div>
+    <div class="contents" id="nav-content">
+        <ul>
+            <li >
+                <a href="/">
+                    <i class="iconfont icon-shouye1"></i>
+                    <span>HOME</span>
+                </a>
+            </li>
+            <li >
+                <a href="/tags">
+                    <i class="iconfont icon-biaoqian1"></i>
+                    <span>TAGS</span>
+                </a>
+            </li>
+            <li >
+                <a href="/archives">
+                    <i class="iconfont icon-guidang2"></i>
+                    <span>ARCHIVES</span>
+                </a>
+            </li>
+            <li >
+                <a href="/about/">
+                    <i class="iconfont icon-guanyu2"></i>
+                    <span>ABOUT</span>
+                </a>
+            </li>
+            
+            <li>
+                <a id="search">
+                    <i class="iconfont icon-sousuo1"></i>
+                    <span>SEARCH</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    
+        <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Android启动模式和TaskAffinity"><span class="toc-text">Android启动模式和TaskAffinity</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#任务和返回栈"><span class="toc-text">任务和返回栈</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#启动模式"><span class="toc-text">启动模式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#standard默认模式"><span class="toc-text">standard默认模式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#singleTop栈顶复用模式"><span class="toc-text">singleTop栈顶复用模式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#singleTask-栈内复用模式"><span class="toc-text">singleTask 栈内复用模式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#taskAffinity属性"><span class="toc-text">taskAffinity属性</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#总结"><span class="toc-text">总结</span></a></li></ol></li></ol>
+</div>
+    
+</div>
+
+
+<div class="search-field" id="search-field">
+    <div class="search-container">
+        <div class="search-input">
+            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
+            <input id="search-input"/>
+            <span id="begin-search">search</span>
+        </div>
+        <div class="search-result-container" id="search-result-container">
+
+        </div>
+    </div>
+</div>
+
+        <div class="index-about-mobile">
+            <i> 一天一点进步 </i>
+        </div>
+    </div>
+    
+    <div class="index-middle">
+        <!-- Main Content -->
+        
+
+
+<div class="post-container">
+    <div class="post-title">
+        
+    </div>
+
+    <div class="post-meta">
+        <span class="attr">Post：<span>2021-01-29 17:25:00</span></span>
+        
+        </span>
+        <span class="attr">Visit：<span id="busuanzi_value_page_pv"></span>
+</span>
+</span>
+    </div>
+    <div class="post-content ">
+        <h1 id="Android启动模式和TaskAffinity"><a href="#Android启动模式和TaskAffinity" class="headerlink" title="Android启动模式和TaskAffinity"></a>Android启动模式和TaskAffinity</h1><h2 id="任务和返回栈"><a href="#任务和返回栈" class="headerlink" title="任务和返回栈"></a>任务和返回栈</h2><p>应用通常包含多个 Activity ，每个 Activity 均应围绕用户可以执行的特定操作设计，并且能够启动其他 Activity，一个 Activity 可以启动设备上其他应用中的 Activity，即使两个 Activity 可能来自不同的应用，但是 Android 仍会将 Activity 保留在相同的任务中，以维护这种无缝的用户体验。这里所说的<strong>任务</strong>就是指在执行特定作业时与用户交互的一系列 Activity，这些 Activity 按照各自的打开顺序排列在<strong>堆栈</strong>（即返回栈）中。<strong>返回栈</strong>以“后进先出”对象结构运行。</p>
+<p>查看activity Task栈的情况 adb命令：</p>
+<p>adb shell dumpsys activity activities</p>
+<h2 id="启动模式"><a href="#启动模式" class="headerlink" title="启动模式"></a>启动模式</h2><p>一直启动activity系统会创建多个实例，提供提供启动模式来修改系统的默认行为</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">adnroid:launchMode=<span class="string">"standard"</span> or <span class="string">"1"</span></span><br><span class="line"></span><br><span class="line">					<span class="string">"singleTop"</span> or <span class="string">"2"</span></span><br><span class="line"></span><br><span class="line">					<span class="string">"singleTask"</span> or <span class="string">"3"</span></span><br><span class="line"></span><br><span class="line">					<span class="string">"singleInstance"</span> or <span class="string">"4"</span></span><br></pre></td></tr></table></figure>
+<h2 id="standard默认模式"><a href="#standard默认模式" class="headerlink" title="standard默认模式"></a>standard默认模式</h2><p>系统每启动一次 Activity 的任务就会创建一次 Activity 的新实例并向其传送 Intent。每个实例可以属于不同的任务，一个任务也能拥有多个实例。这种模式的 Activity 被创建时它的 onCreate、onStart 都会被调用。</p>
+<h2 id="singleTop栈顶复用模式"><a href="#singleTop栈顶复用模式" class="headerlink" title="singleTop栈顶复用模式"></a>singleTop栈顶复用模式</h2><p>如果当前任务的顶部已存在Activity的一个实例，则系统会通过调用该实例onNewIntent()方法向其传送Intent，而不是创建Activity的新实例。当返回栈顶部不是所需Activity的现有实例，Activity可以被多次实例化，而每个实例均可属于不同的任务，并且一个任务可以拥有多个实例。这个 Activity 的 onCreate、onStart 不会被系统调用，因为它并没有发生改变。</p>
+<h2 id="singleTask-栈内复用模式"><a href="#singleTask-栈内复用模式" class="headerlink" title="singleTask 栈内复用模式"></a>singleTask 栈内复用模式</h2><p>单例模式下，只要Acivity在一个栈中存在，那么多次启动次Activity都不会创建新实例，但是会通过回调onNewIntent来启动。</p>
+<p>当具有一个singleTask模式的Activity请求启动后，比如Activity A,系统会先寻找是否存在A<strong>想要的任务栈</strong>（<strong>taskAffinity属性</strong>），如果不存在，就重新创建一个任务栈，然后创建 A 的实例后把 A 放到栈中。如果存在 A 所需的任务栈，这时要看 A 是否在栈中有实例存在，如果有实例存在，那么系统就会把 A 调到栈顶并调用它的 onNewIntent 方法，如果实例不存在，就创建 A 的实例并把 A 压入栈中 。</p>
+<p>关于上文中所说的<code>想要的任务栈</code>，指的是 taskAffinity 属性。</p>
+<p>singleTask 默认有 clearTop 的效果，会导致栈内所有在它上面的 Activity 全部出栈</p>
+<p>singleInstance单实例模式</p>
+<p>与 singleTask 相同，只是系统不会将任何其他 Activity 启动到包含实例的任务中。该 Activity 始终是其任务唯一仅有的成员；由此 Activity 启动的任何 Activity 均在单独的任务中打开。也就是有此种模式的 Activity 只能单独地位于一个任务栈中</p>
+<p>如果已经创建过，则调用 onNewIntent 方法 不会调用 onCreate 和 onStart</p>
+<h2 id="taskAffinity属性"><a href="#taskAffinity属性" class="headerlink" title="taskAffinity属性"></a>taskAffinity属性</h2><p>taskAffinity 属性主要和 singleTask 或者 allowTaskReparenting 属性配对使用，在其他情况下没有意义。</p>
+<p>当设置了taskAffinity属性那么这个 Activity 在被创建时就会运行在和 taskAffinity 名字相同的任务栈中，如果没有，则新建 taskAffinity 指定的任务栈，并将 Activity 放入该栈中。</p>
+<p><img src="C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20201208161046801.png" alt="image-20201208161046801"></p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><table>
+<thead>
+<tr>
+<th style="text-align:center">launchMode</th>
+<th style="text-align:center">使用场景</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><strong>singleTop</strong></td>
+<td style="text-align:center">适合启动同类型的 Activity，例如接收通知启动的内容显示页面</td>
+</tr>
+<tr>
+<td style="text-align:center">singleTask</td>
+<td style="text-align:center">适合作为程序入口</td>
+</tr>
+<tr>
+<td style="text-align:center">singleInstance</td>
+<td style="text-align:center">适合需要与程序分离开的页面，例如闹铃的响铃界面</td>
+</tr>
+</tbody>
+</table>
+<p>onNewIntent()方法</p>
+<p>当Acivity已经被启动且处于当前应用返回栈中，activity的<strong>LaunchMode</strong>为SingleTop、SingleTask、SingleInstance时会被调用。</p>
+<ul>
+<li><p>当Acivityde LaunchMode为singleTop时</p>
+<p>当需要再次响应次Activity启动需求时，会复用栈顶的已有的Activity,还会调用onNewIntent（）方法，并且，再次接受新发来的intent()一定会先执行onPause()方法。</p>
+<p>生命周期顺序：onCreate-&gt;onStart-&gt;onResume-&gt;<strong>onPause</strong>-&gt;<strong>onNewIntent</strong>-&gt;<strong>onResume</strong></p>
+</li>
+<li><p>当Activity的LaunchMode为SingleTask，SingleInstance</p>
+<p>生命周期调用顺序：onCreate -&gt; onStart -&gt; onResume -&gt; …… -&gt; onPause -&gt; <strong>onStop</strong> -&gt; <strong>onNewIntent</strong> -&gt; <strong>onRestart</strong> -&gt; onStart -&gt; onResume</p>
+</li>
+</ul>
+<p><strong>onNewIntent()中的陷阱：</strong></p>
+<p>当多次启动一个栈唯一模式下的activity时，在onNewIntent()里面的getIntent()得到的intent感觉都是第一次的那个数据。</p>
+<p>在<strong>这儿会有个陷阱</strong>，因为它就是<strong>会返回第一个intent的数据</strong>，就是这个坑。</p>
+<p>原因是因为<strong>没有</strong>在<code>onNewIntent()</code>里面设置<code>setIntent()</code>，即将<strong>最新</strong>的<strong><code>intent</code></strong>设置在<strong>这个activity实例</strong>中。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">@Override</span><br><span class="line">protected void onNewIntent(Intent intent) &#123;</span><br><span class="line">    super.onNewIntent(intent);</span><br><span class="line">    setIntent(intent);//设置新的intent</span><br><span class="line">    int data = getIntent().getIntExtra(&quot;tanksu&quot;, 0);//此时的到的数据就是正确的了</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>参考链接：<a href="https://www.cnblogs.com/pshell/p/7979649.html" target="_blank" rel="noopener">https://www.cnblogs.com/pshell/p/7979649.html</a></p>
+<p><a href="https://www.jianshu.com/p/2c73be80ce8d" target="_blank" rel="noopener">https://www.jianshu.com/p/2c73be80ce8d</a></p>
+<p><a href="https://blog.csdn.net/goodlixueyong/article/details/49620667" target="_blank" rel="noopener">https://blog.csdn.net/goodlixueyong/article/details/49620667</a></p>
+<p><a href="https://juejin.cn/post/6844904007085850631" target="_blank" rel="noopener">https://juejin.cn/post/6844904007085850631</a></p>
+
+        
+        <br />
+        <div id="comment-container">
+        </div>
+        <div id="disqus_thread"></div>
+
+        <div id="lv-container">
+        </div>
+
+    </div>
+</div>
+
+    </div>
+</div>
+
+
+<footer class="footer">
+    <ul class="list-inline text-center">
+        
+        <li>
+            <a target="_blank" href="https://twitter.com/SnowYa5">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-twitter"></i>
+                            </span>
+            </a>
+        </li>
+        
+        
+
+        
+        <li>
+            <a target="_blank" href="http://weibo.com/2880425030">
+                            <span class="fa-stack fa-lg">
+                                  <i class="iconfont icon-weibo"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+        <li>
+            <a target="_blank" href="https://www.facebook.com/layla.young.5454">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-facebook"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+        <li>
+            <a target="_blank"  href="https://github.com/snow146">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-github"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+
+    </ul>
+    
+    <p>
+        <span id="busuanzi_container_site_pv">
+            <span id="busuanzi_value_site_pv"></span>PV
+        </span>
+        <span id="busuanzi_container_site_uv">
+            <span id="busuanzi_value_site_uv"></span>UV
+        </span>
+        Created By <a href="https://hexo.io/">Hexo</a>  Theme <a href="https://github.com/aircloud/hexo-theme-aircloud">AirCloud</a></p>
+</footer>
+
+
+
+
+</body>
+
+<script>
+    // We expose some of the variables needed by the front end
+    window.hexo_search_path = "search.json"
+    window.hexo_root = "/"
+    window.isPost = true
+</script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+<script src="/js/index.js"></script>
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+</html>

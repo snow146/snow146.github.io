@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="程序媛">
+    <meta name="keyword"  content="">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>
+        
+        
+        
+    </title>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/aircloud.css">
+    <link rel="stylesheet" href="/css/gitment.css">
+    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
+    <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
+    <!-- ga & ba script hoook -->
+    <script></script>
+</head>
+
+<body>
+
+<div class="site-nav-toggle" id="site-nav-toggle">
+    <button>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+    </button>
+</div>
+
+<div class="index-about">
+    <i> 一天一点进步 </i>
+</div>
+
+<div class="index-container">
+    
+    <div class="index-left">
+        
+<div class="nav" id="nav">
+    <div class="avatar-name">
+        <div class="avatar ">
+            <img src="/img/avatar.jpg" />
+        </div>
+        <div class="name">
+            <i>Snow146</i>
+        </div>
+    </div>
+    <div class="contents" id="nav-content">
+        <ul>
+            <li >
+                <a href="/">
+                    <i class="iconfont icon-shouye1"></i>
+                    <span>HOME</span>
+                </a>
+            </li>
+            <li >
+                <a href="/tags">
+                    <i class="iconfont icon-biaoqian1"></i>
+                    <span>TAGS</span>
+                </a>
+            </li>
+            <li >
+                <a href="/archives">
+                    <i class="iconfont icon-guidang2"></i>
+                    <span>ARCHIVES</span>
+                </a>
+            </li>
+            <li >
+                <a href="/about/">
+                    <i class="iconfont icon-guanyu2"></i>
+                    <span>ABOUT</span>
+                </a>
+            </li>
+            
+            <li>
+                <a id="search">
+                    <i class="iconfont icon-sousuo1"></i>
+                    <span>SEARCH</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    
+        <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#12-02学习"><span class="toc-text">12.02学习</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#activity-alias标签元素"><span class="toc-text">activity-alias标签元素</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#setComponentEnabledSetting方法"><span class="toc-text">setComponentEnabledSetting方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Context-getExternalFilesDir-和Context-getExternalCacheDir"><span class="toc-text">Context.getExternalFilesDir()和Context.getExternalCacheDir()</span></a></li></ol></li></ol>
+</div>
+    
+</div>
+
+
+<div class="search-field" id="search-field">
+    <div class="search-container">
+        <div class="search-input">
+            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
+            <input id="search-input"/>
+            <span id="begin-search">search</span>
+        </div>
+        <div class="search-result-container" id="search-result-container">
+
+        </div>
+    </div>
+</div>
+
+        <div class="index-about-mobile">
+            <i> 一天一点进步 </i>
+        </div>
+    </div>
+    
+    <div class="index-middle">
+        <!-- Main Content -->
+        
+
+
+<div class="post-container">
+    <div class="post-title">
+        
+    </div>
+
+    <div class="post-meta">
+        <span class="attr">Post：<span>2021-01-29 17:25:00</span></span>
+        
+        </span>
+        <span class="attr">Visit：<span id="busuanzi_value_page_pv"></span>
+</span>
+</span>
+    </div>
+    <div class="post-content ">
+        <h1 id="12-02学习"><a href="#12-02学习" class="headerlink" title="12.02学习"></a>12.02学习</h1><h2 id="activity-alias标签元素"><a href="#activity-alias标签元素" class="headerlink" title="activity-alias标签元素"></a>activity-alias标签元素</h2><p>此标签是在看马甲包应用的时候看到的。参考链接<a href="https://blog.csdn.net/ahence/article/details/51648768" target="_blank" rel="noopener">https://blog.csdn.net/ahence/article/details/51648768</a></p>
+<p>功能</p>
+<p>activity-alias为一个已经存在的Activity创建一个别名，作用是可以通过该别名标签声明快速打开目标Activity，因此activity-alias可以用来设置某个Activity快捷入口可以放在桌面上或者通过该别名被其他组件快速调起。</p>
+<p>该标签元素支持一些属性及intent-filter、meta-data等配置，因此可以触发一些跟目标Activity不同的功能逻辑，虽然打开的是同一个Activity。<strong>举个简单的例子</strong>，如之前需要先打开主界面，然后才能点击进入某个Activity，如果使用activity-alias为该Activity配置一个快捷入口，甚至可以为其在桌面生成一个图标，然后点击桌面图标可直接进入该Activity，该功能可满足某些需要快速到达功能界面的需求。</p>
+<p><strong>以上，此标签可以替换图标，再结合setComponentEnabledSetting ，可以做到隐藏原本的应用的图标，替换成新的图标，从而达到隐藏真是app的作用，这样就成为了一个马甲包应用。</strong></p>
+<p>重要属性：</p>
+<ol>
+<li>android:icon 该属性<strong>允许自定义icon</strong>，可以不同于应用本身在桌面的icon。如果需要在桌面上创建快捷入口，也许产品会要求换个不同的icon。</li>
+<li>android:label 该属性类似于android:icon，图标都换了，换个名称也合情合理吧，此属性就是换一个桌面应用名称。</li>
+<li>android:name 该属性可以为任意字符串，但最好符合类名命名规范。activity元素的name属性实质上都会指向一个具体的Activity类，而<strong>activity-alias的name属性仅作为一个唯一标识而已</strong>。</li>
+</ol>
+<h2 id="setComponentEnabledSetting方法"><a href="#setComponentEnabledSetting方法" class="headerlink" title="setComponentEnabledSetting方法"></a>setComponentEnabledSetting方法</h2><p>该方法是禁用和开启组件的方法，也是看马甲包应用的时候看到的，可以隐藏一个app的图标，显示另一个图标。参考链接<a href="https://blog.csdn.net/mingli198611/article/details/17269355" target="_blank" rel="noopener">https://blog.csdn.net/mingli198611/article/details/17269355</a></p>
+<p><code>public void setComponentEnabledSetting (ComponentName componentName, int newState, int flags)</code></p>
+<p><code>componentName：组件名称</code> </p>
+<p><code>newState：组件新的状态，可以设置三个值，分别是如下：</code><br><code>不可用状态：COMPONENT_ENABLED_STATE_DISABLED</code><br><code>可用状态：COMPONENT_ENABLED_STATE_ENABLED</code><br><code>默认状态：COMPONENT_ENABLED_STATE_DEFAULT</code> </p>
+<p><code>flags:行为标签，值可以是DONT_KILL_APP或者0。 0说明杀死包含该组件的ap</code></p>
+<h2 id="Context-getExternalFilesDir-和Context-getExternalCacheDir"><a href="#Context-getExternalFilesDir-和Context-getExternalCacheDir" class="headerlink" title="Context.getExternalFilesDir()和Context.getExternalCacheDir()"></a>Context.getExternalFilesDir()和Context.getExternalCacheDir()</h2><p>这两个方法是获取目录的方法，一般用在app内下载apk包时或者查找使用文件时会用到。</p>
+<p><strong>Context.getExternalFilesDir()</strong>方法可以获取到 SDCard/Android/data/你的应用的包名/files/ 目录，一般放一些长时间保存的数据<br><strong>Context.getExternalCacheDir()</strong>方法可以获取到 SDCard/Android/data/你的应用包名/cache/目录，一般存放临时缓存数据</p>
+
+        
+        <br />
+        <div id="comment-container">
+        </div>
+        <div id="disqus_thread"></div>
+
+        <div id="lv-container">
+        </div>
+
+    </div>
+</div>
+
+    </div>
+</div>
+
+
+<footer class="footer">
+    <ul class="list-inline text-center">
+        
+        <li>
+            <a target="_blank" href="https://twitter.com/SnowYa5">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-twitter"></i>
+                            </span>
+            </a>
+        </li>
+        
+        
+
+        
+        <li>
+            <a target="_blank" href="http://weibo.com/2880425030">
+                            <span class="fa-stack fa-lg">
+                                  <i class="iconfont icon-weibo"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+        <li>
+            <a target="_blank" href="https://www.facebook.com/layla.young.5454">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-facebook"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+        <li>
+            <a target="_blank"  href="https://github.com/snow146">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-github"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+
+    </ul>
+    
+    <p>
+        <span id="busuanzi_container_site_pv">
+            <span id="busuanzi_value_site_pv"></span>PV
+        </span>
+        <span id="busuanzi_container_site_uv">
+            <span id="busuanzi_value_site_uv"></span>UV
+        </span>
+        Created By <a href="https://hexo.io/">Hexo</a>  Theme <a href="https://github.com/aircloud/hexo-theme-aircloud">AirCloud</a></p>
+</footer>
+
+
+
+
+</body>
+
+<script>
+    // We expose some of the variables needed by the front end
+    window.hexo_search_path = "search.json"
+    window.hexo_root = "/"
+    window.isPost = true
+</script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+<script src="/js/index.js"></script>
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+</html>

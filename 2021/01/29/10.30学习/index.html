@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="程序媛">
+    <meta name="keyword"  content="">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>
+        
+        
+        
+    </title>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/aircloud.css">
+    <link rel="stylesheet" href="/css/gitment.css">
+    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
+    <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
+    <!-- ga & ba script hoook -->
+    <script></script>
+</head>
+
+<body>
+
+<div class="site-nav-toggle" id="site-nav-toggle">
+    <button>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+    </button>
+</div>
+
+<div class="index-about">
+    <i> 一天一点进步 </i>
+</div>
+
+<div class="index-container">
+    
+    <div class="index-left">
+        
+<div class="nav" id="nav">
+    <div class="avatar-name">
+        <div class="avatar ">
+            <img src="/img/avatar.jpg" />
+        </div>
+        <div class="name">
+            <i>Snow146</i>
+        </div>
+    </div>
+    <div class="contents" id="nav-content">
+        <ul>
+            <li >
+                <a href="/">
+                    <i class="iconfont icon-shouye1"></i>
+                    <span>HOME</span>
+                </a>
+            </li>
+            <li >
+                <a href="/tags">
+                    <i class="iconfont icon-biaoqian1"></i>
+                    <span>TAGS</span>
+                </a>
+            </li>
+            <li >
+                <a href="/archives">
+                    <i class="iconfont icon-guidang2"></i>
+                    <span>ARCHIVES</span>
+                </a>
+            </li>
+            <li >
+                <a href="/about/">
+                    <i class="iconfont icon-guanyu2"></i>
+                    <span>ABOUT</span>
+                </a>
+            </li>
+            
+            <li>
+                <a id="search">
+                    <i class="iconfont icon-sousuo1"></i>
+                    <span>SEARCH</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    
+        <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#10-30学习"><span class="toc-text">10.30学习</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#android-exported"><span class="toc-text">android:exported</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#BroadcastReceiver-学习"><span class="toc-text">BroadcastReceiver 学习</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Android之standout（浮动窗口）"><span class="toc-text">Android之standout（浮动窗口）</span></a></li></ol></li></ol>
+</div>
+    
+</div>
+
+
+<div class="search-field" id="search-field">
+    <div class="search-container">
+        <div class="search-input">
+            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
+            <input id="search-input"/>
+            <span id="begin-search">search</span>
+        </div>
+        <div class="search-result-container" id="search-result-container">
+
+        </div>
+    </div>
+</div>
+
+        <div class="index-about-mobile">
+            <i> 一天一点进步 </i>
+        </div>
+    </div>
+    
+    <div class="index-middle">
+        <!-- Main Content -->
+        
+
+
+<div class="post-container">
+    <div class="post-title">
+        
+    </div>
+
+    <div class="post-meta">
+        <span class="attr">Post：<span>2021-01-29 17:25:00</span></span>
+        
+        </span>
+        <span class="attr">Visit：<span id="busuanzi_value_page_pv"></span>
+</span>
+</span>
+    </div>
+    <div class="post-content ">
+        <h1 id="10-30学习"><a href="#10-30学习" class="headerlink" title="10.30学习"></a>10.30学习</h1><h2 id="android-exported"><a href="#android-exported" class="headerlink" title="android:exported"></a>android:exported</h2><p>android:exported是Android中的四大组件 Activity，Service，Provider，Receiver 四大组件中都会有的一个属性。</p>
+<p>总体来说它的主要作用是：是否支持其它应用调用当前组件。<br>默认值：如果包含有intent-filter 默认值为true; 没有intent-filter默认值为false。</p>
+<h2 id="BroadcastReceiver-学习"><a href="#BroadcastReceiver-学习" class="headerlink" title="BroadcastReceiver 学习"></a>BroadcastReceiver 学习</h2><p>程序启动BroadcastReceiver 的步骤</p>
+<p>1.创建需要启动的BroadcastReceiver 的intent</p>
+<p>2.调用context的sendBroadcast（）或SendOrderedBroadcast（）方法来启动指定的BroadcastReceiver。其中<code>sendBroadcast</code>发送的是普通广播，<code>sendOrderedBroadcast</code>发送的是有序广播。</p>
+<p>创建BroadcastReceiver</p>
+<p>第一步：创建BroadcastReceiver的子类：</p>
+<p>​    由于BroadcastReceiver本质上是一种监听器，所以创建BroadcastReceiver的方法也非常简单，只需要创建一个BroadcastReceiver的子类然后重写onReceive (Context context, Intentintent)方法即可。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">public class MyBroadcastReceiver extends BroadcastReceiver &#123;</span><br><span class="line">         @Override</span><br><span class="line">         public void onReceive(Context context, Intent intent) &#123;</span><br><span class="line">                   // TODO Auto-generated method stub</span><br><span class="line">                   String msg=intent.getExtras().get(&quot;msg&quot;).toString();</span><br><span class="line">                   Toast.makeText(context,&quot;intent.getAction()&quot;+intent.getAction().toString(),</span><br><span class="line">                                     Toast.LENGTH_LONG).show();</span><br><span class="line">                   System.out.println(&quot;msg:&quot;+msg);</span><br><span class="line">         &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>第二步：注册BroadcastReceiver</p>
+<p>   一旦实现了BroadcastReceiver，接下就应该指定该BroadcastReceiver能匹配的Intent即注册BroadcastReceiver。注册BroadcastReceiver的方式有两种：</p>
+<p><strong><em>\</em>第一种是静态注册**</strong>：这种方法是在配置AndroidManifest.xml配置文件中注册，通过这种方式注册的广播为常驻型广播，也就是说如果应用程序关闭了，有相应事件触发，程序还是会被系统自动调用运行。例如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- 在配置文件中注册BroadcastReceiver能够匹配的Intent --&gt;</span><br><span class="line">&lt;receiver android:name=&quot;com.example.test.MyBroadcastReceiver&quot;&gt;</span><br><span class="line">    &lt;intent-filter&gt;</span><br><span class="line">        &lt;action android:name=&quot;android.intent.action.MyBroadcastReceiver&quot;&gt;&lt;/action&gt;</span><br><span class="line">        &lt;category android:name=&quot;android.intent.category.DEFAULT&quot;&gt;&lt;/category&gt;</span><br><span class="line">    &lt;/intent-filter&gt;</span><br><span class="line">&lt;/receiver&gt;</span><br></pre></td></tr></table></figure>
+<p><strong>*\</strong>*第二种是动态注册**<em>**</em>：这种方法是通过代码在.Java文件中进行注册。 通过这种方式注册的广播为非常驻型广播，即它会跟随 Activity 的生命周期，所以在 Activity 结束前我们需要调用 unregisterReceiver(receiver) 方法移除它。例如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">//通过代码的方式动态注册MyBroadcastReceiver</span><br><span class="line">MyBroadcastReceiver receiver=new MyBroadcastReceiver();</span><br><span class="line">IntentFilter filter=new IntentFilter();</span><br><span class="line">filter.addAction(&quot;android.intent.action.MyBroadcastReceiver&quot;);</span><br><span class="line">//注册receiver</span><br><span class="line">registerReceiver(receiver, filter);</span><br></pre></td></tr></table></figure>
+<p><strong>*\</strong>*注意：**<em>**</em>如果我们在Activity中注册了BroadcastReceiver，当这个Activity销毁的时候要主动撤销注册否则会出现异常。 方法如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">@Override</span><br><span class="line">        protected void onDestroy() &#123;</span><br><span class="line">                  // TODO Auto-generated method stub</span><br><span class="line">                  super.onDestroy();</span><br><span class="line">                  //当Activity销毁的时候取消注册BroadcastReceiver</span><br><span class="line">                  unregisterReceiver(receiver);</span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure>
+<h2 id="Android之standout（浮动窗口）"><a href="#Android之standout（浮动窗口）" class="headerlink" title="Android之standout（浮动窗口）"></a>Android之standout（浮动窗口）</h2><p><a href="http://pingpongboss.github.com/StandOut/" target="_blank" rel="noopener">StandOut </a>是一个在Android应用中创建浮动窗口的框架，使用该框架可以方便的创建各种浮动窗口。可以指定窗口大小、放置的位置、是否可以拖动、是否可以最小化、可以在通知栏显示提示等等。</p>
+<p>只要继承 wei.mark.standout.StandOutWindow类 ，重写（Override）各种函数即可。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">public class FloatingFoldersLauncher extends Activity &#123;  </span><br><span class="line">    /** Called when the activity is first created. */  </span><br><span class="line">    @Override  </span><br><span class="line">    public void onCreate(Bundle savedInstanceState) &#123;  </span><br><span class="line">        super.onCreate(savedInstanceState);  </span><br><span class="line">  </span><br><span class="line">        StandOutWindow.closeAll(this, FloatingFolder.class);  </span><br><span class="line">        FloatingFolder.showFolders(this);  </span><br><span class="line">          </span><br><span class="line">        finish();  </span><br><span class="line">    &#125;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>实例项目StandOutExample：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">public class StandOutExampleActivity extends Activity &#123;  </span><br><span class="line">    /** Called when the activity is first created. */  </span><br><span class="line">    @Override  </span><br><span class="line">    public void onCreate(Bundle savedInstanceState) &#123;  </span><br><span class="line">        super.onCreate(savedInstanceState);  </span><br><span class="line">  </span><br><span class="line">        StandOutWindow.closeAll(this, SimpleWindow.class);  </span><br><span class="line">        StandOutWindow.closeAll(this, MultiWindow.class);  </span><br><span class="line">        StandOutWindow.closeAll(this, WidgetsWindow.class);  </span><br><span class="line">  </span><br><span class="line">        // show a MultiWindow, SimpleWindow  </span><br><span class="line">  </span><br><span class="line">        StandOutWindow  </span><br><span class="line">                .show(this, SimpleWindow.class, StandOutWindow.DEFAULT_ID);  </span><br><span class="line">        StandOutWindow.show(this, MultiWindow.class, StandOutWindow.DEFAULT_ID);  </span><br><span class="line">        StandOutWindow.show(this, WidgetsWindow.class,  </span><br><span class="line">                StandOutWindow.DEFAULT_ID);  </span><br><span class="line">  </span><br><span class="line">        // show a MostBasicWindow. It is commented out because it does not  </span><br><span class="line">        // support closing.  </span><br><span class="line">  </span><br><span class="line">        /*  </span><br><span class="line">         * StandOutWindow.show(this, StandOutMostBasicWindow.class,  </span><br><span class="line">         * StandOutWindow.DEFAULT_ID);  </span><br><span class="line">         */  </span><br><span class="line">  </span><br><span class="line">        finish();  </span><br><span class="line">    &#125;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">public class MostBasicWindow extends StandOutWindow &#123;  </span><br><span class="line">  </span><br><span class="line">    @Override  </span><br><span class="line">    public String getAppName() &#123;  </span><br><span class="line">        return &quot;MostBasicWindow&quot;;  </span><br><span class="line">    &#125;  </span><br><span class="line">  </span><br><span class="line">    @Override  </span><br><span class="line">    public int getAppIcon() &#123;  </span><br><span class="line">        return android.R.drawable.btn_star;  </span><br><span class="line">    &#125;  </span><br><span class="line">  </span><br><span class="line">    @Override  </span><br><span class="line">    public void createAndAttachView(int id, FrameLayout frame) &#123;  </span><br><span class="line">        TextView view = new TextView(this);  </span><br><span class="line">        view.setText(&quot;MostBasicWindow&quot;);  </span><br><span class="line">        view.setBackgroundColor(Color.CYAN);  </span><br><span class="line">  </span><br><span class="line">        frame.addView(view);  </span><br><span class="line">    &#125;  </span><br><span class="line">  </span><br><span class="line">    @Override  </span><br><span class="line">    public StandOutLayoutParams getParams(int id, Window window) &#123;  </span><br><span class="line">        return new StandOutLayoutParams(id, 200, 150, 100, 100);  </span><br><span class="line">    &#125;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+        
+        <br />
+        <div id="comment-container">
+        </div>
+        <div id="disqus_thread"></div>
+
+        <div id="lv-container">
+        </div>
+
+    </div>
+</div>
+
+    </div>
+</div>
+
+
+<footer class="footer">
+    <ul class="list-inline text-center">
+        
+        <li>
+            <a target="_blank" href="https://twitter.com/SnowYa5">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-twitter"></i>
+                            </span>
+            </a>
+        </li>
+        
+        
+
+        
+        <li>
+            <a target="_blank" href="http://weibo.com/2880425030">
+                            <span class="fa-stack fa-lg">
+                                  <i class="iconfont icon-weibo"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+        <li>
+            <a target="_blank" href="https://www.facebook.com/layla.young.5454">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-facebook"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+        <li>
+            <a target="_blank"  href="https://github.com/snow146">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-github"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+
+    </ul>
+    
+    <p>
+        <span id="busuanzi_container_site_pv">
+            <span id="busuanzi_value_site_pv"></span>PV
+        </span>
+        <span id="busuanzi_container_site_uv">
+            <span id="busuanzi_value_site_uv"></span>UV
+        </span>
+        Created By <a href="https://hexo.io/">Hexo</a>  Theme <a href="https://github.com/aircloud/hexo-theme-aircloud">AirCloud</a></p>
+</footer>
+
+
+
+
+</body>
+
+<script>
+    // We expose some of the variables needed by the front end
+    window.hexo_search_path = "search.json"
+    window.hexo_root = "/"
+    window.isPost = true
+</script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+<script src="/js/index.js"></script>
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+</html>

@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="程序媛">
+    <meta name="keyword"  content="">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>
+        
+        
+        
+    </title>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/aircloud.css">
+    <link rel="stylesheet" href="/css/gitment.css">
+    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
+    <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
+    <!-- ga & ba script hoook -->
+    <script></script>
+</head>
+
+<body>
+
+<div class="site-nav-toggle" id="site-nav-toggle">
+    <button>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+    </button>
+</div>
+
+<div class="index-about">
+    <i> 一天一点进步 </i>
+</div>
+
+<div class="index-container">
+    
+    <div class="index-left">
+        
+<div class="nav" id="nav">
+    <div class="avatar-name">
+        <div class="avatar ">
+            <img src="/img/avatar.jpg" />
+        </div>
+        <div class="name">
+            <i>Snow146</i>
+        </div>
+    </div>
+    <div class="contents" id="nav-content">
+        <ul>
+            <li >
+                <a href="/">
+                    <i class="iconfont icon-shouye1"></i>
+                    <span>HOME</span>
+                </a>
+            </li>
+            <li >
+                <a href="/tags">
+                    <i class="iconfont icon-biaoqian1"></i>
+                    <span>TAGS</span>
+                </a>
+            </li>
+            <li >
+                <a href="/archives">
+                    <i class="iconfont icon-guidang2"></i>
+                    <span>ARCHIVES</span>
+                </a>
+            </li>
+            <li >
+                <a href="/about/">
+                    <i class="iconfont icon-guanyu2"></i>
+                    <span>ABOUT</span>
+                </a>
+            </li>
+            
+            <li>
+                <a id="search">
+                    <i class="iconfont icon-sousuo1"></i>
+                    <span>SEARCH</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    
+        <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#BroacastReceive优先级与ReceiveList"><span class="toc-text">BroacastReceive优先级与ReceiveList</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#系统广播接收优先级"><span class="toc-text">系统广播接收优先级</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#获取广播的所有接收者"><span class="toc-text">获取广播的所有接收者</span></a></li></ol></li></ol></li></ol>
+</div>
+    
+</div>
+
+
+<div class="search-field" id="search-field">
+    <div class="search-container">
+        <div class="search-input">
+            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
+            <input id="search-input"/>
+            <span id="begin-search">search</span>
+        </div>
+        <div class="search-result-container" id="search-result-container">
+
+        </div>
+    </div>
+</div>
+
+        <div class="index-about-mobile">
+            <i> 一天一点进步 </i>
+        </div>
+    </div>
+    
+    <div class="index-middle">
+        <!-- Main Content -->
+        
+
+
+<div class="post-container">
+    <div class="post-title">
+        
+    </div>
+
+    <div class="post-meta">
+        <span class="attr">Post：<span>2021-01-29 17:25:00</span></span>
+        
+        </span>
+        <span class="attr">Visit：<span id="busuanzi_value_page_pv"></span>
+</span>
+</span>
+    </div>
+    <div class="post-content ">
+        <h1 id="BroacastReceive优先级与ReceiveList"><a href="#BroacastReceive优先级与ReceiveList" class="headerlink" title="BroacastReceive优先级与ReceiveList"></a>BroacastReceive优先级与ReceiveList</h1><h3 id="系统广播接收优先级"><a href="#系统广播接收优先级" class="headerlink" title="系统广播接收优先级"></a>系统广播接收优先级</h3><ul>
+<li>动态注册优先级别最高，其次静态注册</li>
+<li>在动态注册中，最早动态注册优先级别最高</li>
+<li>在静态注册中，最早安装的程序，静态注册优先级别最高（注：安装APK会解析manifest.xml,把其加入队列）</li>
+<li>都是静态注册的情况下，按照字符排列顺序决定谁先收到广播消息</li>
+<li>adb install xxx.apk安装的应用优先级比adb push到其他目录的应用高</li>
+<li>总体来说：对于接收同一个广播，在相同优先级的情况下，动态注册优先级别高于静态注册。在动态注册中，最早动态注册优先级别最高；在静态注册中，最早安装的程序，静态注册优先级别最高（安装APK会解析manifest.xml,把其加入队列）</li>
+</ul>
+<p>参考链接：<a href="https://ruanyandong.github.io/2018/10/23/Android%E5%B9%BF%E6%92%AD%E7%9A%84%E9%A1%BA%E5%BA%8F/" target="_blank" rel="noopener">https://ruanyandong.github.io/2018/10/23/Android%E5%B9%BF%E6%92%AD%E7%9A%84%E9%A1%BA%E5%BA%8F/</a></p>
+<h3 id="获取广播的所有接收者"><a href="#获取广播的所有接收者" class="headerlink" title="获取广播的所有接收者"></a>获取广播的所有接收者</h3><p>注册BroadcastReceiver的过程是这样的：Activity调用registerReceiver，然后经过几层内部类接口的调用之后，通过Binder机制与ActivityManagerService通信，而ActivityManagerService里有一个ReceiverList保存着系统所有的BroadcastReceiver。</p>
+<p>发送广播的过程是：Activity向ActivityManagerService发送广播，ActivityManagerService查找ReceiverList，通过比对IntentFilter找到所有对应的BroadcastReceiver，根据BroadcastReceiver的优先级进行排序后，扔进广播发送队列里。而后由专门的线程负责投递广播消息。</p>
+<p>获取ReceiverList就可以查看到获取系统BroadcastReceiver的列表，根据查看框架源码发ReceiverList是按照<strong>优先级顺序</strong>排序，这样可以通过ReceiverList来查看注册指定动作的广播优先级。</p>
+<p>frameworks\base\services\java\com\android\server\IntentReslover.java，通过debug选项可以打印出最终获得的ReceiverList</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> List&lt;R&gt; <span class="title">queryIntent</span><span class="params">(Intent intent, String resolvedType, <span class="keyword">boolean</span> defaultOnly)</span> </span>&#123;</span><br><span class="line">        String scheme = intent.getScheme();</span><br><span class="line"> </span><br><span class="line">        ArrayList&lt;R&gt; finalList = <span class="keyword">new</span> ArrayList&lt;R&gt;();</span><br><span class="line"> </span><br><span class="line">        <span class="keyword">final</span> <span class="keyword">boolean</span> debug = localLOGV ||</span><br><span class="line">                ((intent.getFlags() &amp; Intent.FLAG_DEBUG_LOG_RESOLUTION) != <span class="number">0</span>);</span><br><span class="line"> </span><br><span class="line">        <span class="keyword">if</span> (debug) Slog.v(</span><br><span class="line">            TAG, <span class="string">"Resolving type "</span> + resolvedType + <span class="string">" scheme "</span> + scheme</span><br><span class="line">            + <span class="string">" of intent "</span> + intent);</span><br><span class="line">       sortResults(finalList);<span class="comment">//排序</span></span><br><span class="line">       </span><br><span class="line">        <span class="keyword">if</span> (debug) &#123;</span><br><span class="line">            Slog.v(TAG, <span class="string">"Final result list:"</span>);</span><br><span class="line">            <span class="keyword">for</span> (R r : finalList) &#123;</span><br><span class="line">                Slog.v(TAG, <span class="string">"  "</span> + r);<span class="comment">//打印ReceiverList</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> finalList;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<p>编写demo可以得到ReceiverList</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">Intent intent = <span class="keyword">new</span> Intent(<span class="string">"com.android.deskclock.ALARM_ALERT"</span>);</span><br><span class="line">intent.addFlags(Intent.FLAG_DEBUG_LOG_RESOLUTION);</span><br><span class="line">sendBroadcast(intent);</span><br></pre></td></tr></table></figure>
+<p>打开应用顺序：火山→超强→84</p>
+<p>锁屏顺序：84→超强→火山</p>
+<p>ReceiverList显示结果：</p>
+<p><img src="E:\blog图片\image2021-1-15_16-23-50.png" alt="image2021-1-15_16-23-50"></p>
+<p>同时我在发出广播时遇到了一个问题，系统受保护广播例如android.intent.action.SCREEN_ON，是不可以由外部应用发出，只能由系统才能发出。</p>
+<p>参考链接：获取广播接收者<a href="https://bbs.pediy.com/thread-156436.htm" target="_blank" rel="noopener">https://bbs.pediy.com/thread-156436.htm</a></p>
+<p>android受限广播机制<a href="https://my.oschina.net/easley/blog/270296" target="_blank" rel="noopener">https://my.oschina.net/easley/blog/270296</a></p>
+
+        
+        <br />
+        <div id="comment-container">
+        </div>
+        <div id="disqus_thread"></div>
+
+        <div id="lv-container">
+        </div>
+
+    </div>
+</div>
+
+    </div>
+</div>
+
+
+<footer class="footer">
+    <ul class="list-inline text-center">
+        
+        <li>
+            <a target="_blank" href="https://twitter.com/SnowYa5">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-twitter"></i>
+                            </span>
+            </a>
+        </li>
+        
+        
+
+        
+        <li>
+            <a target="_blank" href="http://weibo.com/2880425030">
+                            <span class="fa-stack fa-lg">
+                                  <i class="iconfont icon-weibo"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+        <li>
+            <a target="_blank" href="https://www.facebook.com/layla.young.5454">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-facebook"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+        <li>
+            <a target="_blank"  href="https://github.com/snow146">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-github"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+
+    </ul>
+    
+    <p>
+        <span id="busuanzi_container_site_pv">
+            <span id="busuanzi_value_site_pv"></span>PV
+        </span>
+        <span id="busuanzi_container_site_uv">
+            <span id="busuanzi_value_site_uv"></span>UV
+        </span>
+        Created By <a href="https://hexo.io/">Hexo</a>  Theme <a href="https://github.com/aircloud/hexo-theme-aircloud">AirCloud</a></p>
+</footer>
+
+
+
+
+</body>
+
+<script>
+    // We expose some of the variables needed by the front end
+    window.hexo_search_path = "search.json"
+    window.hexo_root = "/"
+    window.isPost = true
+</script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+<script src="/js/index.js"></script>
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+</html>

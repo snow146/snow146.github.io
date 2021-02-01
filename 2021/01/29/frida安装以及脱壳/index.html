@@ -56,32 +56,32 @@
             <li >
                 <a href="/">
                     <i class="iconfont icon-shouye1"></i>
-                    <span>主页</span>
+                    <span>HOME</span>
                 </a>
             </li>
             <li >
                 <a href="/tags">
                     <i class="iconfont icon-biaoqian1"></i>
-                    <span>标签</span>
+                    <span>TAGS</span>
                 </a>
             </li>
             <li >
                 <a href="/archives">
                     <i class="iconfont icon-guidang2"></i>
-                    <span>存档</span>
+                    <span>ARCHIVES</span>
                 </a>
             </li>
             <li >
                 <a href="/about/">
                     <i class="iconfont icon-guanyu2"></i>
-                    <span>关于</span>
+                    <span>ABOUT</span>
                 </a>
             </li>
             
             <li>
                 <a id="search">
                     <i class="iconfont icon-sousuo1"></i>
-                    <span>搜索</span>
+                    <span>SEARCH</span>
                 </a>
             </li>
             
@@ -89,7 +89,7 @@
     </div>
     
         <div id="toc" class="toc-article">
-    
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#frida安装以及脱壳"><span class="toc-text">frida安装以及脱壳</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#frida的安装"><span class="toc-text">frida的安装</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#手机中安装frida服务端"><span class="toc-text">手机中安装frida服务端</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#脱壳工具的使用"><span class="toc-text">脱壳工具的使用</span></a></li></ol></li></ol></li></ol>
 </div>
     
 </div>
@@ -100,7 +100,7 @@
         <div class="search-input">
             <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
             <input id="search-input"/>
-            <span id="begin-search">搜索</span>
+            <span id="begin-search">search</span>
         </div>
         <div class="search-result-container" id="search-result-container">
 
@@ -124,15 +124,48 @@
     </div>
 
     <div class="post-meta">
-        <span class="attr">发布于：<span>2020-04-20 15:56:20</span></span>
+        <span class="attr">Post：<span>2021-01-29 17:25:00</span></span>
         
         </span>
-        <span class="attr">访问：<span id="busuanzi_value_page_pv"></span>
+        <span class="attr">Visit：<span id="busuanzi_value_page_pv"></span>
 </span>
 </span>
     </div>
     <div class="post-content ">
-        <p>load_const 变量赋值<br>load_fast 加载局部变量<br>store_fast 保存值到变量<br>load——global 加载全局变量</p>
+        <h1 id="frida安装以及脱壳"><a href="#frida安装以及脱壳" class="headerlink" title="frida安装以及脱壳"></a>frida安装以及脱壳</h1><h3 id="frida的安装"><a href="#frida的安装" class="headerlink" title="frida的安装"></a>frida的安装</h3><p>公司网络无法使用pip的官方源，将官方源换成清华源</p>
+<p><code>pip config set global.index-url https://pypi.tuna.tsinghua.edu.cn/simple</code></p>
+<p>pip安装frida</p>
+<p><code>pip install frida</code></p>
+<p>安装frida-tools</p>
+<p><code>pip install frida-tools</code></p>
+<h3 id="手机中安装frida服务端"><a href="#手机中安装frida服务端" class="headerlink" title="手机中安装frida服务端"></a>手机中安装frida服务端</h3><p>查看Android手机设备</p>
+<p><code>getprop ro.product.cpu.abi</code></p>
+<p>根据cpu版本去<a href="https://github.com/frida/frida/releases下载相应frida-server,手机是arm64-v8a的，找到相应的服务器server" target="_blank" rel="noopener">https://github.com/frida/frida/releases下载相应frida-server,手机是arm64-v8a的，找到相应的服务器server</a></p>
+<p><img src="E:\blog图片\image-20201119110940552.png" alt="image-20201119110940552"></p>
+<p>下载后将解压的文件push进手机</p>
+<p><code>adb push frida-server-14.0.8-android-arm64 /data/local/tmp</code></p>
+<p>查看文件权限</p>
+<p><code>ls -l</code></p>
+<p>给Frida问件加权限</p>
+<p><code>chmod 777 frida-server-14.0.8-android-arm64</code></p>
+<p>运行文件</p>
+<p><img src="E:\blog图片\image-20201119111940258.png" alt="image-20201119111940258"></p>
+<p>再打开个cmd窗口，输入命令frida-ps -U</p>
+<p><img src="E:\blog图片\image-20201119112209545.png" alt="image-20201119112209545"></p>
+<h3 id="脱壳工具的使用"><a href="#脱壳工具的使用" class="headerlink" title="脱壳工具的使用"></a>脱壳工具的使用</h3><p>工具来源<a href="https://github.com/hluwa/FRIDA-DEXDump" target="_blank" rel="noopener">https://github.com/hluwa/FRIDA-DEXDump</a></p>
+<p>从pip安装frida-dexdump</p>
+<p><code>pip3 install frida-dexdump</code></p>
+<p>查看是否安装成功</p>
+<p><code>frida-dexdump -h</code></p>
+<p>出现如下页面安装成功</p>
+<p><img src="E:\blog图片\image-20201119105602502.png" alt="image-20201119105602502"></p>
+<p>使用参数</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">-n: [Optional] Specify target process name, when spawn mode, it requires an application package name. If not specified, use frontmost application.</span><br><span class="line">-p: [Optional] Specify pid when multiprocess. If not specified, dump all.</span><br><span class="line">-f: [Optional] Use spawn mode, default is disable.</span><br><span class="line">-s: [Optional] When spawn mode, start dump work after sleep few seconds. default is 10s.</span><br><span class="line">-d: [Optional] Enable deep search maybe detected more dex, but speed will be slower.</span><br><span class="line">-h: show help.</span><br></pre></td></tr></table></figure>
+<p>脱壳命令</p>
+<p><code>frida-dexdump -n 包名</code></p>
+<p><img src="E:\blog图片\image-20201119112705032.png" alt="image-20201119112705032"></p>
+<p>默认保存在用户文件夹下</p>
+<p><img src="E:\blog图片\image-20201119112815476.png" alt="image-20201119112815476"></p>
 
         
         <br />

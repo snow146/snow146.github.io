@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="程序媛">
+    <meta name="keyword"  content="">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>
+        
+        
+        
+    </title>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/aircloud.css">
+    <link rel="stylesheet" href="/css/gitment.css">
+    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
+    <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
+    <!-- ga & ba script hoook -->
+    <script></script>
+</head>
+
+<body>
+
+<div class="site-nav-toggle" id="site-nav-toggle">
+    <button>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+    </button>
+</div>
+
+<div class="index-about">
+    <i> 一天一点进步 </i>
+</div>
+
+<div class="index-container">
+    
+    <div class="index-left">
+        
+<div class="nav" id="nav">
+    <div class="avatar-name">
+        <div class="avatar ">
+            <img src="/img/avatar.jpg" />
+        </div>
+        <div class="name">
+            <i>Snow146</i>
+        </div>
+    </div>
+    <div class="contents" id="nav-content">
+        <ul>
+            <li >
+                <a href="/">
+                    <i class="iconfont icon-shouye1"></i>
+                    <span>HOME</span>
+                </a>
+            </li>
+            <li >
+                <a href="/tags">
+                    <i class="iconfont icon-biaoqian1"></i>
+                    <span>TAGS</span>
+                </a>
+            </li>
+            <li >
+                <a href="/archives">
+                    <i class="iconfont icon-guidang2"></i>
+                    <span>ARCHIVES</span>
+                </a>
+            </li>
+            <li >
+                <a href="/about/">
+                    <i class="iconfont icon-guanyu2"></i>
+                    <span>ABOUT</span>
+                </a>
+            </li>
+            
+            <li>
+                <a id="search">
+                    <i class="iconfont icon-sousuo1"></i>
+                    <span>SEARCH</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    
+        <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#12-09-12-10学习-Android自定义锁屏"><span class="toc-text">12.09-12.10学习 Android自定义锁屏</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Android-的API-27FLAG-SHOW-WHEN-LOCKED已经弃用"><span class="toc-text">Android 的API 27FLAG_SHOW_WHEN_LOCKED已经弃用</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#基本原理"><span class="toc-text">基本原理</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#广播注册"><span class="toc-text">广播注册</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Acivity设置"><span class="toc-text">Acivity设置</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#按键屏蔽"><span class="toc-text">按键屏蔽</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#划屏解锁"><span class="toc-text">划屏解锁</span></a></li></ol></li></ol></li></ol>
+</div>
+    
+</div>
+
+
+<div class="search-field" id="search-field">
+    <div class="search-container">
+        <div class="search-input">
+            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
+            <input id="search-input"/>
+            <span id="begin-search">search</span>
+        </div>
+        <div class="search-result-container" id="search-result-container">
+
+        </div>
+    </div>
+</div>
+
+        <div class="index-about-mobile">
+            <i> 一天一点进步 </i>
+        </div>
+    </div>
+    
+    <div class="index-middle">
+        <!-- Main Content -->
+        
+
+
+<div class="post-container">
+    <div class="post-title">
+        
+    </div>
+
+    <div class="post-meta">
+        <span class="attr">Post：<span>2021-01-29 17:25:00</span></span>
+        
+        </span>
+        <span class="attr">Visit：<span id="busuanzi_value_page_pv"></span>
+</span>
+</span>
+    </div>
+    <div class="post-content ">
+        <h2 id="12-09-12-10学习-Android自定义锁屏"><a href="#12-09-12-10学习-Android自定义锁屏" class="headerlink" title="12.09-12.10学习 Android自定义锁屏"></a>12.09-12.10学习 Android自定义锁屏</h2><p>分析锁屏广告的时候让我研究一下怎样让锁屏activity置于系统锁屏之上的，由此而来一篇学习</p>
+<p>写在前面</p>
+<h4 id="Android-的API-27FLAG-SHOW-WHEN-LOCKED已经弃用"><a href="#Android-的API-27FLAG-SHOW-WHEN-LOCKED已经弃用" class="headerlink" title="Android 的API 27FLAG_SHOW_WHEN_LOCKED已经弃用"></a>Android 的API 27FLAG_SHOW_WHEN_LOCKED已经弃用</h4><p>正常Android自定义锁屏都会用到FLAG_SHOW_WHEN_LOCKED这个flag，但是从API 27之后由于Android的安全性考虑FLAG_TURN_SCREEN_ON和FLAG_SHOW_WHEN_LOCKED都已经被弃用 ，改为用</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">//指定Activity在每次锁定屏幕并恢复活动时是否应在锁定屏幕顶部显示</span><br><span class="line">setShowWhenLocked(true)</span><br><span class="line">//点亮屏幕</span><br><span class="line">setTurnScreenOn(true)</span><br></pre></td></tr></table></figure>
+<p>和keyguardManager.requestDismissKeyguard解锁屏幕（必需）</p>
+<p>官方文档解释<a href="https://developer.android.com/reference/android/view/WindowManager.LayoutParams.html#FLAG_SHOW_WHEN_LOCKED" target="_blank" rel="noopener">https://developer.android.com/reference/android/view/WindowManager.LayoutParams.html#FLAG_SHOW_WHEN_LOCKED</a></p>
+<p>由于网上的教程都是关于之前的版本的，所以分析还是会以FLAG_SHOW_WHEN_LOCKED为主。</p>
+<p>言归正传，讲一讲Android自定义锁屏整个流程，当然整个流程是以Android逆向中锁屏广告的分析来看的，所以特别涉及开发的部分是会省略掉的</p>
+<h3 id="基本原理"><a href="#基本原理" class="headerlink" title="基本原理"></a>基本原理</h3><p>思路：APP监听系统SCREEN_OFF和SCREEN_ON广播，当屏幕熄灭时，service监听到广播开启一个锁屏页Activity在屏幕最上层显示，当没有密码时直接去掉系统锁屏。</p>
+<p><img src="E:\blog图片\image-20201210151443824.png" alt="image-20201210151443824"></p>
+<h4 id="广播注册"><a href="#广播注册" class="headerlink" title="广播注册"></a>广播注册</h4><p>监听熄屏，开屏，解锁系统广播</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">IntentFilter mScreenOffFilter = <span class="keyword">new</span> IntentFilter();</span><br><span class="line"> mScreenOffFilter.addAction(Intent.ACTION_SCREEN_OFF);</span><br><span class="line"> registerReceiver(mScreenOffReceiver, mScreenOffFilter);  </span><br><span class="line"> 　　对应的BroadcastReceiver定义如下：</span><br><span class="line"></span><br><span class="line"> <span class="keyword">private</span> BroadcastReceiver mScreenOffReceiver = <span class="keyword">new</span> BroadcastReceiver() &#123;</span><br><span class="line">     <span class="meta">@SuppressWarnings</span>(<span class="string">"deprecation"</span>)</span><br><span class="line">     <span class="meta">@Override</span></span><br><span class="line">     <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onReceive</span><span class="params">(Context context, Intent intent)</span> </span>&#123;</span><br><span class="line">         <span class="keyword">if</span> (intent.getAction().equals(NOTIFY_SCREEN_OFF)) &#123;</span><br><span class="line">             Intent mLockIntent = <span class="keyword">new</span> Intent(context, LockScreenActivity.class);</span><br><span class="line">             mLockIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK</span><br><span class="line">                     | Intent.FLAG_ACTIVITY_EXCLUDE_FROM_RECENTS);</span><br><span class="line">             startActivity(mLockIntent);</span><br><span class="line">         &#125;</span><br><span class="line">     &#125;</span><br><span class="line"> &#125;;</span><br></pre></td></tr></table></figure>
+<p>关于启动Activity时Intent的Flag问题，如果不添加FLAG_ACTIVITY_NEW_TASK的标志位，会出现“Calling startActivity() from outside of an Activity”的运行时异常，毕竟我们是从Service启动的Activity。Activity要存在于activity的栈中，而Service在启动activity时必然不存在一个activity的栈，所以要新起一个栈，并装入启动的activity。使用该标志位时，也需要在AndroidManifest中声明taskAffinity，即新task的名称，否则锁屏Activity实质上还是在建立在原来App的task栈中。</p>
+<p>标志位FLAG_ACTIVITY_EXCLUDE_FROM_RECENTS，是为了避免在最近使用程序列表出现Service所启动的Activity,但这个标志位不是必须的，其使用依情况而定。</p>
+<p><strong>屏幕相关广播</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//屏幕亮起</span></span><br><span class="line">android.intent.action.SCREEN_ON</span><br><span class="line"><span class="comment">//解锁屏幕</span></span><br><span class="line">android.intent.action.USER_PRESENT</span><br><span class="line"><span class="comment">//屏幕熄灭</span></span><br><span class="line">android.intent.action.SCREEN_OFF</span><br></pre></td></tr></table></figure>
+<h4 id="Acivity设置"><a href="#Acivity设置" class="headerlink" title="Acivity设置"></a>Acivity设置</h4><p>锁屏的activity做相应的配置，让activity在锁屏时也能够显示，同时去掉系统锁屏。但基于现在一般手机都有密码，而且之前去掉系统锁屏的方法也已经不适用换成keyguardManager.requestDismissKeyguard（），所以这里不具体讲去掉锁屏的过程。</p>
+<p>这里贴一个检查Android锁屏状态/锁屏密码相关的代码</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//当前系统锁屏是否有密码</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">hasScreenLockPwd</span><span class="params">(Context mContext)</span></span>&#123;</span><br><span class="line">	KeyguardManager keyguardManager = (KeyguardManager )mContext.getSystemService(Context.KEYGUARD_SERVICE);</span><br><span class="line">	<span class="keyword">return</span> keyguardManager.isKeyguardSecure();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">//当前系统是否处于锁屏状态</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">hasScreenLocked</span><span class="params">(Context mContext)</span></span>&#123;</span><br><span class="line">	KeyguardManager keyguardManager = (KeyguardManager )mContext.getSystemService(Context.KEYGUARD_SERVICE);</span><br><span class="line">	<span class="keyword">return</span> keyguardManager.isKeyguardLocked();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>锁屏activity实现</strong></p>
+<p>我们在自定义锁屏Activity的OnCreate()方法里设定一下标志位就能实现将锁屏activity置于锁屏界面之上</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//使得窗口浮在锁屏界面之上</span></span><br><span class="line">getWindow().addFlags(WindowManager.LayoutParams.FLAG_SHOW_WHEN_LOCKED);</span><br></pre></td></tr></table></figure>
+<h4 id="按键屏蔽"><a href="#按键屏蔽" class="headerlink" title="按键屏蔽"></a>按键屏蔽</h4><p>只有通过过划瓶或者指纹才能解锁，因此有必要对按键进行一定程度上的屏蔽。</p>
+<p>Back键和Menu键可以通过重写onKeyDown()方法进行屏蔽：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">onKeyDown</span><span class="params">(<span class="keyword">int</span> keyCode, KeyEvent event)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> key = event.getKeyCode();</span><br><span class="line">    <span class="keyword">switch</span> (key) &#123;</span><br><span class="line">        <span class="keyword">case</span> KeyEvent.KEYCODE_BACK: &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">case</span> KeyEvent.KEYCODE_MENU:&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">super</span>.onKeyDown(keyCode, event);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="划屏解锁"><a href="#划屏解锁" class="headerlink" title="划屏解锁"></a>划屏解锁</h4><p>手指在屏幕上滑动时，拦截并处理滑动事件，使锁屏页面随着手指运动，当运动到达一定的阀值时，用户手指松开手指，锁屏页自动滑动到屏幕边界消失，如果没有达到运动阀值，就会自动滑动到起始位置，重新覆盖屏幕。</p>
+<p>为了将划屏逻辑与页面内容隔离开来，我们在锁屏页面布局中添加一个自定义的UnderView，这个UnderView填充整个屏幕，位于锁屏内容View（将其引用称之为mMoveView,并传入到UnderView中）的下方，所有划屏相关的事件都在这里拦截并处理。</p>
+<p>mMoveView是锁屏页的显示内容，除了处理一些简单的点击事件，其他非点击事件序列都由底层的UnderView进行处理。只需要重写UnderView的onTouchEvent方法就能够实现</p>
+<p>此外，我们可以通过getBackground()获取UnderView的背景，并根据已划开屏幕占整个屏幕的百分比调用setAlpha方法改变背景的透明度，做出抽屉拉开时的光影变化效果。</p>
+<p>具体代码参考链接，此处只讲思路，不多赘述。</p>
+<p>注意请求小米的锁屏activity时要加入小米白名单，同时在了解锁屏广告时还发现OP_SHOW_WHEN_LOCKED这个标识符，了解知道这个是锁屏上显示权限的标识，值为10020，作用是检测应用是否具备锁屏上显示权限，具体参考<a href="https://patents.google.com/patent/WO2018049609A1/zh" target="_blank" rel="noopener">https://patents.google.com/patent/WO2018049609A1/zh</a></p>
+<p>参考链接：<a href="https://zhuanlan.zhihu.com/p/21628574" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/21628574</a></p>
+<p>​                    <a href="https://stackoverflow.com/questions/48277302/android-o-flag-show-when-locked-is-deprecated" target="_blank" rel="noopener">https://stackoverflow.com/questions/48277302/android-o-flag-show-when-locked-is-deprecated</a></p>
+<p>​                    <a href="https://stackoverflow.com/questions/40611432/getwindow-addflags-in-android" target="_blank" rel="noopener">https://stackoverflow.com/questions/40611432/getwindow-addflags-in-android</a></p>
+<p>​                    <a href="https://www.cnblogs.com/zhou-guobao/p/4994762.html" target="_blank" rel="noopener">https://www.cnblogs.com/zhou-guobao/p/4994762.html</a></p>
+<p>​                    <a href="https://www.jianshu.com/p/36916ce0ab3b" target="_blank" rel="noopener">https://www.jianshu.com/p/36916ce0ab3b</a></p>
+<p>​                    <a href="https://juejin.cn/post/6844903841377288199" target="_blank" rel="noopener">https://juejin.cn/post/6844903841377288199</a></p>
+
+        
+        <br />
+        <div id="comment-container">
+        </div>
+        <div id="disqus_thread"></div>
+
+        <div id="lv-container">
+        </div>
+
+    </div>
+</div>
+
+    </div>
+</div>
+
+
+<footer class="footer">
+    <ul class="list-inline text-center">
+        
+        <li>
+            <a target="_blank" href="https://twitter.com/SnowYa5">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-twitter"></i>
+                            </span>
+            </a>
+        </li>
+        
+        
+
+        
+        <li>
+            <a target="_blank" href="http://weibo.com/2880425030">
+                            <span class="fa-stack fa-lg">
+                                  <i class="iconfont icon-weibo"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+        <li>
+            <a target="_blank" href="https://www.facebook.com/layla.young.5454">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-facebook"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+        <li>
+            <a target="_blank"  href="https://github.com/snow146">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-github"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+
+    </ul>
+    
+    <p>
+        <span id="busuanzi_container_site_pv">
+            <span id="busuanzi_value_site_pv"></span>PV
+        </span>
+        <span id="busuanzi_container_site_uv">
+            <span id="busuanzi_value_site_uv"></span>UV
+        </span>
+        Created By <a href="https://hexo.io/">Hexo</a>  Theme <a href="https://github.com/aircloud/hexo-theme-aircloud">AirCloud</a></p>
+</footer>
+
+
+
+
+</body>
+
+<script>
+    // We expose some of the variables needed by the front end
+    window.hexo_search_path = "search.json"
+    window.hexo_root = "/"
+    window.isPost = true
+</script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+<script src="/js/index.js"></script>
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+</html>

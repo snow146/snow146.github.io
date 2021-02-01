@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="程序媛">
+    <meta name="keyword"  content="">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>
+        
+        
+        
+    </title>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/aircloud.css">
+    <link rel="stylesheet" href="/css/gitment.css">
+    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
+    <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
+    <!-- ga & ba script hoook -->
+    <script></script>
+</head>
+
+<body>
+
+<div class="site-nav-toggle" id="site-nav-toggle">
+    <button>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+    </button>
+</div>
+
+<div class="index-about">
+    <i> 一天一点进步 </i>
+</div>
+
+<div class="index-container">
+    
+    <div class="index-left">
+        
+<div class="nav" id="nav">
+    <div class="avatar-name">
+        <div class="avatar ">
+            <img src="/img/avatar.jpg" />
+        </div>
+        <div class="name">
+            <i>Snow146</i>
+        </div>
+    </div>
+    <div class="contents" id="nav-content">
+        <ul>
+            <li >
+                <a href="/">
+                    <i class="iconfont icon-shouye1"></i>
+                    <span>HOME</span>
+                </a>
+            </li>
+            <li >
+                <a href="/tags">
+                    <i class="iconfont icon-biaoqian1"></i>
+                    <span>TAGS</span>
+                </a>
+            </li>
+            <li >
+                <a href="/archives">
+                    <i class="iconfont icon-guidang2"></i>
+                    <span>ARCHIVES</span>
+                </a>
+            </li>
+            <li >
+                <a href="/about/">
+                    <i class="iconfont icon-guanyu2"></i>
+                    <span>ABOUT</span>
+                </a>
+            </li>
+            
+            <li>
+                <a id="search">
+                    <i class="iconfont icon-sousuo1"></i>
+                    <span>SEARCH</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    
+        <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#保活"><span class="toc-text">保活</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#一-心跳保活"><span class="toc-text">一.心跳保活</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#长连接介绍"><span class="toc-text">长连接介绍</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#心跳的实现"><span class="toc-text">心跳的实现</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#动态心跳"><span class="toc-text">动态心跳</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二-JobSheduler进程重生"><span class="toc-text">二.JobSheduler进程重生</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三-一像素进程保活"><span class="toc-text">三.一像素进程保活</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#四-双进程保活"><span class="toc-text">四.双进程保活</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#五-Native拉活"><span class="toc-text">五.Native拉活</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#保活的底层技术原理"><span class="toc-text">保活的底层技术原理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#实现方法"><span class="toc-text">实现方法</span></a></li></ol></li></ol></li></ol>
+</div>
+    
+</div>
+
+
+<div class="search-field" id="search-field">
+    <div class="search-container">
+        <div class="search-input">
+            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
+            <input id="search-input"/>
+            <span id="begin-search">search</span>
+        </div>
+        <div class="search-result-container" id="search-result-container">
+
+        </div>
+    </div>
+</div>
+
+        <div class="index-about-mobile">
+            <i> 一天一点进步 </i>
+        </div>
+    </div>
+    
+    <div class="index-middle">
+        <!-- Main Content -->
+        
+
+
+<div class="post-container">
+    <div class="post-title">
+        
+    </div>
+
+    <div class="post-meta">
+        <span class="attr">Post：<span>2021-01-29 17:24:59</span></span>
+        
+        </span>
+        <span class="attr">Visit：<span id="busuanzi_value_page_pv"></span>
+</span>
+</span>
+    </div>
+    <div class="post-content ">
+        <h1 id="保活"><a href="#保活" class="headerlink" title="保活"></a>保活</h1><p>保活方法有以下几种：</p>
+<p>1.长连接和心跳保活</p>
+<p>2.JobSheduler进程重生</p>
+<p>3.一像素进程保活</p>
+<p>4.双进程保活</p>
+<p>5.腾讯终极永生术(Native拉活)</p>
+<p>其中<a href="https://segmentfault.com/a/1190000021579231" target="_blank" rel="noopener">史上最强Android保活思路：深入剖析腾讯TIM的进程永生技术</a>这篇文章有较完全的保活技术文章总结</p>
+<h2 id="一-心跳保活"><a href="#一-心跳保活" class="headerlink" title="一.心跳保活"></a>一.心跳保活</h2><p>心跳保活的实现要完成三点：1.建立长连接2.固定时间发送心跳包3.服务端超时后要重连</p>
+<h3 id="长连接介绍"><a href="#长连接介绍" class="headerlink" title="长连接介绍"></a>长连接介绍</h3><p>通信双方进行TCP链接后进行通信，结束后不主动关闭链接 优点：通信速度快，免去了DNS解析时间，以及三次握手四次分手的时间，避免短时间内重复连接所造成的信道资源 &amp; 网络资源的浪费</p>
+<h3 id="心跳的实现"><a href="#心跳的实现" class="headerlink" title="心跳的实现"></a>心跳的实现</h3><p><img src="E:\blog图片\20180419152127961.png" alt="20180419152127961"></p>
+<ul>
+<li>连接后主动到服务器Sync拉取一次数据，确保连接过程的新消息。</li>
+<li>心跳周期的Alarm唤醒后，一般有几秒的cpu时间，无需wakelock。</li>
+<li>心跳后的Alarm是为了防止发送超时，如服务器正常会包，该Alarm取消。</li>
+<li>如果心跳后发送超时了，那么要和服务器重新建立连接拉取数据</li>
+<li>如果服务器回包，系统通过网络唤醒，无需wakelock。</li>
+</ul>
+<p>流程基于两个系统特性：</p>
+<ul>
+<li>Alarm唤醒后，足够cpu时间发包。</li>
+<li>网络回包可唤醒机器</li>
+</ul>
+<h3 id="动态心跳"><a href="#动态心跳" class="headerlink" title="动态心跳"></a>动态心跳</h3><p>动态心跳引入下列状态：</p>
+<ul>
+<li>前台活跃态：亮屏，微信在前台，周期为minHeart(4.5min),保证体验</li>
+<li>后台活跃态：微信在后台10分钟内，周期为minHeart（4.5min），保证体验</li>
+<li>自适应计算态：步增心跳，尝试获取最大心跳周期（sucHeart）</li>
+<li>后台稳定态：通过最大周期，保持稳定心跳</li>
+</ul>
+<p>自适应计算态流程：<br><img src="https://img-blog.csdn.net/2018041917384831?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3UwMTEzMzc1NzQ=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="这里写图片描述"></p>
+<p>在自适应态：</p>
+<ul>
+<li>curHeart初始值为minHeart，步增（heartStep）为1分钟</li>
+<li>curHeart失败5次，意味着整个自适应态最多只有5分钟无法接受消息</li>
+<li>结束后，如果sucHeart &gt; minHeart，会减去10s（避开临界），为该网络下的稳定周期</li>
+</ul>
+<p>稳定态的退出：<br>sucHeart会对应网络存储下来，重启后正常使用。考虑到网络的不稳定，如NAT超时变小，用户地理位置变换。当发现sucHeart连续失败5次，sucHeart置为minHeart，重新进入自适应状态。</p>
+<p>参考链接：</p>
+<p><a href="https://blog.csdn.net/u011337574/article/details/80007269" target="_blank" rel="noopener">android网络连接保活</a> </p>
+<p><a href="https://cloud.tencent.com/developer/article/1637168" target="_blank" rel="noopener">谈谈长连接和心跳保活机制</a></p>
+<p><a href="https://www.cnblogs.com/imstudy/p/11718450.html" target="_blank" rel="noopener">正确理解IM长连接的心跳及重连机制，并动手实现（有完整IM源码）</a></p>
+<h2 id="二-JobSheduler进程重生"><a href="#二-JobSheduler进程重生" class="headerlink" title="二.JobSheduler进程重生"></a>二.JobSheduler进程重生</h2><p>JobScheduler 简单来说就是一个系统定时任务，在app达到一定条件时可以指定执行任务，且如果app被强迫终止，此前预定的任务还可执行。</p>
+<p>JobScheduler是用于计划基于应用进程的多种类型任务的api接口。当任务执行时，系统会为应用持有WakeLock，所以应用不需要做多余的确保设备唤醒的工作。</p>
+<p>JobService继承自Service，是用于处理JobScheduler中规划的异步请求的特殊Service</p>
+<p>JobSheduler进程重生关注重点就是系统服务获取：</p>
+<p><code>var mJobScheduler = ctxt.getSystemService(Context.JOB_SCHEDULER_SERVICE) as JobScheduler</code></p>
+<p>参考链接：</p>
+<p> <a href="https://blog.csdn.net/shh152/article/details/99634927" target="_blank" rel="noopener">JobScheduler进程保活</a></p>
+<p><a href="http://www.zydeveloper.com/2019/07/16/processlive5/" target="_blank" rel="noopener">Android 进程保活（五）JobSheduler进程重生</a></p>
+<h2 id="三-一像素进程保活"><a href="#三-一像素进程保活" class="headerlink" title="三.一像素进程保活"></a>三.一像素进程保活</h2><p>1像素保活方案就是我们在手机锁屏时开启一个Activity，为了不让用户有感知，让这个Activity大小为1像素并设置透明无切换动画。在开启屏幕时把这个Activity关掉。</p>
+<p>原理：主要是通过提高oom_adj的优先级可以使我们的app被系统杀死的概率变低。</p>
+<p>实现一像素保活要完成：1.设置一像素Activity 2.注册监听锁屏开启、关闭广播接收器来完成控制一像素Activity开启和关闭</p>
+<p>创建一像素Activity</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.baweigame.mvvmdemoapplication;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> android.support.v7.app.AppCompatActivity;</span><br><span class="line"><span class="keyword">import</span> android.os.Bundle;</span><br><span class="line"><span class="keyword">import</span> android.util.Log;</span><br><span class="line"><span class="keyword">import</span> android.view.Gravity;</span><br><span class="line"><span class="keyword">import</span> android.view.Window;</span><br><span class="line"><span class="keyword">import</span> android.view.WindowManager;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">OnePXActivity</span> <span class="keyword">extends</span> <span class="title">AppCompatActivity</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>.onCreate(savedInstanceState);</span><br><span class="line">        setContentView(R.layout.activity_one_px);</span><br><span class="line"></span><br><span class="line">        Log.d(<span class="string">"123"</span>, <span class="string">"onCreate: OnePxActivity..."</span>);</span><br><span class="line">        createOnePxWindow();</span><br><span class="line"></span><br><span class="line">        OnePxManager.getInstance().setActivity(<span class="keyword">this</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 创建1像素窗体</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">createOnePxWindow</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        Window window = getWindow();</span><br><span class="line">        <span class="comment">//放在左上角</span></span><br><span class="line">        window.setGravity(Gravity.START | Gravity.TOP);</span><br><span class="line">        WindowManager.LayoutParams attributes = window.getAttributes();</span><br><span class="line">        <span class="comment">//宽高为1个像素</span></span><br><span class="line">        attributes.width = <span class="number">1</span>;</span><br><span class="line">        attributes.height = <span class="number">1</span>;</span><br><span class="line">        </span><br><span class="line">        attributes.x = <span class="number">0</span>;</span><br><span class="line">        attributes.y = <span class="number">0</span>;</span><br><span class="line">        window.setAttributes(attributes);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>参考链接：</p>
+<p><a href="http://www.zydeveloper.com/2019/07/15/processlive3/" target="_blank" rel="noopener">Android 进程保活（三）1像素方案保活</a></p>
+<h2 id="四-双进程保活"><a href="#四-双进程保活" class="headerlink" title="四.双进程保活"></a>四.双进程保活</h2><p>双进程守护的思想就是，两个进程共同运行，如果有其中一个进程被杀，那么另一个进程就会将被杀的进程重新拉起，相互保护，在一定的意义上，维持进程的不断运行。</p>
+<p>双进程守护的两个进程，一个进程用于我们所需的后台操作，且叫它本地进程，另一个进程只负责监听着本地进程的状态，在本地进程被杀的时候拉起，于此同时本地进程也在监听着这个进程，准备在它被杀时拉起，我们将这个进程称为远端进程。</p>
+<p>由于在 Android 中，两个进程之间无法直接交互，所以我们这里还要用到 AIDL （Android interface definition Language ），进行两个进程间的交互。</p>
+<p>参考链接：</p>
+<p><a href="https://www.jianshu.com/p/83ea5e03bd61" target="_blank" rel="noopener">Android 双进程守护</a></p>
+<h2 id="五-Native拉活"><a href="#五-Native拉活" class="headerlink" title="五.Native拉活"></a>五.Native拉活</h2><p>原理：简单来说，两个线程建立文件锁，并fork出两个子线程，子线程也相互建立文件锁，当一个线程被杀死，另一个线程的子线程立马拉活被杀死的线程</p>
+<h3 id="保活的底层技术原理"><a href="#保活的底层技术原理" class="headerlink" title="保活的底层技术原理"></a><strong>保活的底层技术原理</strong></h3><p>一般来说，系统杀进程有两种方法，这两个方法都通过 ActivityManagerService 提供：</p>
+<ol>
+<li>killBackgroundProcesses</li>
+<li>forceStopPackage</li>
+</ol>
+<p>在原生系统上，很多时候杀进程是通过第一种方式，除非用户主动在 App 的设置界面点击「强制停止」。不过国内各厂商以及一加三星等 ROM 现在一般使用第二种方法。第一种方法太过温柔，根本治不住想要搞事情的应用。第二种方法就比较强力了，一般来说被 force-stop 之后，App 就只能乖乖等死了。</p>
+<p>因此，要实现保活，我们就得知道 force-stop 到底是如何运作的。既然如此，我们就跟踪一下系统的 <code>forceStopPackage</code> 这个方法的执行流程：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">forceStopPackage</span><span class="params">(<span class="keyword">final</span> String packageName, <span class="keyword">int</span> userId)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// .. 权限检查，省略</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">long</span> callingId = Binder.clearCallingIdentity();</span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">        IPackageManager pm = AppGlobals.getPackageManager();</span><br><span class="line">        <span class="keyword">synchronized</span>(<span class="keyword">this</span>) &#123;</span><br><span class="line">            <span class="keyword">int</span>[] users = userId == UserHandle.USER_ALL</span><br><span class="line">                    ? mUserController.getUsers() : <span class="keyword">new</span> <span class="keyword">int</span>[] &#123; userId &#125;;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> user : users) &#123;</span><br><span class="line"></span><br><span class="line">                <span class="comment">// 状态判断，省略..</span></span><br><span class="line"></span><br><span class="line">                <span class="keyword">int</span> pkgUid = -<span class="number">1</span>;</span><br><span class="line">                <span class="keyword">try</span> &#123;</span><br><span class="line">                    pkgUid = pm.getPackageUid(packageName, MATCH_DEBUG_TRIAGED_MISSING,</span><br><span class="line">                            user);</span><br><span class="line">                &#125; <span class="keyword">catch</span> (RemoteException e) &#123;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">if</span> (pkgUid == -<span class="number">1</span>) &#123;</span><br><span class="line">                    Slog.w(TAG, <span class="string">"Invalid packageName: "</span> + packageName);</span><br><span class="line">                    <span class="keyword">continue</span>;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">try</span> &#123;</span><br><span class="line">                    pm.setPackageStoppedState(packageName, <span class="keyword">true</span>, user);</span><br><span class="line">                &#125; <span class="keyword">catch</span> (RemoteException e) &#123;</span><br><span class="line">                &#125; <span class="keyword">catch</span> (IllegalArgumentException e) &#123;</span><br><span class="line">                    Slog.w(TAG, <span class="string">"Failed trying to unstop package "</span></span><br><span class="line">                            + packageName + <span class="string">": "</span> + e);</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">if</span> (mUserController.isUserRunning(user, <span class="number">0</span>)) &#123;</span><br><span class="line">                    <span class="comment">// 根据 UID 和包名杀进程</span></span><br><span class="line">                    forceStopPackageLocked(packageName, pkgUid, <span class="string">"from pid "</span> + callingPid);</span><br><span class="line">                    finishForceStopPackageLocked(packageName, pkgUid);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">        Binder.restoreCallingIdentity(callingId);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>在这里我们可以知道，系统是通过 <code>uid</code> 为单位 force-stop 进程的，因此不论你是 native 进程还是 Java 进程，force-stop 都会将你统统杀死。我们继续跟踪<code>forceStopPackageLocked</code> 这个方法：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">final</span> <span class="keyword">boolean</span> <span class="title">forceStopPackageLocked</span><span class="params">(String packageName, <span class="keyword">int</span> appId,</span></span></span><br><span class="line"><span class="function"><span class="params">        <span class="keyword">boolean</span> callerWillRestart, <span class="keyword">boolean</span> purgeCache, <span class="keyword">boolean</span> doit,</span></span></span><br><span class="line"><span class="function"><span class="params">        <span class="keyword">boolean</span> evenPersistent, <span class="keyword">boolean</span> uninstalling, <span class="keyword">int</span> userId, String reason)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// .. 状态判断，省略</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">boolean</span> didSomething = mProcessList.killPackageProcessesLocked(packageName, appId, userId,</span><br><span class="line">            ProcessList.INVALID_ADJ, callerWillRestart, <span class="keyword">true</span> <span class="comment">/* allowRestart */</span>, doit,</span><br><span class="line">            evenPersistent, <span class="keyword">true</span> <span class="comment">/* setRemoved */</span>,</span><br><span class="line">            packageName == <span class="keyword">null</span> ? (<span class="string">"stop user "</span> + userId) : (<span class="string">"stop "</span> + packageName));</span><br><span class="line"></span><br><span class="line">    didSomething |=</span><br><span class="line">            mAtmInternal.onForceStopPackage(packageName, doit, evenPersistent, userId);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 清理 service</span></span><br><span class="line">    <span class="comment">// 清理 broadcastreceiver</span></span><br><span class="line">    <span class="comment">// 清理 providers</span></span><br><span class="line">    <span class="comment">// 清理其他</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> didSomething;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这个方法实现很清晰：先杀死这个 App 内部的所有进程，然后清理残留在 system_server 内的四大组件信息；我们关心进程是如何被杀死的，因此继续跟踪<code>killPackageProcessesLocked</code>，这个方法最终会调用到 <code>ProcessList</code> 内部的 <code>removeProcessLocked</code> 方法，<code>removeProcessLocked</code> 会调用 <code>ProcessRecord</code> 的 <code>kill</code> 方法，我们看看这个<code>kill</code>：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">kill</span><span class="params">(String reason, <span class="keyword">boolean</span> noisy)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (!killedByAm) &#123;</span><br><span class="line">        Trace.traceBegin(Trace.TRACE_TAG_ACTIVITY_MANAGER, <span class="string">"kill"</span>);</span><br><span class="line">        <span class="keyword">if</span> (mService != <span class="keyword">null</span> &amp;&amp; (noisy || info.uid == mService.mCurOomAdjUid)) &#123;</span><br><span class="line">            mService.reportUidInfoMessageLocked(TAG,</span><br><span class="line">                    <span class="string">"Killing "</span> + toShortString() + <span class="string">" (adj "</span> + setAdj + <span class="string">"): "</span> + reason,</span><br><span class="line">                    info.uid);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (pid &gt; <span class="number">0</span>) &#123;</span><br><span class="line">            EventLog.writeEvent(EventLogTags.AM_KILL, userId, pid, processName, setAdj, reason);</span><br><span class="line">            Process.killProcessQuiet(pid);</span><br><span class="line">            ProcessList.killProcessGroup(uid, pid);</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            pendingStart = <span class="keyword">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (!mPersistent) &#123;</span><br><span class="line">            killed = <span class="keyword">true</span>;</span><br><span class="line">            killedByAm = <span class="keyword">true</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        Trace.traceEnd(Trace.TRACE_TAG_ACTIVITY_MANAGER);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这里我们可以看到，首先杀掉了目标进程，然后会以<code>uid</code>为单位杀掉目标进程组。如果只杀掉目标进程，那么我们可以通过双进程守护的方式实现保活；关键就在于这个<code>killProcessGroup</code>，继续跟踪之后发现这是一个 native 方法，它的最终实现在 <a href="https://link.zhihu.com/?target=http%3A//www.aospxref.com/android-10.0.0_r2/xref/system/core/libprocessgroup/processgroup.cpp%23390" target="_blank" rel="noopener">libprocessgroup</a>中，代码如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">int killProcessGroup(uid_t uid, int initialPid, int signal) &#123;</span><br><span class="line">    return KillProcessGroup(uid, initialPid, signal, 40 /*retries*/);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>注意这里有个奇怪的数字：40。我们继续跟踪：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">static int KillProcessGroup(uid_t uid, int initialPid, int signal, int retries) &#123;</span><br><span class="line"></span><br><span class="line">    // 省略</span><br><span class="line"></span><br><span class="line">    int retry = retries;</span><br><span class="line">    int processes;</span><br><span class="line">    while ((processes = DoKillProcessGroupOnce(cgroup, uid, initialPid, signal)) &gt; 0) &#123;</span><br><span class="line">        LOG(VERBOSE) &lt;&lt; &quot;Killed &quot; &lt;&lt; processes &lt;&lt; &quot; processes for processgroup &quot; &lt;&lt; initialPid;</span><br><span class="line">        if (retry &gt; 0) &#123;</span><br><span class="line">            std::this_thread::sleep_for(5ms);</span><br><span class="line">            --retry;</span><br><span class="line">        &#125; else &#123;</span><br><span class="line">            break;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    // 省略</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>循环 40 遍不停滴杀进程，每次杀完之后等 5ms</strong>，循环完毕之后就算过去了。</p>
+<p>看到这段代码，我想任何人都会蹦出一个疑问：假设经历连续 40 次的杀进程之后，如果 App 还有进程存在，那不就侥幸逃脱了吗？</p>
+<h3 id="实现方法"><a href="#实现方法" class="headerlink" title="实现方法"></a><strong>实现方法</strong></h3><p>那么，如何实现这个目的呢？我们看这个关键的 <strong>5ms</strong>。假设，App 进程在被杀掉之后，能够以足够快的速度（5ms 内）启动一堆新的进程，那么系统在一次循环杀掉老的所有进程之后，sleep 5ms 之后又会遇到一堆新的进程；如此循环 40 次，只要我们每次都能够拉起新的进程，那我们的 App 就能逃过系统的追杀，实现永生。是的，炼狱般的 200ms，只要我们熬过 200ms 就能渡劫成功，得道飞升。不知道大家有没有玩过打地鼠这个游戏，整个过程非常类似，按下去一个又冒出一个，只要每次都能足够快地冒出来，我们就赢了。</p>
+<p>现在问题的关键就在于：<strong>如何在 5ms 内启动一堆新的进程</strong>？</p>
+<p>再回过头来看原来的保活方式，它们拉起进程最开始通过<code>am</code>命令，这个命令实际上是一个 java 程序，它会经历启动一个进程然后启动一个 ART 虚拟机，接着获取 ams 的 binder 代理，然后与 ams 进行 binder 同步通信。这个过程实在是太慢了，在这与死神赛跑的 5ms 里，它的速度的确是不敢恭维。</p>
+<p>后来，MarsDaemon 提出了一种新的方式，它用 binder 引用直接给 ams 发送 Parcel，这个过程相比 <code>am</code>命令快了很多，从而大大提高了成功率。其实这里还有改进的空间，毕竟这里还是在 Java 层调用，Java 语言在这种实时性要求极高的场合有一个非常令人诟病的特性：垃圾回收（GC）；虽然我们在这 5ms 内直接碰上 gc 引发停顿的可能性非常小，但是由于 GC 的存在，ART 中的 Java 代码存在非常多的 checkpoint；想象一下你现在是一个信使有重要军情要报告，但是在路上却碰到很多关隘，而且很可能被勒令暂时停止一下，这种情况是不可接受的。因此，最好的方法是通过 native code 给 ams 发送 binder 调用；当然，如果再底层一点，我们甚至可以通过 <code>ioctl</code> 直接给 binder 驱动发送数据进而完成调用，但是这种方法的兼容性比较差，没有用 native 方式省心。</p>
+<p>通过在 native 层给 ams 发送 binder 消息拉起进程，我们算是解决了「快速拉起进程」这个问题。但是这个还是不够。还是回到打地鼠这个游戏，假设你摁下一个地鼠，会冒起一个新的地鼠，那么你每次都能摁下去最后获取胜利的概率还是比较高的；但如果你每次摁下一个地鼠，其他所有地鼠都能冒出来呢？这个难度系数可是要高多了。如果我们的进程能够在<strong>任意一个进程死亡之后，都能让把其他所有进程全部拉起</strong>，这样系统就很难杀死我们了。</p>
+<p>新的黑科技保活中通过 2 个机制来保证进程之间的互相拉起：</p>
+<ol>
+<li>2 个进程通过互相监听文件锁的方式，来感知彼此的死亡。</li>
+<li>通过 fork 产生子进程，fork 的进程同属一个进程组，一个被杀之后会触发另外一个进程被杀，从而被文件锁感知。</li>
+</ol>
+<p>具体来说，创建 2 个进程 p1, p2，这两个进程通过文件锁互相关联，一个被杀之后拉起另外一个；同时 p1 经过 2 次 fork 产生孤儿进程 c1，p2 经过 2 次 fork 产生孤儿进程 c2，c1 和 c2 之间建立文件锁关联。这样假设 p1 被杀，那么 p2 会立马感知到，然后 p1 和 c1 同属一个进程组，p1 被杀会触发 c1 被杀，c1 死后 c2 立马感受到从而拉起 p1，因此这四个进程三三之间形成了铁三角，从而保证了存活率。</p>
+<p>参考链接：</p>
+<p> <a href="https://zhuanlan.zhihu.com/p/103126724" target="_blank" rel="noopener">Android黑科技保活实现原理揭秘</a></p>
+<p><a href="https://segmentfault.com/a/1190000021579231" target="_blank" rel="noopener">史上最强Android保活思路：深入剖析腾讯TIM的进程永生技术</a></p>
+
+        
+        <br />
+        <div id="comment-container">
+        </div>
+        <div id="disqus_thread"></div>
+
+        <div id="lv-container">
+        </div>
+
+    </div>
+</div>
+
+    </div>
+</div>
+
+
+<footer class="footer">
+    <ul class="list-inline text-center">
+        
+        <li>
+            <a target="_blank" href="https://twitter.com/SnowYa5">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-twitter"></i>
+                            </span>
+            </a>
+        </li>
+        
+        
+
+        
+        <li>
+            <a target="_blank" href="http://weibo.com/2880425030">
+                            <span class="fa-stack fa-lg">
+                                  <i class="iconfont icon-weibo"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+        <li>
+            <a target="_blank" href="https://www.facebook.com/layla.young.5454">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-facebook"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+        <li>
+            <a target="_blank"  href="https://github.com/snow146">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-github"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+
+    </ul>
+    
+    <p>
+        <span id="busuanzi_container_site_pv">
+            <span id="busuanzi_value_site_pv"></span>PV
+        </span>
+        <span id="busuanzi_container_site_uv">
+            <span id="busuanzi_value_site_uv"></span>UV
+        </span>
+        Created By <a href="https://hexo.io/">Hexo</a>  Theme <a href="https://github.com/aircloud/hexo-theme-aircloud">AirCloud</a></p>
+</footer>
+
+
+
+
+</body>
+
+<script>
+    // We expose some of the variables needed by the front end
+    window.hexo_search_path = "search.json"
+    window.hexo_root = "/"
+    window.isPost = true
+</script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+<script src="/js/index.js"></script>
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+</html>
